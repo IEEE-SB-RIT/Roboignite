@@ -55,14 +55,14 @@ const Navbar = () => {
 			)}
 
 			<nav
-				className={`absolute flex bg-gray-700/20 backdrop-blur-sm gap-2 p-10  ${
+				className={` flex bg-gray-700/20 backdrop-blur-sm gap-2   ${
 					isMobile
 						? "h-dvh w-[80%] flex-col justify-evenly items-start transition-transform duration-500 ease-in-out"
 						: "w-full flex-row justify-evenly items-center transition-transform duration-300 ease-in-out"
 				} ${isOpen ? "-translate-x-full" : "-translate-x-0"}`}
 			>
 				<Link to="/" className="">
-					<img src={logo} alt="Event logo" className="w-20" />
+					<img src={logo} alt="Event logo" className="w-40" />
 				</Link>
 				<NavItem text="About" path="/about" />
 				<NavItem text="Gallery" path="/gallery" />

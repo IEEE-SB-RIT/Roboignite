@@ -4,7 +4,7 @@ const NavItem = ({ text = "navItem", path = "*" }) => {
 	return (
 		<Link
 			to={path}
-			className="text-black transition-transform hover:scale-105 duration-200"
+			className="text-black/80 text-2xl font-josefin transition-transform hover:scale-105 hover:text-black  duration-200"
 		>
 			{text}
 		</Link>
