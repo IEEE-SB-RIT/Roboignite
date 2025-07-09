@@ -2,7 +2,8 @@
 
 @theme {
 	--font-josefin: "Josefin Sans", "sans-serif";
-
+	--font-poppins: "Poppins", "sans-serif";
+	--font-courier: "Courier Prime", "monospace";
 	--color-avocado-100: oklch(0.99 0 0);
 	--color-avocado-200: oklch(0.98 0.04 113.22);
 	--color-avocado-300: oklch(0.94 0.11 115.03);
@@ -22,9 +23,9 @@
 html,
 body {
 	background-color: var(--baseColor);
+	background: linear-gradient(to top left, #111827, #4b5563);
 	margin: 0;
 	padding: 0;
 	height: 100dvh;
 	color: var(--textColor);
-	
 }

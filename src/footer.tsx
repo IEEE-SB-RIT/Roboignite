@@ -1,11 +1,12 @@
 const Footer = () => {
 	return (
-		<footer className="bg-gray-400  rounded-t-3xl text-white px-6 py-10">
+		
+		<footer className=" backdrop-blur-2xl absolute w-full rounded-t-3xl text-white px-6 py-10">
 			<div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
 				{/* Stay Updated */}
 				<div>
 					<h2 className="font-josefin text-xl font-bold mb-3">Stay Updated</h2>
-					<ul className="flex items-center justify-center flex-row gap-2">
+					<ul className="flex items-center justify-center md:justify-start flex-row gap-2">
 						<li>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"

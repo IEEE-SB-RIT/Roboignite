@@ -76,12 +76,12 @@ const Navbar = () => {
 			>
 				<Link
 					to="/"
-					className={` p-10 `}
+					
 					onClick={isMobile ? closeMenu : undefined}
 				>
-					<img src={logo} alt="Event logo" className="w-40" />
+					<img src={logo} alt="Event logo" className="w-40 m-10 max-sm:translate-y-10" />
 				</Link>
-				<motion.div className="w-full h-full flex flex-col sm:flex-row items-start sm:items-center justify-start sm:justify-evenly  md:flex-row p-5 gap-y-10 ">
+				<motion.div className="w-full h-full flex flex-col sm:flex-row items-start sm:items-center justify-center sm:justify-end  md:flex-row p-5 gap-10 ">
 					<NavItem
 						text="About"
 						path="/about"
