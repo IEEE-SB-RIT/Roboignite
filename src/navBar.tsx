@@ -1,72 +1,106 @@
 import NavItem from "./NavItem";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import logo from "./assets/RoboIgnite.png";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
 	const [isMobile, setIsMobile] = useState(false);
 	const [isOpen, setIsOpen] = useState(false);
 
+	// Close menu function
+	const closeMenu = useCallback(() => {
+		setIsOpen(false);
+	}, []);
+
+	// Lock body scroll when mobile menu is open
+	useEffect(() => {
+		if (isMobile && isOpen) {
+			document.body.style.overflow = "hidden";
+		} else {
+			document.body.style.overflow = "unset";
+		}
+
+		return () => {
+			document.body.style.overflow = "unset";
+		};
+	}, [isMobile, isOpen]);
+
+	// Check screen size
 	useEffect(() => {
 		const checkScreenSize = () => {
 			setIsMobile(window.innerWidth <= 400);
+			// Close menu when resizing to desktop
+			if (window.innerWidth > 400) closeMenu();
 		};
-		checkScreenSize();
 
+		checkScreenSize();
 		window.addEventListener("resize", checkScreenSize);
 
 		return () => window.removeEventListener("resize", checkScreenSize);
-	}, []);
-
-	useEffect(() => {
-		console.log(isMobile ? "Mobile" : "Desktop");
-	}, [isMobile]);
-
-	useEffect(() => {
-		console.log(isOpen);
-	}, [isOpen]);
+	}, [closeMenu]);
 
 	return (
 		<>
 			{isMobile && (
 				<button
-					className="absolute z-50 w-full flex justify-start"
-					onClick={() => {
-						setIsOpen(!isOpen);
-					}}
+					className="fixed z-[10000] p-4"
+					onClick={() => setIsOpen(!isOpen)}
+					aria-label={isOpen ? "Close menu" : "Open menu"}
 				>
 					<span
-						className={`absolute text-2xl text-zinc-700 m-2 transition-all duration-300 ease-in-out transform ${
+						className={`text-3xl font-bold text-zinc-500 transition-all duration-300 ease-in-out ${
 							isOpen ? "opacity-0 scale-90" : "opacity-100 scale-100"
 						}`}
 					>
-						🗙
+						☰
 					</span>
-
-					{/* Close Icon */}
 					<span
-						className={`absolute text-2xl text-zinc-700 m-2 transition-all duration-300 ease-in-out transform ${
+						className={`absolute top-4 left-4 text-3xl text-zinc-500 transition-all duration-300 ease-in-out ${
 							isOpen ? "opacity-100 scale-100" : "opacity-0 scale-90"
 						}`}
 					>
-						☰
+						🗙
 					</span>
 				</button>
 			)}
 
 			<nav
-				className={` flex bg-gray-700/20 backdrop-blur-sm gap-2   ${
+				className={`z-[9999] flex bg-[var(--navBarColor)]/80 backdrop-blur-lg ${
 					isMobile
-						? "h-dvh w-[80%] flex-col justify-evenly items-start transition-transform duration-500 ease-in-out"
-						: "w-full flex-row justify-evenly items-center transition-transform duration-300 ease-in-out"
-				} ${isOpen ? "-translate-x-full" : "-translate-x-0"}`}
+						? `fixed h-full w-[80%] flex-col justify-between items-start transition-transform duration-500 ease-in-out ${
+								isOpen ? "translate-x-0" : "-translate-x-full"
+						  }`
+						: "sticky h-32 top-0 w-full flex-row justify-between items-center"
+				}`}
 			>
-				<Link to="/" className="">
+				<Link
+					to="/"
+					className={` p-10 `}
+					onClick={isMobile ? closeMenu : undefined}
+				>
 					<img src={logo} alt="Event logo" className="w-40" />
 				</Link>
-				<NavItem text="About" path="/about" />
-				<NavItem text="Gallery" path="/gallery" />
-				<NavItem text="Events" path="/events" />
+				<motion.div className="w-full h-full flex flex-col sm:flex-row items-start sm:items-center justify-start sm:justify-evenly  md:flex-row p-5 gap-y-10 ">
+					<NavItem
+						text="About"
+						path="/about"
+						onClick={closeMenu}
+						isMobile={isMobile}
+					/>
+					<NavItem
+						text="Gallery"
+						path="/gallery"
+						onClick={closeMenu}
+						isMobile={isMobile}
+					/>
+					<NavItem
+						text="Events"
+						path="/events"
+						onClick={closeMenu}
+						isMobile={isMobile}
+					/>
+				</motion.div>
 			</nav>
 		</>
 	);

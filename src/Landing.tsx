@@ -1,5 +1,14 @@
+
+
 const Landing = () => {
-	return <h1>This is the Landing Page</h1>;
+	return (
+		<>
+			<div className="w-full z-30 font-josefin absolute text-5xl font-bold text-center ">
+				<img src="/src/assets/RoboIgnite.png" alt="" />
+			</div>
+
+		</>
+	);
 };
 
 export default Landing;

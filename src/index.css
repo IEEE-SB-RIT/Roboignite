@@ -2,7 +2,7 @@
 
 @theme {
 	--font-josefin: "Josefin Sans", "sans-serif";
-	--breakpoint-3xl: 120rem;
+
 	--color-avocado-100: oklch(0.99 0 0);
 	--color-avocado-200: oklch(0.98 0.04 113.22);
 	--color-avocado-300: oklch(0.94 0.11 115.03);
@@ -13,9 +13,18 @@
 	--ease-snappy: cubic-bezier(0.2, 0, 0, 1);
 }
 
+:root {
+	--baseColor: #121212;
+	--textColor: #f4f4f5;
+	--navBarColor: #1a1a1a;
+}
+
 html,
 body {
+	background-color: var(--baseColor);
 	margin: 0;
 	padding: 0;
 	height: 100dvh;
+	color: var(--textColor);
+	
 }
