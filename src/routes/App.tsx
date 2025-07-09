@@ -1,11 +1,11 @@
-import Navbar from "./navBar";
+import Navbar from "../components/navBar.tsx";
 import { Routes, Route } from "react-router-dom";
-import Landing from "./Landing";
-import About from "./About";
-import Events from "./Events";
-import Gallery from "./Gallery";
-import NotFound from "./notFound";
-import Footer from "./footer";
+import Landing from "../pages/Landing.tsx";
+import About from "../pages/About.tsx";
+import Events from "../pages/Events.tsx";
+import Gallery from "../pages/Gallery.tsx";
+import NotFound from "../pages/notFound.tsx";
+import Footer from "../components/footer.tsx";
 
 
 export default function App() {

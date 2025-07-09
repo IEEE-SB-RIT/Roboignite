@@ -22,7 +22,7 @@ const Landing = () => {
 
 				<img
 					className=" mx-auto w-[18rem] md:w-[25rem]"
-					src="/src/assets/RoboIgnite.png"
+					src="/src/assets/images/RoboIgnite.png"
 					alt=""
 				/>
 			</div>
