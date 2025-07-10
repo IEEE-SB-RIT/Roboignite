@@ -7,17 +7,16 @@ import Gallery from "../pages/Gallery.tsx";
 import NotFound from "../pages/notFound.tsx";
 import Footer from "../components/footer.tsx";
 
-
 export default function App() {
 	return (
 		<>
 			<Navbar />
 
 			<Routes>
-				<Route path="/" element={<Landing />} />
-				<Route path="/about" element={<About />} />
-				<Route path="/events" element={<Events />} />
-				<Route path="/gallery" element={<Gallery />} />
+				<Route path="/Roboignite/" element={<Landing />} />
+				<Route path="/Roboignite/about" element={<About />} />
+				<Route path="/Roboignite/events" element={<Events />} />
+				<Route path="/Roboignite/gallery" element={<Gallery />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 			<Footer />
