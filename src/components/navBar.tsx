@@ -1,6 +1,6 @@
-import NavItem from "../assets/datas/NavItem.tsx";
+import NavItem from "../datas/NavItem.tsx";
 import { useState, useEffect, useCallback } from "react";
-import logo from "../assets/images/RoboIgnite.png";
+import logo from "../../public/RoboIgnite.png";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 

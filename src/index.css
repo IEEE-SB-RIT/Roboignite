@@ -22,8 +22,7 @@
 
 html,
 body {
-	background-color: var(--baseColor);
-	background: linear-gradient(to top left, #111827, #4b5563);
+	background: linear-gradient(to right, #4a1d70, #983fd6, #cba5f0);
 	margin: 0;
 	padding: 0;
 	height: 100dvh;
