@@ -116,9 +116,9 @@ const Robot: React.FC<RobotProps> = (props) => {
       
       const corners = [
         { x: -lookAmount, y: -lookAmount },
-        { x: -lookAmount, y: lookAmount },
-        { x: lookAmount, y: lookAmount },
-        { x: lookAmount, y: -lookAmount },
+        { x: -lookAmount+0.25, y: lookAmount+0.5 },
+        { x: lookAmount, y: 0 },
+        { x: 0, y: 0 },
       ];
       
       const phase = Math.floor(t / phaseDuration);

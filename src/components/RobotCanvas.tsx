@@ -25,23 +25,24 @@ const RobotCanvas: FC = () => {
 	};
 
 	return (
-		<div className="flex-1 w-full max-w-full relative">
+		<div className="flex-1 w-full relative">
 			<Canvas
 				style={{
 					width: "100%",
 					height: "auto",
 					aspectRatio: "1/1",
-					maxWidth: "32rem",
-					maxHeight: "32rem",
+					maxWidth: "34rem",
+					maxHeight: "34rem",
 					zIndex: 0,
 					margin: "0 auto",
 					cursor: "grab",
+
 				}}
 				camera={{ position: [0, 1, 5], near: 0.1, far: 100 }}
 				onPointerDown={handleInteractionStart}
 				onPointerUp={handleInteractionEnd}
 			>
-				<ambientLight intensity={0.8} />
+				<ambientLight intensity={0.5} />
 				<directionalLight position={[2, 2, 5]} intensity={1.2} castShadow />
 				<Robot scale={3} />
 				<OrbitControls
