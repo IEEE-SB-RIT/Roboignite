@@ -18,7 +18,6 @@ const Robot: React.FC<RobotProps> = (props) => {
 	// Animation state
 	const initialY = useRef<number | null>(null);
 	const mousePos = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
-	const isInteracting = useRef<boolean>(false);
 
 	// Track mouse position globally
 	useEffect(() => {
