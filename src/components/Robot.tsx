@@ -12,7 +12,7 @@ interface RobotProps {
 }
 
 const Robot: React.FC<RobotProps> = (props) => {
-	const { scene } = useGLTF("models/robot.glb");
+	const { scene } = useGLTF(import.meta.env.BASE_URL + "models/robot.glb");
 	const robotRef = useRef<THREE.Group>(null);
 
 	// Animation state
