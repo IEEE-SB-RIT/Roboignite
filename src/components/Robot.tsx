@@ -1,9 +1,12 @@
+/// <reference types="vite/client" />
 // Robot.jsx
 // src/components/Robot.tsx
 import { useGLTF } from "@react-three/drei";
 import { useRef, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+
+// Remove custom ImportMeta and ImportMetaEnv declarations; Vite provides these types.
 
 interface RobotProps {
 	scale?: number;
