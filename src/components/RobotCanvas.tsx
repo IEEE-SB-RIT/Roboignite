@@ -31,8 +31,8 @@ const RobotCanvas: FC = () => {
 					width: "100%",
 					height: "auto",
 					aspectRatio: "1/1",
-					maxWidth: "30rem",
-					maxHeight: "30rem",
+					maxWidth: "32rem",
+					maxHeight: "32rem",
 					zIndex: 0,
 					margin: "0 auto",
 					cursor: "grab",
@@ -45,6 +45,7 @@ const RobotCanvas: FC = () => {
 				<directionalLight position={[2, 2, 5]} intensity={1.2} castShadow />
 				<Robot scale={3} />
 				<OrbitControls
+					enableRotate={false}
 					enableZoom={false}
 					enablePan={false}
 					autoRotate={false}

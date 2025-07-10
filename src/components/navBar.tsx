@@ -1,7 +1,6 @@
-import NavItem from "../datas/NavItem.tsx";
 import { useState, useEffect, useCallback, useRef } from "react";
+import NavItem from "../datas/NavItem.tsx";
 import logo from "/RoboIgnite.png";
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -31,13 +30,13 @@ const Navbar = () => {
 	useEffect(() => {
 		if (!initialized.current) {
 			// Set initial state before first render
-			setIsMobile(window.innerWidth <= 400);
+			setIsMobile(window.innerWidth <= 640);
 			initialized.current = true;
 		}
 
 		const checkScreenSize = () => {
-			setIsMobile(window.innerWidth <= 400);
-			if (window.innerWidth > 400) closeMenu();
+			setIsMobile(window.innerWidth <= 640);
+			if (window.innerWidth > 640) closeMenu();
 		};
 
 		window.addEventListener("resize", checkScreenSize);
@@ -48,7 +47,7 @@ const Navbar = () => {
 		<>
 			{isMobile && (
 				<button
-					className="fixed z-[10000] p-4"
+					className="fixed z-[10001] p-4" // Increased to 10001
 					onClick={() => setIsOpen(!isOpen)}
 					aria-label={isOpen ? "Close menu" : "Open menu"}
 				>
@@ -70,7 +69,7 @@ const Navbar = () => {
 			)}
 
 			<nav
-				className={`z-[10000] flex bg-gradient-to-b from-black/50 backdrop-blur-xs to-transparent ${
+				className={`absolute z-[10000] flex bg-gradient-to-b from-black/50 backdrop-blur-xs to-transparent ${
 					isMobile
 						? `fixed h-full w-[80%] flex-col justify-between items-start transition-transform duration-500 ease-in-out ${
 								isOpen ? "translate-x-0" : "-translate-x-full"
@@ -82,10 +81,10 @@ const Navbar = () => {
 					<img
 						src={logo}
 						alt="Event logo"
-						className="w-40 m-10 max-sm:translate-y-0 max-sm:mt-5"
+						className="w-40 m-10 max-sm:translate-y-20 max-sm:mt-5"
 					/>
 				</Link>
-				<motion.div className="w-full h-full flex flex-col sm:flex-row items-start sm:items-center justify-center sm:justify-end md:flex-row p-5 gap-10">
+				<div className="w-full h-full flex flex-col sm:flex-row items-start sm:items-center justify-center sm:justify-end md:flex-row p-5 gap-10">
 					<NavItem
 						text="About"
 						path="/about"
@@ -104,7 +103,7 @@ const Navbar = () => {
 						onClick={closeMenu}
 						isMobile={isMobile}
 					/>
-				</motion.div>
+				</div>
 			</nav>
 		</>
 	);

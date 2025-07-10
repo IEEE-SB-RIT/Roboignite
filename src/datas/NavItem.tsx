@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 
 interface NavItemProps {
 	text: string;
@@ -16,7 +15,7 @@ const NavItem = ({ text, path, onClick, isMobile }: NavItemProps) => {
 	};
 
 	return (
-		<motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+		<div>
 			<Link
 				to={path}
 				className="text-zinc-400 font-josefin hover:text-[var(--primary)] px-4 py-2 text-2xl font-medium transition-colors"
@@ -24,7 +23,7 @@ const NavItem = ({ text, path, onClick, isMobile }: NavItemProps) => {
 			>
 				{text}
 			</Link>
-		</motion.div>
+		</div>
 	);
 };
 

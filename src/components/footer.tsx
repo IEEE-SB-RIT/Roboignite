@@ -1,18 +1,21 @@
 const Footer = () => {
 	return (
-		
-		<footer className="bg-gradient-to-t  from-black to-transparent backdrop-blur-2xl absolute w-full rounded-t-3xl text-white px-6 py-10">
-			<div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+		<footer className="bg-gradient-to-t border-[0.1px] border-gray-500 from-black to-transparent backdrop-blur-2xl absolute w-full rounded-t-3xl text-white px-6 py-10">
+			<div className="flex flex-col gap-8 md:flex-row justify-evenly text-center md:text-left">
 				{/* Stay Updated */}
+
 				<div>
-					<h2 className="font-josefin text-xl font-bold mb-3">Stay Updated</h2>
+					<h2 className="font-josefin text-xl font-bold mb-3 underline underline-offset-2">
+						Stay Updated
+					</h2>
 					<ul className="flex items-center justify-center md:justify-start flex-row gap-2">
 						<li>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
-								width="24"
-								height="24"
+								width="30"
+								height="30"
 								viewBox="0 0 24 24"
+								className="hover:scale-110 hover:text-amber-400  transition-transform duration-200"
 							>
 								<path
 									fill="currentColor"
@@ -30,32 +33,14 @@ const Footer = () => {
 						<li>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
-								width="20"
-								height="20"
+								width="26"
+								height="26"
 								viewBox="0 0 20 20"
+								className="hover:scale-110 hover:text-amber-400 transition-transform duration-200"
 							>
 								<path
 									fill="currentColor"
 									d="M17.04 17.043h-2.962v-4.64c0-1.107-.023-2.531-1.544-2.531c-1.544 0-1.78 1.204-1.78 2.449v4.722H7.793V7.5h2.844v1.3h.039c.397-.75 1.364-1.54 2.808-1.54c3.001 0 3.556 1.974 3.556 4.545v5.238ZM4.447 6.194c-.954 0-1.72-.771-1.72-1.72s.767-1.72 1.72-1.72a1.72 1.72 0 0 1 0 3.44Zm1.484 10.85h-2.97V7.5h2.97v9.543ZM18.521 0H1.476C.66 0 0 .645 0 1.44v17.12C0 19.355.66 20 1.476 20h17.042c.815 0 1.482-.644 1.482-1.44V1.44C20 .646 19.333 0 18.518 0h.003Z"
-								/>
-							</svg>
-							<a
-								href="https://linkedin.com/in/yourpage"
-								target="_blank"
-								rel="noreferrer"
-								className="hover:underline"
-							></a>
-						</li>
-						<li>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="24"
-								height="24"
-								viewBox="0 0 1360 1000"
-							>
-								<path
-									fill="currentColor"
-									d="M105 5h1152q43 0 74 31t31 74v785q0 44-31 74.5t-74 30.5H105q-43 0-74-30.5T0 895V110q0-43 31-74t74-31zm69 157l507 423l507-423H174zm-17 681h1048V285L711 697h-61L157 285v558z"
 								/>
 							</svg>
 							<a
@@ -67,17 +52,49 @@ const Footer = () => {
 				</div>
 
 				<div>
-					<h2 className="font-josefin text-xl font-bold mb-3">Contact Us</h2>
-					<ul className="space-y-2">
-						<li>+91 98765 43210</li>
-						<li>+91 91234 56789</li>
+					<h2 className="font-josefin text-xl font-bold mb-3 underline underline-offset-2">
+						Contact Us
+					</h2>
+					<ul className="space-y-2 text-md">
+						<li className="font-quicksand">+91 98765 43210</li>
+						<li className="font-quicksand">+91 91234 56789</li>
+					</ul>
+				</div>
+
+				<div>
+					<h2 className="font-josefin text-xl font-bold mb-3 underline underline-offset-2">
+						Built by
+					</h2>
+					<ul className="font-quicksand text-md space-y-2">
+						<li className="hover:scale-105 hover:text-amber-400 transition-transform duration-200">
+							<a
+								target="_blank"
+								rel="noopener noreferrer"
+								href="https://www.linkedin.com/in/dhananjayr"
+								className=" "
+							>
+								Dhananjay R
+							</a>
+						</li>
+						<li className="hover:scale-105 hover:text-amber-400 transition-transform duration-200">
+							<a
+								target="_blank"
+								rel="noopener noreferrer"
+								href="https://www.linkedin.com/in/farzanrs" //change
+								className=""
+							>
+								Farzan R S
+							</a>
+						</li>
 					</ul>
 				</div>
 
 				{/* Address */}
 				<div>
-					<h2 className="font-josefin text-xl font-bold mb-3">Address</h2>
-					<p>
+					<h2 className="font-josefin text-xl underline underline-offset-2 font-bold mb-3">
+						Address
+					</h2>
+					<p className="font-quicksand">
 						IEEE RAS SBC RIT, <br />
 						Rajiv Gandhi Institute of Technology, <br />
 						Kottayam, Kerala – 686501
