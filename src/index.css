@@ -22,9 +22,13 @@
 
 html,
 body {
-	background: linear-gradient(to right, #4a1d70, #983fd6, #cba5f0);
+	/* background: linear-gradient(to right, #4a1d70, #983fd6, #cba5f0); */
+	background: linear-gradient(to top left, #6f4a8e, #221f3b, #050505);
 	margin: 0;
 	padding: 0;
 	height: 100dvh;
 	color: var(--textColor);
+}
+.bg-radial-custom {
+	background: linear-gradient(to top left, #6f4a8e, #221f3b, #050505);
 }

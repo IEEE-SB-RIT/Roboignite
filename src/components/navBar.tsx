@@ -1,12 +1,13 @@
 import NavItem from "../datas/NavItem.tsx";
-import { useState, useEffect, useCallback } from "react";
-import logo from "../../public/RoboIgnite.png";
+import { useState, useEffect, useCallback, useRef } from "react";
+import logo from "/RoboIgnite.png";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
 	const [isMobile, setIsMobile] = useState(false);
 	const [isOpen, setIsOpen] = useState(false);
+	const initialized = useRef(false); // Track initialization
 
 	// Close menu function
 	const closeMenu = useCallback(() => {
@@ -28,15 +29,18 @@ const Navbar = () => {
 
 	// Check screen size
 	useEffect(() => {
+		if (!initialized.current) {
+			// Set initial state before first render
+			setIsMobile(window.innerWidth <= 400);
+			initialized.current = true;
+		}
+
 		const checkScreenSize = () => {
 			setIsMobile(window.innerWidth <= 400);
-			// Close menu when resizing to desktop
 			if (window.innerWidth > 400) closeMenu();
 		};
 
-		checkScreenSize();
 		window.addEventListener("resize", checkScreenSize);
-
 		return () => window.removeEventListener("resize", checkScreenSize);
 	}, [closeMenu]);
 
@@ -66,7 +70,7 @@ const Navbar = () => {
 			)}
 
 			<nav
-				className={`z-[9999] flex bg-[var(--navBarColor)]/80 backdrop-blur-lg ${
+				className={`z-[10000] flex bg-gradient-to-b from-black/50 backdrop-blur-xs to-transparent ${
 					isMobile
 						? `fixed h-full w-[80%] flex-col justify-between items-start transition-transform duration-500 ease-in-out ${
 								isOpen ? "translate-x-0" : "-translate-x-full"
@@ -74,14 +78,14 @@ const Navbar = () => {
 						: "sticky h-32 top-0 w-full flex-row justify-between items-center"
 				}`}
 			>
-				<Link
-					to="/"
-					
-					onClick={isMobile ? closeMenu : undefined}
-				>
-					<img src={logo} alt="Event logo" className="w-40 m-10 max-sm:translate-y-10" />
+				<Link to="/" onClick={isMobile ? closeMenu : undefined}>
+					<img
+						src={logo}
+						alt="Event logo"
+						className="w-40 m-10 max-sm:translate-y-0 max-sm:mt-5"
+					/>
 				</Link>
-				<motion.div className="w-full h-full flex flex-col sm:flex-row items-start sm:items-center justify-center sm:justify-end  md:flex-row p-5 gap-10 ">
+				<motion.div className="w-full h-full flex flex-col sm:flex-row items-start sm:items-center justify-center sm:justify-end md:flex-row p-5 gap-10">
 					<NavItem
 						text="About"
 						path="/about"

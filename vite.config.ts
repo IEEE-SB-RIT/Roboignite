@@ -4,6 +4,6 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
-	base: '/Roboignite/', // Change to /Roboignite/ before pushing to github for live preview to work
+	base: "/Roboignite/", // Change to /Roboignite/ before pushing to github for live preview to work
 	plugins: [react(), tailwindcss()],
 });

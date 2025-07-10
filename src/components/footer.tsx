@@ -1,7 +1,7 @@
 const Footer = () => {
 	return (
 		
-		<footer className=" backdrop-blur-2xl absolute w-full rounded-t-3xl text-white px-6 py-10">
+		<footer className="bg-gradient-to-t  from-black to-transparent backdrop-blur-2xl absolute w-full rounded-t-3xl text-white px-6 py-10">
 			<div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
 				{/* Stay Updated */}
 				<div>
