@@ -1,7 +1,15 @@
+import ImageDatas from "../datas/ImageDatas";
+
 const Gallery = () => {
 	return <>
 	<div className="flex font-bold text-2xl flex-col justify-center h-screen bg-[983fd6] items-center">
-		Gallery
+		<div className="flex flex-row justify-between items-center border-2 ">
+			{ImageDatas.map((image, i) => (
+				<div key={i}>
+					<img src={image.src} alt={image.alt} />
+				</div>
+			))}
+		</div>
 	</div>
 	</>
 };
