@@ -87,7 +87,6 @@ export default function HyperspaceHero({
 
 			const size = Math.min(star.size * (400 / star.z), 5);
 
-			const tailLength = Math.min(30 * (speed / 2), 30);
 			const prevFactor = 200 / (star.z + speed * 2);
 			const prevX = star.x * prevFactor + centerX;
 			const prevY = star.y * prevFactor + centerY;
