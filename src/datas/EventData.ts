@@ -1,7 +1,7 @@
 interface EventData {
     id: number;
     src: string;
-    alt: string;
+    title: string;
     eventDetails: string;
     category: string;
     topic?: string;
@@ -15,7 +15,7 @@ const EventDatas: EventData[] = [
     {
         id: 1,
         src: import.meta.env.BASE_URL + "gallery/e82cb9d15a0d644292b7e0d45330e371.jpg",
-        alt: "event 1",
+        title: "event 1",
         eventDetails: "Opening ceremony featuring keynote speeches and introductions.",
         category: "Technology",
         venue: "Main Auditorium",
@@ -26,7 +26,7 @@ const EventDatas: EventData[] = [
     {
         id: 2,
         src: import.meta.env.BASE_URL + "gallery/e82cb9d15a0d644292b7e0d45330e371.jpg",
-        alt: "event 2",
+        title: "event 2",
         eventDetails: "Technical workshop on modern web development tools.",
         category: "Technology",
         venue: "Lab 3B",
@@ -37,7 +37,7 @@ const EventDatas: EventData[] = [
     {
         id: 3,
         src: import.meta.env.BASE_URL + "gallery/e82cb9d15a0d644292b7e0d45330e371.jpg",
-        alt: "event 3",
+        title: "event 3",
         eventDetails: "Guest lecture on artificial intelligence and its real-world applications.",
         category: "Technology",
         venue: "Seminar Hall",
@@ -48,7 +48,7 @@ const EventDatas: EventData[] = [
     {
         id: 4,
         src: import.meta.env.BASE_URL + "gallery/e82cb9d15a0d644292b7e0d45330e371.jpg",
-        alt: "event 4",
+        title: "event 4",
         eventDetails: "Hackathon kickoff with theme announcement and team formation.",
         category: "Technology",
         venue: "Innovation Hub",
@@ -59,7 +59,7 @@ const EventDatas: EventData[] = [
     {
         id: 5,
         src: import.meta.env.BASE_URL + "gallery/e82cb9d15a0d644292b7e0d45330e371.jpg",
-        alt: "event 5",
+        title: "event 5",
         eventDetails: "Hands-on session on IoT and sensor integration using Arduino.",
         category: "Technology",
         venue: "IoT Lab",
@@ -70,7 +70,7 @@ const EventDatas: EventData[] = [
     {
         id: 6,
         src: import.meta.env.BASE_URL + "gallery/e82cb9d15a0d644292b7e0d45330e371.jpg",
-        alt: "event 6",
+        title: "event 6",
         eventDetails: "Panel discussion with industry experts on future of green tech.",
         category: "Technology",
         venue: "Conference Room A",
@@ -81,7 +81,7 @@ const EventDatas: EventData[] = [
     {
         id: 7,
         src: import.meta.env.BASE_URL + "gallery/e82cb9d15a0d644292b7e0d45330e371.jpg",
-        alt: "event 7",
+        title: "event 7",
         eventDetails: "Robotics showcase by student teams with live demonstrations.",
         category: "Technology",
         venue: "Exhibition Hall",
@@ -92,7 +92,7 @@ const EventDatas: EventData[] = [
     {
         id: 8,
         src: import.meta.env.BASE_URL + "gallery/e82cb9d15a0d644292b7e0d45330e371.jpg",
-        alt: "event 8",
+        title: "event 8",
         eventDetails: "Networking session for participants and sponsors.",
         category: "Technology",
         venue: "Cafeteria Lounge",
@@ -103,7 +103,7 @@ const EventDatas: EventData[] = [
     {
         id: 9,
         src: import.meta.env.BASE_URL + "gallery/e82cb9d15a0d644292b7e0d45330e371.jpg",
-        alt: "event 9",
+        title: "event 9",
         eventDetails: "Poster presentation on ongoing research by students and faculty.",
         category: "Technology",
         venue: "Science Block Lobby",
@@ -114,7 +114,7 @@ const EventDatas: EventData[] = [
     {
         id: 10,
         src: import.meta.env.BASE_URL + "gallery/e82cb9d15a0d644292b7e0d45330e371.jpg",
-        alt: "event 10",
+        title: "event 10",
         eventDetails: "Cultural night with music, dance, and interactive games.",
         category: "Technology",
         venue: "Open Grounds",
@@ -125,7 +125,7 @@ const EventDatas: EventData[] = [
     {
         id: 11,
         src: import.meta.env.BASE_URL + "gallery/e82cb9d15a0d644292b7e0d45330e371.jpg",
-        alt: "event 11",
+        title: "event 11",
         eventDetails: "Award ceremony recognizing top projects and contributions.",
         category: "Technology",
         venue: "Main Stage",
@@ -136,7 +136,7 @@ const EventDatas: EventData[] = [
     {
         id: 12,
         src: import.meta.env.BASE_URL + "gallery/e82cb9d15a0d644292b7e0d45330e371.jpg",
-        alt: "event 12",
+        title: "event 12",
         eventDetails: "Closing remarks and feedback collection from attendees.",
         category: "Technology",
         venue: "Main Auditorium",
