@@ -13,7 +13,7 @@ export default function App() {
 			<Navbar />
 
 			<Routes>
-				<Route path={import.meta.env.BASE_URL} element={<Landing />} />
+				<Route path="/" element={<Landing />} />
 				<Route path="/about" element={<About />} />
 				<Route path="/events" element={<Events />} />
 				<Route path="/gallery" element={<Gallery />} />
