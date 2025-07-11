@@ -25,26 +25,46 @@ const RobotCanvas: FC = () => {
 	};
 
 	return (
-		<div className="flex-1 w-full relative">
+		<div
+			style={{
+				width: "100%",
+				height: "100%",
+				display: "flex",
+				justifyContent: "center",
+				alignItems: "center",
+			}}
+		>
+			<style>
+				{`
+					.robot-canvas {
+						width: 100%;
+						height: 100%;
+						aspect-ratio: 1 / 1;
+						min-width: 25rem;
+						max-width: 100vw;
+						z-index: 0;
+						margin: 0 auto;
+						cursor: grab;
+					}
+					@media (width<= 640px) {
+						.robot-canvas {
+							min-width: 22rem;
+							max-width: 95vw;
+						}
+					}
+			
+					}
+				`}
+			</style>
 			<Canvas
-				style={{
-					width: "100%",
-					height: "auto",
-					aspectRatio: "1/1",
-					maxWidth: "34rem",
-					maxHeight: "34rem",
-					zIndex: 0,
-					margin: "0 auto",
-					cursor: "grab",
-
-				}}
-				camera={{ position: [0, 1, 5], near: 0.1, far: 100 }}
+				className="robot-canvas"
+				camera={{ position: [0, 1, 3], near: 0.1, far: 100 }}
 				onPointerDown={handleInteractionStart}
 				onPointerUp={handleInteractionEnd}
 			>
 				<ambientLight intensity={0.5} />
 				<directionalLight position={[2, 2, 5]} intensity={1.2} castShadow />
-				<Robot scale={3} />
+				<Robot scale={4} />
 				<OrbitControls
 					enableRotate={false}
 					enableZoom={false}

@@ -69,7 +69,7 @@ const Navbar = () => {
 			)}
 
 			<nav
-				className={`absolute z-[10000] flex bg-gradient-to-b from-black/50 backdrop-blur-xs to-transparent ${
+				className={`absolute z-[10000] flex bg-gradient-to-b from-black to-transparent backdrop-blur-xs ${
 					isMobile
 						? `fixed h-full w-[80%] flex-col justify-between items-start transition-transform duration-500 ease-in-out ${
 								isOpen ? "translate-x-0" : "-translate-x-full"
