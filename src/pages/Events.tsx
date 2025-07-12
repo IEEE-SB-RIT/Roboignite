@@ -1,38 +1,75 @@
 import EventDatas from "../datas/EventData.ts";
 import ImageDatas from "../datas/ImageDatas.ts";
+import {Calendar, MapPin, Podcast} from "lucide-react";
 
 const Events = () => {
     return (
-        <div className="min-h-screen px-4 py-10 flex flex-col bg-gray-900">
-            <h2 className="text-center text-white text-3xl font-bold mb-10">Events</h2>
+        <div className="min-h-screen px-4 py-16 bg-gradient-to-br from-gray-900 via-gray-800 to-black">
+            {/* Header Section */}
+            <div className="text-center mb-16">
+                <h2 className="text-5xl font-bold text-white mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    Events
+                </h2>
+                <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full"></div>
+            </div>
 
-            <div className="flex flex-wrap justify-center items-start gap-6">
+            {/* Events Grid */}
+            <div className="flex flex-wrap justify-center items-start gap-8 max-w-7xl mx-auto">
                 {ImageDatas.map((image, i) => {
                     const event = EventDatas[i];
                     return (
-                        // flips card
                         <div
                             key={i}
-                            className="relative w-72 h-96 transition-transform duration-500 transform-style preserve-3d hover:rotate-y-180"
+                            className="relative w-80 h-[420px] cursor-pointer group perspective-1000"
                         >
-                            {/*front card*/}
+                            {/* Card Container with 3D Transform */}
+                            <div className="relative w-full h-full transition-transform duration-700 transform-style preserve-3d group-hover:rotate-y-180">
 
-                            {/*<div className="absolute inset-0 backface-hidden rounded-xl overflow-hidden shadow-lg">*/}
-                            {/*    <img*/}
-                            {/*        src={image.src}*/}
-                            {/*        alt={image.alt}*/}
-                            {/*        className="object-cover w-full h-full"*/}
-                            {/*    />*/}
-                            {/*</div>*/}
+                                {/* Front Card */}
+                                <div className="absolute inset-0 backface-hidden rounded-2xl overflow-hidden shadow-2xl border border-gray-700/50">
+                                    <div className="relative w-full h-full">
+                                        <img
+                                            src={image.src}
+                                            alt={image.alt}
+                                            className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                                        />
+                                        {/* Gradient Overlay */}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-                            {/*Back face */}
-                            <div className="absolute inset-0  rotate-y-180 bg-black/80 text-white rounded-xl flex flex-col justify-center text-center px-4 py-6">
-                                <h1 className="text-lg font-bold mb-2">{image.alt}</h1>
-                                <p className="text-sm mb-1">Date: {event.date}</p>
-                                <p className="text-sm mb-1">Speaker: {event.speakers || "TBA"}</p>
-                                <p className="text-sm mb-2">{event.eventDetails}</p>
-                                <p className="text-sm mb-1">Venue: {event.venue}</p>
-                                <p className="text-sm italic">{event.salutaion}</p>
+                                    </div>
+                                </div>
+
+                                <div className="absolute inset-0 backface-hidden rotate-y-180 bg-gradient-radial from-[#2f004f] via-[#4a0075] to-[#2f004f] text-white rounded-2xl shadow-2xl border border-purple-400/30">
+                                    <div className="flex flex-col justify-between h-full p-8">
+
+
+                                        <div className="text-center mb-6">
+                                            <h1 className="text-2xl font-bold mb-2 leading-tight">{event.title}</h1>
+                                            <div className="w-16 h-0.5 bg-white/60 mx-auto rounded-full"></div>
+                                        </div>
+
+
+                                        <div className="flex-1 flex flex-col justify-center space-y-6">
+
+
+                                            <div className="flex items-center gap-4 p-3 bg-white/10 rounded-xl backdrop-blur-sm border border-white/20">
+                                                <Calendar className="w-5 h-5 text-yellow-300 flex-shrink-0" />
+                                                <p className="text-sm font-medium">{event.date}</p>
+                                            </div>
+
+                                            <div className="flex items-center gap-4 p-3 bg-white/10 rounded-xl backdrop-blur-sm border border-white/20">
+                                                <MapPin className="w-5 h-5 text-red-300 flex-shrink-0" />
+                                                <p className="text-sm font-medium">{event.venue}</p>
+                                            </div>
+
+                                            <div className="flex items-center gap-4 p-3 bg-white/10 rounded-xl backdrop-blur-sm border border-white/20">
+                                                <Podcast className="w-5 h-5 text-green-300 flex-shrink-0" />
+                                                <p className="text-sm font-medium">{event.speakers}</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     );
