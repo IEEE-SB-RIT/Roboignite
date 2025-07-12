@@ -43,9 +43,8 @@ const Events = () => {
                                     <div className="flex flex-col justify-between h-full p-8">
 
 
-                                        <div className="text-center mb-6">
+                                        <div className=" mb-6 flex ">
                                             <h1 className="text-2xl font-bold mb-2 leading-tight">{event.title}</h1>
-                                            <div className="w-16 h-0.5 bg-white/60 mx-auto rounded-full"></div>
                                         </div>
 
 
