@@ -47,8 +47,3 @@ body {
 .rotate-y-180 {
 	transform: rotateY(180deg);
 }
-
-.custom-bg{
-	background-color: #98012f;
-	opacity: 80;
-}
