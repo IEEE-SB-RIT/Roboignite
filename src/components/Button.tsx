@@ -6,6 +6,7 @@ interface ButtonProps {
     link:string
 }
 
+// this is to make sure that if the button is for navigating back or go to some external link
 const Button = ({ text,isNavigate,link }: ButtonProps) => {
     const navigate = useNavigate();
  const handleClick = () => {
