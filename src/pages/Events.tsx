@@ -1,6 +1,6 @@
 import EventDatas from "../datas/EventData.ts";
 import ImageDatas from "../datas/ImageDatas.ts";
-import {Calendar, MapPin, Podcast} from "lucide-react";
+import {Calendar, FileText, MapPin, Podcast} from "lucide-react";
 
 const Events = () => {
     return (
@@ -22,8 +22,8 @@ const Events = () => {
                             key={i}
                             className="relative w-80 h-[420px] cursor-pointer group perspective-1000"
                         >
-                            {/* Card Container with 3D Transform */}
-                            <div className="relative w-full h-full transition-transform duration-700 transform-style preserve-3d group-hover:rotate-y-180">
+
+                            <div className="relative w-full  h-full transition-transform duration-700 transform-style preserve-3d group-hover:rotate-y-180">
 
                                 {/* Front Card */}
                                 <div className="absolute inset-0 backface-hidden rounded-2xl overflow-hidden shadow-2xl border border-gray-700/50">
@@ -50,20 +50,27 @@ const Events = () => {
 
 
                                         <div className="flex-1 flex flex-col justify-center space-y-6">
+                                            <div
+                                                className="flex items-center gap-4 p-3 bg-white/10 rounded-xl backdrop-blur-sm border border-white/20">
+                                                <FileText className="w-5 h-5  flex-shrink-0"/>
+                                                <p className="text-sm font-medium">{event.eventDetails}</p>
+                                            </div>
 
-
-                                            <div className="flex items-center gap-4 p-3 bg-white/10 rounded-xl backdrop-blur-sm border border-white/20">
-                                                <Calendar className="w-5 h-5 text-yellow-300 flex-shrink-0" />
+                                            <div
+                                                className="flex items-center gap-4 p-3 bg-white/10 rounded-xl backdrop-blur-sm border border-white/20">
+                                                <Calendar className="w-5 h-5 text-yellow-300 flex-shrink-0"/>
                                                 <p className="text-sm font-medium">{event.date}</p>
                                             </div>
 
-                                            <div className="flex items-center gap-4 p-3 bg-white/10 rounded-xl backdrop-blur-sm border border-white/20">
-                                                <MapPin className="w-5 h-5 text-red-300 flex-shrink-0" />
+                                            <div
+                                                className="flex items-center gap-4 p-3 bg-white/10 rounded-xl backdrop-blur-sm border border-white/20">
+                                                <MapPin className="w-5 h-5 text-red-300 flex-shrink-0"/>
                                                 <p className="text-sm font-medium">{event.venue}</p>
                                             </div>
 
-                                            <div className="flex items-center gap-4 p-3 bg-white/10 rounded-xl backdrop-blur-sm border border-white/20">
-                                                <Podcast className="w-5 h-5 text-green-300 flex-shrink-0" />
+                                            <div
+                                                className="flex items-center gap-4 p-3 bg-white/10 rounded-xl backdrop-blur-sm border border-white/20">
+                                                <Podcast className="w-5 h-5 text-green-300 flex-shrink-0"/>
                                                 <p className="text-sm font-medium">{event.speakers}</p>
                                             </div>
                                         </div>
