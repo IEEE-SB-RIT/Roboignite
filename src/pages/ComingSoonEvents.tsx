@@ -1,7 +1,7 @@
-import { useNavigate } from "react-router-dom";
+import Button from "../components/Button.tsx";
 
 const ComingSoonEvents = () => {
-    const navigate = useNavigate();
+
 
     return (
         <div className="min-h-screen px-6 py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black flex flex-col items-center justify-center">
@@ -22,15 +22,7 @@ const ComingSoonEvents = () => {
                 <p className="text-white/70 mb-8 text-lg max-w-md">
                     Stay tuned! We’re working hard behind the scenes to bring exciting events your way.
                 </p>
-                <button
-                    onClick={() => navigate("/")}
-                    className="text-white text-lg font-semibold px-6 py-3 rounded-xl transition-all duration-300 shadow-md hover:shadow-pink-500/40 hover:brightness-110 cursor-pointer"
-                    style={{
-                        background: "linear-gradient(180deg, #7d1f78 50%, #5a1155 80%, #320d3e 100%)"
-                    }}
-                >
-                    Back to Home
-                </button>
+                <Button text="Back to Home" isNavigate={true} link="/"/>
 
             </div>
         </div>
