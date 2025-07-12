@@ -1,8 +1,33 @@
-const About = () => {
+// src/components/About.tsx
+import React from "react";
+
+const About: React.FC = () => {
 	return (
-		<>
-			<h1 className="font-josefin text-4xl text-center underline underline-offset-4 decoration-">About Us</h1>
-		</>
+		<section className="bg-gray-900 text-white py-16 px-6 sm:px-10 lg:px-20">
+			<div className="max-w-4xl mx-auto">
+				<h2 className="text-3xl sm:text-4xl font-bold mb-6 text-indigo-400">
+					About RoboIgnite
+				</h2>
+				<p className="text-lg leading-relaxed text-gray-300">
+					<strong className="text-white">RoboIgnite</strong> is a hybrid
+					technical education program supported by the IEEE Robotics and
+					Automation Society, designed to enhance students' understanding of
+					robotics and automation through a dynamic series of events scheduled
+					from July to September.
+				</p>
+				<p className="text-lg leading-relaxed mt-4 text-gray-300">
+					Organised by the IEEE RAS Student Branch Chapter at RIT in
+					collaboration with the IEEE RAS Kerala Chapter, this program offers
+					participants an enriching experience integrating theoretical knowledge
+					with practical application.
+				</p>
+				<p className="text-lg leading-relaxed mt-4 text-gray-300">
+					We aim to provide a robust learning platform for students, fostering
+					peer-to-peer learning, reinforcing foundational knowledge, and
+					developing practical skills.
+				</p>
+			</div>
+		</section>
 	);
 };
 
