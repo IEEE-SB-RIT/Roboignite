@@ -38,3 +38,12 @@ body {
 		background-position: 0% 50%;
 	}
 }
+.transform-style {
+	transform-style: preserve-3d;
+}
+.backface-hidden {
+	backface-visibility: hidden;
+}
+.rotate-y-180 {
+	transform: rotateY(180deg);
+}
