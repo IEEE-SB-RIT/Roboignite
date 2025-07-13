@@ -1,79 +1,222 @@
 interface ImageData {
-	id: number;
-	src: string;
-	alt: string;
+    id: number;
+    src: string;
+    alt: string;
     text: string;
 }
 
 const ImageDatas: ImageData[] = [
-	{
-		id: 1,
-		src: import.meta.env.BASE_URL + "gallery/cristiano_ronaldo.jpg",
-		alt: "Cristiano Ronaldo",
-        text:" A picture of cristiano ronaldo"
-	},
-	{
-		id: 2,
-		src: import.meta.env.BASE_URL + "gallery/download (7).jpg",
-		alt: "Downloaded image",
-        text:""
-	},
-	{
-		id: 3,
-		src:
-			import.meta.env.BASE_URL + "gallery/e82cb9d15a0d644292b7e0d45330e371.jpg",
-		alt: "Random hash image 1",
-        text:" image"
-	},
-	{
-		id: 4,
-		src:
-			import.meta.env.BASE_URL +
-			"gallery/download (2).jpg",
-		alt: "Random hash image 2",
-        text:"another image"
-	},
-	{
-		id: 5,
-		src: import.meta.env.BASE_URL + "gallery/gaming 1.webp",
-		alt: "Gaming Image",
-        text:"a game contorller"
-	},
-	{
-		id: 6,
-		src:
-			import.meta.env.BASE_URL +
-			"gallery/gum-41-nebula-3840x2160_786644-mm-90.jpg",
-		alt: "Nebula Space Image",
-        text:" a pictuure of nebulla"
-	},
-	{
-		id: 7,
-		src:
-			import.meta.env.BASE_URL + "gallery/Icône appareil photo spiderman.jpeg",
-		alt: "Spiderman Camera Icon",
-        text:" a spidrman image"
-	},
-	{
-		id: 8,
-		src: import.meta.env.BASE_URL + "gallery/images (2).jpeg",
-		alt: "Downloaded image 2",
-        text:"eren yeager"
-	},
-	{
-		id: 9,
-		src:
-			import.meta.env.BASE_URL +
-			"gallery/Memories-of-Murder-1600x900-c-default.jpg",
-		alt: "Memories of Murder Poster",
-        text:"a movie poster"
-	},
-	{
-		id: 10,
-		src: import.meta.env.BASE_URL + "gallery/perfect blue.jpg",
-		alt: "Movie Poster or Random ID image",
-        text:"Movie poseter randome"
-	},
+    {
+        id: 1,
+        src: import.meta.env.BASE_URL + "gallery/img_1.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+
+    {
+        id: 2,
+        src: import.meta.env.BASE_URL + "gallery/img_2.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 3,
+        src: import.meta.env.BASE_URL + "gallery/img_3.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 4,
+        src: import.meta.env.BASE_URL + "gallery/img_4.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 5,
+        src: import.meta.env.BASE_URL + "gallery/img_5.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 6,
+        src: import.meta.env.BASE_URL + "gallery/img_6.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 7,
+        src: import.meta.env.BASE_URL + "gallery/img_7.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 8,
+        src: import.meta.env.BASE_URL + "gallery/img_8.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 9,
+        src: import.meta.env.BASE_URL + "gallery/img_9.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 10,
+        src: import.meta.env.BASE_URL + "gallery/img_10.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 11,
+        src: import.meta.env.BASE_URL + "gallery/img_11.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 12,
+        src: import.meta.env.BASE_URL + "gallery/img_12.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 13,
+        src: import.meta.env.BASE_URL + "gallery/img_13.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 14,
+        src: import.meta.env.BASE_URL + "gallery/img_14.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 15,
+        src: import.meta.env.BASE_URL + "gallery/img_15.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 16,
+        src: import.meta.env.BASE_URL + "gallery/img_16.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 17,
+        src: import.meta.env.BASE_URL + "gallery/img_17.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 18,
+        src: import.meta.env.BASE_URL + "gallery/img_18.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 19,
+        src: import.meta.env.BASE_URL + "gallery/img_19.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 20,
+        src: import.meta.env.BASE_URL + "gallery/img_20.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 21,
+        src: import.meta.env.BASE_URL + "gallery/img_21.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 22,
+        src: import.meta.env.BASE_URL + "gallery/img_22.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 23,
+        src: import.meta.env.BASE_URL + "gallery/img_23.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 24,
+        src: import.meta.env.BASE_URL + "gallery/img_24.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 25,
+        src: import.meta.env.BASE_URL + "gallery/img_25.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 26,
+        src: import.meta.env.BASE_URL + "gallery/img_26.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 27,
+        src: import.meta.env.BASE_URL + "gallery/img_27.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 28,
+        src: import.meta.env.BASE_URL + "gallery/img_28.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 29,
+        src: import.meta.env.BASE_URL + "gallery/img_29.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 30,
+        src: import.meta.env.BASE_URL + "gallery/img_30.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 31,
+        src: import.meta.env.BASE_URL + "gallery/img_31.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 32,
+        src: import.meta.env.BASE_URL + "gallery/img_32.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 33,
+        src: import.meta.env.BASE_URL + "gallery/img_33.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 34,
+        src: import.meta.env.BASE_URL + "gallery/img_34.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    },
+    {
+        id: 35,
+        src: import.meta.env.BASE_URL + "gallery/img_35.webp",
+        alt: "Glimpses of past events",
+        text: "Glimpses of past events"
+    }
 ];
 
 export default ImageDatas;
