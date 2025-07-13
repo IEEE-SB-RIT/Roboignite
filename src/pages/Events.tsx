@@ -1,17 +1,13 @@
 import EventDatas from "../datas/EventData.ts";
 import ImageDatas from "../datas/ImageDatas.ts";
 import {Calendar, FileText, MapPin, Podcast} from "lucide-react";
+import Header from "../components/Header.tsx";
 
 const Events = () => {
     return (
         <div className="min-h-screen px-4 py-16 bg-gradient-to-br from-gray-900 via-gray-800 to-black">
             {/* Header Section */}
-            <div className="text-center mb-16">
-                <h2 className="text-5xl font-bold text-white mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                    Events
-                </h2>
-                <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full"></div>
-            </div>
+            <Header text={"Events"} />
 
             {/* Events layout card*/}
             <div className="flex flex-wrap justify-center items-start gap-8 max-w-7xl mx-auto">

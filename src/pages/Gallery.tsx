@@ -1,9 +1,10 @@
 import ImageDatas from "../datas/ImageDatas";
+import Header from "../components/Header.tsx";
 
 const Gallery = () => {
     return (
         <div className="min-h-screen  px-4 py-10 flex flex-col justify-between gap-2">
-            <h2 className="text-center text-white  text-3xl font-bold mb-10">Gallery</h2>
+            <Header text={"Gallery"} />
 
             <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
                 {ImageDatas.map((image, i) => (
