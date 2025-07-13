@@ -98,7 +98,7 @@ const Footer = () => {
 				<div>
 					<FooterHeading text="Contact us"></FooterHeading>
 					<div className="font-quicksand space-y-2 text-md flex flex-col items-center">
-						<div className="flex flex-col items-start justify-start">
+						<div className="flex flex-col items-start justify-start gap-2">
 							<div className=" flex flex-row items-center justify-start">
 								<p className="mr-1 font-bold">R Harikrishnan :</p>
 								<a
