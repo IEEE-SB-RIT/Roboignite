@@ -6,6 +6,9 @@ import Events from "../pages/Events.tsx";
 import Gallery from "../pages/Gallery.tsx";
 import NotFound from "../pages/notFound.tsx";
 import Footer from "../components/footer.tsx";
+import ComingSoonEvents from "../pages/ComingSoonEvents.tsx";
+// this is for production,during deployment the user will be redirected to a coming soon page
+const showRealEvents = false;
 
 export default function App() {
 	return (
@@ -15,7 +18,8 @@ export default function App() {
 			<Routes>
 				<Route path="/" element={<Landing />} />
 				<Route path="/about" element={<About />} />
-				<Route path="/events" element={<Events />} />
+				<Route path="/events"
+					   element={showRealEvents ? <Events /> : <ComingSoonEvents/>}/>
 				<Route path="/gallery" element={<Gallery />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
