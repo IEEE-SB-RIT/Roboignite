@@ -21,7 +21,7 @@ const EventDatas: EventData[] = [
         date: "2025-08-01",
         salutaion: "Welcome to the Opening Ceremony",
         speakers: "Dr. A. Kumar",
-        src: import.meta.env.BASE_URL + "gallery/img_4.webp"
+        src: "gallery/img_4.webp"
     },
     {
         id: 2,
@@ -32,7 +32,7 @@ const EventDatas: EventData[] = [
         date: "2025-08-02",
         salutaion: "Explore the Future of Web",
         speakers: "Ms. R. Singh",
-        src: import.meta.env.BASE_URL + "gallery/img_4.webp"
+        src: "gallery/img_4.webp"
     },
     {
         id: 3,
@@ -43,7 +43,7 @@ const EventDatas: EventData[] = [
         date: "2025-08-03",
         salutaion: "Demystifying AI",
         speakers: "Prof. N. Sharma",
-        src: import.meta.env.BASE_URL + "gallery/img_4.webp"
+        src: "gallery/img_4.webp"
     },
     {
         id: 4,
@@ -54,7 +54,7 @@ const EventDatas: EventData[] = [
         date: "2025-08-04",
         salutaion: "Let the Hack Begin!",
         speakers: "Mr. S. Patel",
-        src: import.meta.env.BASE_URL + "gallery/img_4.webp"
+        src: "gallery/img_4.webp"
     },
     {
         id: 5,
@@ -65,7 +65,7 @@ const EventDatas: EventData[] = [
         date: "2025-08-05",
         salutaion: "Connecting the Future",
         speakers: "Ms. L. Joseph",
-        src: import.meta.env.BASE_URL + "gallery/img_4.webp"
+        src: "gallery/img_4.webp"
     },
     {
         id: 6,
@@ -76,7 +76,7 @@ const EventDatas: EventData[] = [
         date: "2025-08-06",
         salutaion: "Powering a Greener Tomorrow",
         speakers: "Panel of Experts",
-        src: import.meta.env.BASE_URL + "gallery/img_4.webp"
+        src: "gallery/img_4.webp"
     },
     {
         id: 7,
@@ -87,7 +87,7 @@ const EventDatas: EventData[] = [
         date: "2025-08-07",
         salutaion: "Rise of the Machines",
         speakers: "Student Teams",
-        src: import.meta.env.BASE_URL + "gallery/img_4.webp"
+        src: "gallery/img_4.webp"
     },
     {
         id: 8,
@@ -98,7 +98,7 @@ const EventDatas: EventData[] = [
         date: "2025-08-08",
         salutaion: "Connect & Collaborate",
         speakers: "Open Session",
-        src: import.meta.env.BASE_URL + "gallery/img_4.webp"
+        src: "gallery/img_4.webp"
     },
     {
         id: 9,
@@ -109,7 +109,7 @@ const EventDatas: EventData[] = [
         date: "2025-08-09",
         salutaion: "Showcase of Innovation",
         speakers: "Multiple Authors",
-        src: import.meta.env.BASE_URL + "gallery/img_4.webp"
+        src: "gallery/img_4.webp"
     },
     {
         id: 10,
@@ -120,7 +120,7 @@ const EventDatas: EventData[] = [
         date: "2025-08-10",
         salutaion: "Unwind and Celebrate",
         speakers: "Cultural Committee",
-        src: import.meta.env.BASE_URL + "gallery/img_4.webp"
+        src: "gallery/img_4.webp"
     },
     {
         id: 11,
@@ -131,7 +131,7 @@ const EventDatas: EventData[] = [
         date: "2025-08-11",
         salutaion: "Honoring Excellence",
         speakers: "Chief Guest",
-        src: import.meta.env.BASE_URL + "gallery/img_4.webp"
+        src: "gallery/img_4.webp"
     },
     {
         id: 12,
@@ -142,7 +142,7 @@ const EventDatas: EventData[] = [
         date: "2025-08-12",
         salutaion: "Thank You & Goodbye",
         speakers: "Event Organizers",
-        src: import.meta.env.BASE_URL + "gallery/img_4.webp"
+        src: "gallery/img_4.webp"
     }
 ];
 
