@@ -1,5 +1,4 @@
 import EventDatas from "../datas/EventData.ts";
-import ImageDatas from "../datas/ImageDatas.ts";
 import {Calendar, FileText, MapPin, Podcast} from "lucide-react";
 import Header from "../components/Header.tsx";
 
@@ -11,8 +10,8 @@ const Events = () => {
 
             {/* Events layout card*/}
             <div className="flex flex-wrap justify-center items-start gap-8 max-w-7xl mx-auto">
-                {ImageDatas.map((image, i) => {
-                    const event = EventDatas[i];
+                {EventDatas.map((event, i) => {
+                    
                     return (
                         <div
                             key={i}
@@ -26,8 +25,8 @@ const Events = () => {
                                     className="absolute inset-0 backface-hidden rounded-2xl overflow-hidden shadow-2xl border border-gray-700/50">
                                     <div className="relative w-full h-full">
                                         <img
-                                            src={image.src}
-                                            alt={image.alt}
+                                            src={event.src}
+                                            alt={event.title}
                                             className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
                                         />
                                         {/* Gradient Overlay */}
@@ -93,14 +92,6 @@ const Events = () => {
                                             </div>
                                         </div>
 
-                                        {/* Decorative Elements */}
-                                        <div className="flex justify-center mt-4">
-                                            <div className="flex gap-2">
-                                                <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
-                                                <div className="w-2 h-2 bg-pink-400 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
-                                                <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

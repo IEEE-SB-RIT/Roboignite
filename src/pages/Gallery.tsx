@@ -14,9 +14,10 @@ const Gallery = () => {
                             alt={image.alt}
                             className="w-full h-auto rounded-lg shadow-lg  transition duration-300"/>
                         <div className="absolute inset-0 flex items-end justify-center">
-                            <p className="text-white text-lg font-semibold mb-8  translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100  transition duration-300 ease-in-out ">
+                            <p className="text-white font-semibold mb-6 text-sm text-center sm:text-base md:text-lg lg:text-xl translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition duration-300 ease-in-out">
                                 {image.text}
                             </p>
+
                         </div>
                     </div>
                 ))}
