@@ -4,7 +4,7 @@ import Header from "../components/Header.tsx";
 
 const About: React.FC = () => {
     return (
-        <section className="bg-gray-900 text-white py-16 px-6 sm:px-10 lg:px-20">
+        <section className="text-white py-16 px-6 sm:px-10 lg:px-20">
             <Header text={"About Us"}/>
             <div className="max-w-4xl mx-auto">
                 <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-indigo-400">
