@@ -4,7 +4,7 @@ const ComingSoonEvents = () => {
 
 
     return (
-        <div className="min-h-screen px-6 py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black flex flex-col items-center justify-center">
+        <div className=" px-6 py-10 flex flex-col items-center justify-center">
             {/* Header Section */}
             <div className="text-center mb-16">
                 <h2 className="text-5xl font-extrabold text-white bg-clip-text drop-shadow-lg">
