@@ -5,7 +5,7 @@ import Header from "../components/Header.tsx";
 const About: React.FC = () => {
     return (
         <section className="text-white py-16 px-6 sm:px-10 lg:px-20">
-            <Header text={"About Us"}/>
+            <Header text={"About Us"} />
             <div className="max-w-4xl mx-auto">
                 <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-indigo-400">
                     About RoboIgnite
@@ -28,6 +28,33 @@ const About: React.FC = () => {
                     peer-to-peer learning, reinforcing foundational knowledge, and
                     developing practical skills.
                 </p>
+
+                {/* IEEE RAS SBC RIT Card */}
+                <div className="mt-10 p-6 rounded-lg  shadow-lg">
+                    <h2 className="text-2xl font-semibold text-indigo-300 mb-2">
+                        IEEE RAS SBC RIT
+                    </h2>
+                    <p className="text-gray-300 text-lg leading-relaxed">
+                        IEEE RAS SBC RIT is a dynamic Student Branch Chapter of IEEE SB RIT,
+                        dedicated to robotics and automation. It offers an exciting environment
+                        for students to delve into this field and make meaningful contributions.
+                        The chapter has been recognized with prestigious awards for its excellence
+                        in 2019 and 2022.
+                    </p>
+                </div>
+
+                {/* IEEE SB RIT Card */}
+                <div className="mt-6 p-6 rounded-lg  shadow-lg">
+                    <h2 className="text-2xl font-semibold text-indigo-300 mb-2">
+                        IEEE SB RIT
+                    </h2>
+                    <p className="text-gray-300 text-lg leading-relaxed">
+                        The IEEE SB RIT is one of the most vibrant and significant student
+                        branches in the Kerala section. Established in January 2006, the IEEE
+                        student branch of Rajiv Gandhi Institute of Technology Kottayam has
+                        proven to be a powerhouse of highly dedicated and energetic volunteers.
+                    </p>
+                </div>
             </div>
         </section>
     );
