@@ -37,7 +37,7 @@ const Events = () => {
 
                                 {/* Back Card */}
                                 <div
-                                    className="absolute inset-0 backface-hidden rotate-y-180 bg-gradient-to-br from-[#2f004f] via-[#4a0075] to-[#1a0030] text-white rounded-2xl shadow-2xl border border-purple-400/30 backdrop-blur-sm">
+                                    className="absolute inset-0 backface-hidden rotate-y-180 text-white rounded-2xl shadow-2xl border border-purple-400/30 backdrop-blur-sm">
                                     <div className="flex flex-col h-full p-6">
                                         {/* Title Section */}
                                         <div className="flex justify-between items-center gap-6 ">
