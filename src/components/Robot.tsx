@@ -51,11 +51,10 @@ const Robot: React.FC<RobotProps> = (props) => {
 	const lastPosition = useRef({ x: 0, y: 0 });
 	const mousePosition = useRef({ x: 0, y: 0 });
 	const hoverTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
-	const touchId = useRef<number | null>(null); // Track active touch point
 
 	const { gl } = useThree();
 
-	// Unified input handling (mouse + touch)
+	// Mouse events with global tracking
 	useEffect(() => {
 		const handlePointerDown = (e: PointerEvent) => {
 			if (e.button !== 0) return;
@@ -65,35 +64,9 @@ const Robot: React.FC<RobotProps> = (props) => {
 			gl.domElement.style.cursor = "grabbing";
 		};
 
-		const handleTouchStart = (e: TouchEvent) => {
-			// Use only first touch point
-			if (touchId.current !== null || e.touches.length !== 1) return;
-			touchId.current = e.touches[0].identifier;
-			isDragging.current = true;
-			lastInteractionTime.current = Date.now();
-			lastPosition.current = {
-				x: e.touches[0].clientX,
-				y: e.touches[0].clientY,
-			};
-			isHovering.current = true;
-		};
-
 		const handlePointerUp = () => {
 			isDragging.current = false;
 			gl.domElement.style.cursor = "grab";
-		};
-
-		const handleTouchEnd = () => {
-			if (touchId.current !== null) {
-				touchId.current = null;
-				isDragging.current = false;
-				// Set hover state and schedule clearing
-				lastInteractionTime.current = Date.now();
-				if (hoverTimeout.current) clearTimeout(hoverTimeout.current);
-				hoverTimeout.current = setTimeout(() => {
-					isHovering.current = false;
-				}, 500);
-			}
 		};
 
 		const handlePointerMove = (e: PointerEvent) => {
@@ -129,61 +102,15 @@ const Robot: React.FC<RobotProps> = (props) => {
 			}
 		};
 
-		const handleTouchMove = (e: TouchEvent) => {
-			// Find our tracked touch point
-			if (touchId.current === null) return;
-			let touch;
-			for (let i = 0; i < e.touches.length; i++) {
-				if (e.touches[i].identifier === touchId.current) {
-					touch = e.touches[i];
-					break;
-				}
-			}
-			if (!touch) return;
-
-			e.preventDefault(); // Prevent scrolling
-
-			// Update touch position
-			lastPosition.current = { x: touch.clientX, y: touch.clientY };
-
-			// Convert to normalized device coordinates
-			const rect = gl.domElement.getBoundingClientRect();
-			mousePosition.current.x =
-				((touch.clientX - rect.left) / rect.width) * 2 - 1;
-			mousePosition.current.y =
-				-((touch.clientY - rect.top) / rect.height) * 2 + 1;
-
-			// Maintain hover state during touch
-			isHovering.current = true;
-			lastInteractionTime.current = Date.now();
-
-			// Handle dragging rotation
-			if (isDragging.current && groupRef.current) {
-				const deltaX = touch.clientX - lastPosition.current.x;
-				const deltaY = touch.clientY - lastPosition.current.y;
-				dragRotation.current.y -= deltaX * 0.01;
-				dragRotation.current.x -= deltaY * 0.01;
-				lastPosition.current = { x: touch.clientX, y: touch.clientY };
-			}
-		};
-
-		// Add event listeners
+		// Add global event listeners
 		gl.domElement.addEventListener("pointerdown", handlePointerDown);
-		gl.domElement.addEventListener("touchstart", handleTouchStart, {
-			passive: false,
-		});
 		window.addEventListener("pointerup", handlePointerUp);
-		window.addEventListener("touchend", handleTouchEnd);
 		window.addEventListener("pointermove", handlePointerMove);
-		window.addEventListener("touchmove", handleTouchMove, { passive: false });
 
 		return () => {
 			gl.domElement.removeEventListener("pointerdown", handlePointerDown);
-			gl.domElement.removeEventListener("touchstart", handleTouchStart);
 			window.removeEventListener("pointerup", handlePointerUp);
-			window.removeEventListener("touchend", handleTouchEnd);
 			window.removeEventListener("pointermove", handlePointerMove);
-			window.removeEventListener("touchmove", handleTouchMove);
 			if (hoverTimeout.current) {
 				clearTimeout(hoverTimeout.current);
 			}
