@@ -1,55 +1,79 @@
 import ImageDatas from "../datas/ImageDatas";
 import Header from "../components/Header.tsx";
 import {useEffect, useState} from "react";
+import {X} from "lucide-react";
 
 const Gallery = () => {
     const [visible, setVisible] = useState<number>(3);
+    const [selectedImage, setSelectedImage] = useState<null | typeof ImageDatas[0]>(null);
 
     function toggleVisibility() {
         setVisible(visible === 3 ? ImageDatas.length : 3);
     }
-    useEffect(()=>{
-        ImageDatas.forEach((image)=>{
+
+    useEffect(() => {
+        ImageDatas.forEach((image) => {
             const img = new Image();
-            img.src= image.src
+            img.src = image.src
         })
-    },[]);
+    }, []);
 
     return (
-        <div className={`min-h-screen px-4 py-10 flex flex-col ${visible >3 ? "gap-8" :"gap-4"}`}>
-            <Header text={"Gallery"} />
+        <>
+            <div className={`min-h-screen px-4 py-10 flex flex-col ${visible > 3 ? "gap-8" : "gap-4"}`}>
+                <Header text={"Gallery"}/>
 
-            <div className={`${visible>3 ? "columns-2 md:columns-3 lg:columns-4" : "flex lg:flex-row items-center flex-col" }  gap-4 space-y-4`}>
-            {ImageDatas.slice(0, visible).map((image, i) => (
-                    <div
-                        key={i}
-                        className="relative break-inside-avoid rounded overflow-hidden group hover:scale-105 transition duration-300 ease-in-out"
-                    >
-                        <img
-                            loading="lazy"
-                            src={image.src}
-                            alt={image.alt}
-                            className="w-full h-auto rounded-lg shadow-lg transition duration-300"
-                        />
-                        <div className="absolute inset-0 flex items-end justify-center">
-                            <p className="text-white font-semibold mb-6 text-sm text-center sm:text-base md:text-lg lg:text-xl translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition duration-300 ease-in-out">
-                                {image.text}
-                            </p>
+
+                <div
+                    className={`${visible > 3 ? "columns-2 md:columns-3 lg:columns-4" : "flex lg:flex-row items-center flex-col"}  gap-4 space-y-4`}>
+                    {ImageDatas.slice(0, visible).map((image, i) => (
+                        <div
+                            key={i}
+                            className="relative break-inside-avoid rounded overflow-hidden group hover:scale-105 transition duration-300 ease-in-out"
+
+                            onClick={(e) => {
+                                e.preventDefault();
+                                setSelectedImage(image);
+                            }}
+                        >
+                            <img
+                                loading="lazy"
+                                src={image.src}
+                                alt={image.alt}
+                                className="w-full h-auto rounded-lg shadow-lg transition duration-300"
+                            />
+                            <div className="absolute inset-0 flex items-end justify-center">
+                                <p className="text-white font-semibold mb-6 text-sm text-center sm:text-base md:text-lg lg:text-xl translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition duration-300 ease-in-out">
+                                    {image.text}
+                                </p>
+                            </div>
                         </div>
+                    ))}
+                </div>
+
+
+                <div className="flex justify-center items-start  ">
+                    <button
+                        onClick={toggleVisibility}
+                        className="px-6 py-2 bg-purple-600 text-white font-medium rounded-lg hover:bg-white hover:text-purple-600 transition duration-300"
+                    >
+                        {visible === 3 ? "Show All" : "Show Less"}
+                    </button>
+                </div>
+            </div>
+            {selectedImage && (
+                <div
+                    className="fixed top-0 left-0 z-50 w-screen h-screen bg-black/30 backdrop-blur-sm flex justify-center items-center transition duration-300 ease-in-out">
+                    <div className="relative">
+                        <button className="absolute top-4 right-4 text-white text-4xl font-bold hover:text-red-500" onClick={()=>setSelectedImage(null)}>
+                            <X />
+                        </button>
+                        <img src={selectedImage.src} alt={selectedImage.alt}
+                             className="max-w-[800px] max-h-[600px] object-cover"/>
                     </div>
-                ))}
-            </div>
-
-
-            <div className="flex justify-center items-start  ">
-                <button
-                    onClick={toggleVisibility}
-                    className="px-6 py-2 bg-purple-600 text-white font-medium rounded-lg hover:bg-white hover:text-purple-600 transition duration-300"
-                >
-                    {visible === 3 ? "Show All" : "Show Less"}
-                </button>
-            </div>
-        </div>
+                </div>
+            )}
+        </>
     );
 };
 
