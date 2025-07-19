@@ -1,6 +1,6 @@
 import ImageDatas from "../datas/ImageDatas";
 import Header from "../components/Header.tsx";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 
 const Gallery = () => {
     const [visible, setVisible] = useState<number>(3);
@@ -8,18 +8,25 @@ const Gallery = () => {
     function toggleVisibility() {
         setVisible(visible === 3 ? ImageDatas.length : 3);
     }
+    useEffect(()=>{
+        ImageDatas.forEach((image)=>{
+            const img = new Image();
+            img.src= image.src
+        })
+    },[]);
 
     return (
         <div className={`min-h-screen px-4 py-10 flex flex-col ${visible >3 ? "gap-8" :"gap-4"}`}>
             <Header text={"Gallery"} />
 
-            <div className={`${visible>3 ? "columns-2 md:columns-3 lg:columns-4" : "flex flex-row items-center" }  gap-4 space-y-4`}>
+            <div className={`${visible>3 ? "columns-2 md:columns-3 lg:columns-4" : "flex lg:flex-row items-center flex-col" }  gap-4 space-y-4`}>
             {ImageDatas.slice(0, visible).map((image, i) => (
                     <div
                         key={i}
                         className="relative break-inside-avoid rounded overflow-hidden group hover:scale-105 transition duration-300 ease-in-out"
                     >
                         <img
+                            loading="lazy"
                             src={image.src}
                             alt={image.alt}
                             className="w-full h-auto rounded-lg shadow-lg transition duration-300"
