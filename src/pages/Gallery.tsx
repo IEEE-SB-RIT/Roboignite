@@ -26,6 +26,7 @@ const Gallery = () => {
                         className="relative break-inside-avoid rounded overflow-hidden group hover:scale-105 transition duration-300 ease-in-out"
                     >
                         <img
+                            loading="lazy"
                             src={image.src}
                             alt={image.alt}
                             className="w-full h-auto rounded-lg shadow-lg transition duration-300"
