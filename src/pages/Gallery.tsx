@@ -18,6 +18,17 @@ const Gallery = () => {
         })
     }, []);
 
+    useEffect(() => {
+        const handleEsc=(e: KeyboardEvent)=>{
+            if(e.key==="Escape" && selectedImage){
+                setSelectedImage(null);
+            }
+
+        }
+        window.addEventListener("keydown", handleEsc);
+        return () => window.removeEventListener("keydown", handleEsc);
+    },  [selectedImage]);
+
     return (
         <>
             <div className={`min-h-screen px-4 py-10 flex flex-col ${visible > 3 ? "gap-8" : "gap-4"}`}>
@@ -25,7 +36,7 @@ const Gallery = () => {
 
 
                 <div
-                    className={`${visible > 3 ? "columns-2 md:columns-3 lg:columns-4" : "flex lg:flex-row items-center flex-col"}  gap-4 space-y-4`}>
+                    className={`${visible > 3 ? "columns-2 md:columns-3 lg:columns-4" : "flex lg:flex-row items-center flex-col"}  gap-4 space-y-4 cursor-pointer`}>
                     {ImageDatas.slice(0, visible).map((image, i) => (
                         <div
                             key={i}
@@ -42,11 +53,6 @@ const Gallery = () => {
                                 alt={image.alt}
                                 className="w-full h-auto rounded-lg shadow-lg transition duration-300"
                             />
-                            <div className="absolute inset-0 flex items-end justify-center">
-                                <p className="text-white font-semibold mb-6 text-sm text-center sm:text-base md:text-lg lg:text-xl translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition duration-300 ease-in-out">
-                                    {image.text}
-                                </p>
-                            </div>
                         </div>
                     ))}
                 </div>
@@ -63,13 +69,19 @@ const Gallery = () => {
             </div>
             {selectedImage && (
                 <div
-                    className="fixed top-0 left-0 z-50 w-screen h-screen bg-black/30 backdrop-blur-sm flex justify-center items-center transition duration-300 ease-in-out">
+                    className="fixed top-0 left-0 z-50 w-screen h-screen bg-black/30 backdrop-blur-sm flex justify-center items-center transition duration-300 ease-in-out" onClick={() => setSelectedImage(null)}>
+                    <button className="absolute top-5 right-5  m-5 text-white text-4xl font-bold hover:text-red-500 cursor-pointer"
+                            onClick={() => setSelectedImage(null)}>
+                        <X width={100} height={50} fill="white" />
+                    </button>
                     <div className="relative">
-                        <button className="absolute top-4 right-4 text-white text-4xl font-bold hover:text-red-500" onClick={()=>setSelectedImage(null)}>
-                            <X />
-                        </button>
                         <img src={selectedImage.src} alt={selectedImage.alt}
                              className="max-w-[800px] max-h-[600px] object-cover"/>
+                        <div className=" absolute inset-0 flex items-end justify-start ">
+                            <p className="text-white font-semibold mb-5 ml-5 text-sm text-start sm:text-base md:text-lg lg:text-xl p-2 bg-black/30 rounded-lg backdrop-blur-lg ">
+                                {selectedImage.text}
+                            </p>
+                        </div>
                     </div>
                 </div>
             )}
