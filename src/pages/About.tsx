@@ -38,7 +38,7 @@ const About: React.FC = () => {
                         About IEEE RAS SBC RIT
                     </h2>
                     <p className="text-lg leading-relaxed text-gray-300">
-                        The IEEE RAS SBC RIT is a distinguished Student Branch Chapter
+                        The <strong className="text-white">IEEE RAS SBC RIT</strong> is a distinguished Student Branch Chapter
                         dedicated to the advancement of robotics and automation. Founded on
                         February 18, 2019, we create an engaging environment for students to
                         pursue their passions and achieve excellence. By collaborating with
@@ -54,7 +54,7 @@ const About: React.FC = () => {
                         About IEEE RAS Kerala Chapter
                     </h2>
                     <p className="text-lg leading-relaxed text-gray-300">
-                        The IEEE RAS Kerala Chapter is a dynamic professional organization
+                        The  <strong className="text-white">IEEE RAS Kerala Chapter</strong> is a dynamic professional organization
                         focused on advancing robotics and automation. By fostering
                         collaboration and knowledge sharing, we empower members to drive
                         innovation in these transformative fields. The engaging educational
