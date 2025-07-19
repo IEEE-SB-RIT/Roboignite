@@ -108,7 +108,7 @@ const Footer = () => {
 									</a>
 								</div>
 								<div className=" flex flex-row items-start justify-start">
-									<p className="mr-1 font-bold">Nandhita A&emsp;&emsp;:</p>
+									<p className="mr-1 font-bold">Nanditha A&emsp;&emsp;:</p>
 									<a
 										href="tel:+919061931671"
 										className="hover:scale-110 hover:text-amber-400 transition-transform duration-200"
