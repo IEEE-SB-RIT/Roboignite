@@ -1,22 +1,17 @@
 import EventDatas from "../datas/EventData.ts";
-import ImageDatas from "../datas/ImageDatas.ts";
 import {Calendar, FileText, MapPin, Podcast} from "lucide-react";
+import Header from "../components/Header.tsx";
 
 const Events = () => {
     return (
         <div className="min-h-screen px-4 py-16 bg-gradient-to-br from-gray-900 via-gray-800 to-black">
             {/* Header Section */}
-            <div className="text-center mb-16">
-                <h2 className="text-5xl font-bold text-white mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                    Events
-                </h2>
-                <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full"></div>
-            </div>
+            <Header text={"Events"} />
 
             {/* Events layout card*/}
             <div className="flex flex-wrap justify-center items-start gap-8 max-w-7xl mx-auto">
-                {ImageDatas.map((image, i) => {
-                    const event = EventDatas[i];
+                {EventDatas.map((event, i) => {
+                    
                     return (
                         <div
                             key={i}
@@ -30,8 +25,8 @@ const Events = () => {
                                     className="absolute inset-0 backface-hidden rounded-2xl overflow-hidden shadow-2xl border border-gray-700/50">
                                     <div className="relative w-full h-full">
                                         <img
-                                            src={image.src}
-                                            alt={image.alt}
+                                            src={event.src}
+                                            alt={event.title}
                                             className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
                                         />
                                         {/* Gradient Overlay */}
@@ -42,7 +37,7 @@ const Events = () => {
 
                                 {/* Back Card */}
                                 <div
-                                    className="absolute inset-0 backface-hidden rotate-y-180 bg-gradient-to-br from-[#2f004f] via-[#4a0075] to-[#1a0030] text-white rounded-2xl shadow-2xl border border-purple-400/30 backdrop-blur-sm">
+                                    className="absolute inset-0 backface-hidden rotate-y-180 text-white rounded-2xl shadow-2xl border border-purple-400/30 backdrop-blur-sm">
                                     <div className="flex flex-col h-full p-6">
                                         {/* Title Section */}
                                         <div className="flex justify-between items-center gap-6 ">
@@ -97,14 +92,6 @@ const Events = () => {
                                             </div>
                                         </div>
 
-                                        {/* Decorative Elements */}
-                                        <div className="flex justify-center mt-4">
-                                            <div className="flex gap-2">
-                                                <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
-                                                <div className="w-2 h-2 bg-pink-400 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
-                                                <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

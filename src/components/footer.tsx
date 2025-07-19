@@ -98,7 +98,7 @@ const Footer = () => {
 				<div>
 					<FooterHeading text="Contact us"></FooterHeading>
 					<div className="font-quicksand space-y-2 text-md flex flex-col items-center">
-						<div className="flex flex-col items-start justify-start">
+						<div className="flex flex-col items-start justify-start gap-2">
 							<div className=" flex flex-row items-center justify-start">
 								<p className="mr-1 font-bold">R Harikrishnan :</p>
 								<a
@@ -124,8 +124,8 @@ const Footer = () => {
 				<div>
 					<FooterHeading text="Built by"></FooterHeading>
 					<div className="font-quicksand flex flex-col items-center justify-start text-md space-y-2">
-						<div className="flex flex-col justify-center">
-							<div className="">
+						<div className="flex flex-col justify-center gap-2">
+							<div className="flex gap-2">
 								<a
 									target="_blank"
 									rel="noopener noreferrer"
@@ -151,11 +151,11 @@ const Footer = () => {
 									<p className="ml-2">Dhananjay R</p>
 								</a>
 							</div>
-							<div className="">
+							<div className="flex gap-2">
 								<a
 									target="_blank"
 									rel="noopener noreferrer"
-									href="https://www.linkedin.com/in/farzan7/"
+									href="https://devcard.link/OFNHWZ"
 									className="flex flex-row items-center justify-start "
 								>
 									<svg
