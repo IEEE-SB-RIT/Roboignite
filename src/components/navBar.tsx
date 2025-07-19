@@ -89,7 +89,7 @@ const Navbar = () => {
 			<nav
 				className={`fixed top-0 z-50 flex bg-gradient-to-b from-black to-transparent backdrop-blur-xs ${
 					isMobile
-						? `absolute h-full w-[80%] flex-col justify-between items-start  ${
+						? `absolute h-full w-[80%] flex-col justify-between items-start transition-transform duration-300 ease-in-out ${
 								isOpen ? "translate-x-0" : "-translate-x-full"
 						  }`
 						: "sticky h-32 w-full flex-row justify-between items-center"
