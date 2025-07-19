@@ -41,7 +41,7 @@ const Navbar = () => {
 		<>
 			{isMobile && (
 				<button
-					className="fixed z-[60] top-4 left-4 w-12 h-12 flex items-center justify-center" // Fixed position with consistent sizing
+					className="fixed z-[60] top-4 left-4 w-12 h-12 flex items-center justify-center"
 					onClick={() => setIsOpen(!isOpen)}
 					aria-label={isOpen ? "Close menu" : "Open menu"}
 				>

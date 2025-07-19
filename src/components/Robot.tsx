@@ -5,7 +5,6 @@ import { useRef, useEffect, useState } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 
-
 interface RobotProps {
 	scale?: number;
 	position?: [number, number, number];
@@ -55,45 +54,40 @@ const Robot: React.FC<RobotProps> = (props) => {
 
 	const { gl } = useThree();
 
-	// Mouse events with global tracking
+	// Enhanced mouse and touch events with better mobile support
 	useEffect(() => {
-		const handlePointerDown = (e: PointerEvent) => {
+		const canvas = gl.domElement;
+		
+		// Separate handlers for mouse and touch to avoid conflicts
+		const handleMouseDown = (e: MouseEvent) => {
 			if (e.button !== 0) return;
 			isDragging.current = true;
 			lastInteractionTime.current = Date.now();
 			lastPosition.current = { x: e.clientX, y: e.clientY };
-			gl.domElement.style.cursor = "grabbing";
+			canvas.style.cursor = "grabbing";
 		};
 
-		const handlePointerUp = () => {
+		const handleMouseUp = () => {
 			isDragging.current = false;
-			gl.domElement.style.cursor = "grab";
+			canvas.style.cursor = "grab";
 		};
 
-		const handlePointerMove = (e: PointerEvent) => {
-			// Update mouse position
-			lastPosition.current = { x: e.clientX, y: e.clientY };
-
-			// Convert to normalized device coordinates (-1 to 1)
-			const rect = gl.domElement.getBoundingClientRect();
+		const handleMouseMove = (e: MouseEvent) => {
+			const rect = canvas.getBoundingClientRect();
 			mousePosition.current.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
 			mousePosition.current.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
 
-			// Set hover state
 			isHovering.current = true;
 			lastInteractionTime.current = Date.now();
 
-			// Clear any existing timeout
 			if (hoverTimeout.current) {
 				clearTimeout(hoverTimeout.current);
 			}
 
-			// Set timeout to clear hover state after 500ms of no movement
 			hoverTimeout.current = setTimeout(() => {
 				isHovering.current = false;
 			}, 500);
 
-			// Handle dragging rotation
 			if (isDragging.current && groupRef.current) {
 				const deltaX = e.clientX - lastPosition.current.x;
 				const deltaY = e.clientY - lastPosition.current.y;
@@ -103,15 +97,86 @@ const Robot: React.FC<RobotProps> = (props) => {
 			}
 		};
 
-		// Add global event listeners
-		gl.domElement.addEventListener("pointerdown", handlePointerDown);
-		window.addEventListener("pointerup", handlePointerUp);
-		window.addEventListener("pointermove", handlePointerMove);
+		// Touch handlers - specifically designed for mobile
+		const handleTouchStart = (e: TouchEvent) => {
+			e.preventDefault(); // Prevent scrolling
+			if (e.touches.length === 1) { // Only single touch
+				const touch = e.touches[0];
+				isDragging.current = true;
+				lastInteractionTime.current = Date.now();
+				lastPosition.current = { x: touch.clientX, y: touch.clientY };
+			}
+		};
+
+		const handleTouchEnd = (e: TouchEvent) => {
+			e.preventDefault();
+			isDragging.current = false;
+		};
+
+		const handleTouchMove = (e: TouchEvent) => {
+			e.preventDefault(); // Prevent scrolling
+			
+			if (e.touches.length === 1) { // Only single touch
+				const touch = e.touches[0];
+				const rect = canvas.getBoundingClientRect();
+				
+				// Update position tracking
+				mousePosition.current.x = ((touch.clientX - rect.left) / rect.width) * 2 - 1;
+				mousePosition.current.y = -((touch.clientY - rect.top) / rect.height) * 2 + 1;
+
+				isHovering.current = true;
+				lastInteractionTime.current = Date.now();
+
+				if (hoverTimeout.current) {
+					clearTimeout(hoverTimeout.current);
+				}
+
+				hoverTimeout.current = setTimeout(() => {
+					isHovering.current = false;
+				}, 500);
+
+				// Handle dragging rotation - this is the key part for mobile!
+				if (groupRef.current) {
+					const deltaX = touch.clientX - lastPosition.current.x;
+					const deltaY = touch.clientY - lastPosition.current.y;
+					dragRotation.current.y -= deltaX * 0.01;
+					dragRotation.current.x -= deltaY * 0.01;
+					lastPosition.current = { x: touch.clientX, y: touch.clientY };
+				}
+			}
+		};
+
+		// Detect if we're on mobile
+		const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+		
+		if (isMobile) {
+			// Use touch events for mobile
+			canvas.addEventListener("touchstart", handleTouchStart, { passive: false });
+			canvas.addEventListener("touchend", handleTouchEnd, { passive: false });
+			canvas.addEventListener("touchmove", handleTouchMove, { passive: false });
+		} else {
+			// Use mouse events for desktop
+			canvas.addEventListener("mousedown", handleMouseDown);
+			window.addEventListener("mouseup", handleMouseUp);
+			window.addEventListener("mousemove", handleMouseMove);
+		}
+
+		// Prevent context menu on all devices
+		canvas.addEventListener("contextmenu", (e) => e.preventDefault());
 
 		return () => {
-			gl.domElement.removeEventListener("pointerdown", handlePointerDown);
-			window.removeEventListener("pointerup", handlePointerUp);
-			window.removeEventListener("pointermove", handlePointerMove);
+			if (isMobile) {
+				canvas.removeEventListener("touchstart", handleTouchStart);
+				canvas.removeEventListener("touchend", handleTouchEnd);
+				canvas.removeEventListener("touchmove", handleTouchMove);
+			} else {
+				canvas.removeEventListener("mousedown", handleMouseDown);
+				window.removeEventListener("mouseup", handleMouseUp);
+				window.removeEventListener("mousemove", handleMouseMove);
+			}
+			
+			canvas.removeEventListener("contextmenu", (e) => e.preventDefault());
+
 			if (hoverTimeout.current) {
 				clearTimeout(hoverTimeout.current);
 			}
@@ -128,7 +193,7 @@ const Robot: React.FC<RobotProps> = (props) => {
 
 		// Calculate target rotation when hovering (not dragging)
 		if (isHovering.current && !isDragging.current) {
-			// Calculate target rotation based on mouse position
+			// Calculate target rotation based on mouse/touch position
 			const lookSensitivity = 0.25;
 			targetRotation.current.y =
 				(mousePosition.current.x % 10) * lookSensitivity;
