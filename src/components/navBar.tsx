@@ -1,7 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import NavItem from "../datas/NavItem.tsx";
-import logo from "/RoboIgnite.png";
-import { Link } from "react-router-dom";
 
 const Navbar = () => {
 	const [isMobile, setIsMobile] = useState(false);
