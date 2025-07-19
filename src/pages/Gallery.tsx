@@ -1,6 +1,6 @@
 import ImageDatas from "../datas/ImageDatas";
 import Header from "../components/Header.tsx";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 
 const Gallery = () => {
     const [visible, setVisible] = useState<number>(3);
@@ -8,6 +8,12 @@ const Gallery = () => {
     function toggleVisibility() {
         setVisible(visible === 3 ? ImageDatas.length : 3);
     }
+    useEffect(()=>{
+        ImageDatas.forEach((image)=>{
+            const img = new Image();
+            img.src= image.src
+        })
+    },[]);
 
     return (
         <div className={`min-h-screen px-4 py-10 flex flex-col ${visible >3 ? "gap-8" :"gap-4"}`}>
