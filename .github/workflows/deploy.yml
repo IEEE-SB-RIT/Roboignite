@@ -2,32 +2,40 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main] # 👉 Triggers this workflow whenever you push to main
+    branches: [main] # Trigger only on pushes to main
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest # 👉 Uses the latest Ubuntu environment
+    runs-on: ubuntu-latest # Fresh Ubuntu VM
 
     permissions:
-      contents: write # 👉 Allows GitHub to push to the gh-pages branch
+      contents: write # Needed to push to gh-pages branch
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3 # 👉 Pulls your latest code from the repo
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "22.1.0" # ✅ Match your local Node version
+          node-version: "22.1.0"
+
+      - name: Cache npm dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - name: Install dependencies
-        run: npm install # 👉 Installs your project’s dependencies from package.json
+        run: npm ci
 
       - name: Build the site
-        run: npm run build # 👉 Runs your Vite build (which creates the `dist/` folder)
+        run: npm run build
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3 # 👉 Action that publishes static files to the gh-pages branch
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }} # 👉 Built-in token to push back to your repo
-          publish_dir: ./dist # 👉 This is the Vite build output that gets deployed
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
