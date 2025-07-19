@@ -19,7 +19,7 @@ const Gallery = () => {
         <div className={`min-h-screen px-4 py-10 flex flex-col ${visible >3 ? "gap-8" :"gap-4"}`}>
             <Header text={"Gallery"} />
 
-            <div className={`${visible>3 ? "columns-2 md:columns-3 lg:columns-4" : "flex flex-row items-center" }  gap-4 space-y-4`}>
+            <div className={`${visible>3 ? "columns-2 md:columns-3 lg:columns-4" : "flex lg:flex-row items-center flex-col" }  gap-4 space-y-4`}>
             {ImageDatas.slice(0, visible).map((image, i) => (
                     <div
                         key={i}
