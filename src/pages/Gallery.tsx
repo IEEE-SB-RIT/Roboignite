@@ -69,14 +69,15 @@ const Gallery = () => {
             </div>
             {selectedImage && (
                 <div
-                    className="fixed top-0 left-0 z-50 w-screen h-screen bg-black/30 backdrop-blur-sm flex justify-center items-center transition duration-300 ease-in-out" onClick={() => setSelectedImage(null)}>
+                    className="fixed top-0 left-0 z-50 w-screen h-screen bg-black/30 backdrop-blur-sm flex justify-center items-center transition duration-300 ease-in-out " onClick={() => setSelectedImage(null)}>
                     <button className="absolute top-5 right-5  m-5 text-white text-4xl font-bold hover:text-red-500 cursor-pointer"
                             onClick={() => setSelectedImage(null)}>
                         <X width={100} height={50} fill="white" />
                     </button>
-                    <div className="relative">
+                    {/*if clicked inside the image nothign happens*/}
+                    <div className="relative " onClick={(e) => e.stopPropagation()}>
                         <img src={selectedImage.src} alt={selectedImage.alt}
-                             className="max-w-[800px] max-h-[600px] object-cover"/>
+                             className="max-w-[90vw] max-h-[80vh] w-full object-cover"/>
                         <div className=" absolute inset-0 flex items-end justify-start ">
                             <p className="text-white font-semibold mb-5 ml-5 text-sm text-start sm:text-base md:text-lg lg:text-xl p-2 bg-black/30 rounded-lg backdrop-blur-lg ">
                                 {selectedImage.text}
