@@ -4,7 +4,7 @@ import AboutHeader from "../components/aboutHeader.tsx";
 
 const About: React.FC = () => {
 	return (
-		<section className="text-zinc-300 font-thin font-recursive text-left">
+		<section className="text-zinc-300 font-thin font-recursive text-left mb-10">
 			<Header text={"About Us"} />
 			<div className="max-w-4xl mx-auto space-y-12">
 				{/* About RoboIgnite */}

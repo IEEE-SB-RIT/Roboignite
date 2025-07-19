@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import NavItem from "../datas/NavItem.tsx";
 
 const Navbar = () => {
-	const [isMobile, setIsMobile] = useState(false);
+	const [isMobile, setIsMobile] = useState(true);
 	const [isOpen, setIsOpen] = useState(false);
 	const initialized = useRef(false);
 
@@ -41,13 +41,13 @@ const Navbar = () => {
 		<>
 			{isMobile && (
 				<button
-					className="fixed z-[60]" // Fixed position with higher z-index
+					className="fixed z-[60] top-4 left-4 w-12 h-12 flex items-center justify-center" // Fixed position with consistent sizing
 					onClick={() => setIsOpen(!isOpen)}
 					aria-label={isOpen ? "Close menu" : "Open menu"}
 				>
 					<span
-						className={` mx-4 my-2  block text-3xl text-zinc-500 transition-opacity duration-300 ease-in-out ${
-							isOpen ? "opacity-0 scale-90" : "opacity-100 scale-100"
+						className={`absolute flex items-center justify-center transition-opacity duration-300 ease-in-out ${
+							isOpen ? "opacity-0 scale-90" : "opacity-70 scale-100"
 						}`}
 					>
 						<svg
@@ -59,22 +59,22 @@ const Navbar = () => {
 							<path
 								fill="none"
 								stroke="currentColor"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								strokeWidth="2"
 								d="M4 6h16M4 12h16M4 18h7"
 							/>
 						</svg>
 					</span>
 					<span
-						className={`absolute top-0 left-0 mx-2 text-3xl text-zinc-500 transition-all duration-300 ease-in-out ${
-							isOpen ? "opacity-100 scale-90" : "opacity-0 scale-100"
+						className={`absolute flex items-center justify-center transition-all duration-300 ease-in-out ${
+							isOpen ? "opacity-70 scale-90" : "opacity-0 scale-100"
 						}`}
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
-							width="48"
-							height="48"
+							width="36" // Same size as hamburger
+							height="36" // Same size as hamburger
 							viewBox="0 0 24 24"
 						>
 							<path
@@ -87,9 +87,9 @@ const Navbar = () => {
 			)}
 
 			<nav
-				className={`absolute top-0 z-50 flex bg-gradient-to-b from-black to-transparent backdrop-blur-xs ${
+				className={`fixed top-0 z-50 flex bg-gradient-to-b from-black to-transparent backdrop-blur-xs ${
 					isMobile
-						? `absolute h-full w-[80%] flex-col justify-between items-start transition-transform duration-300 ease-in-out ${
+						? `absolute h-full w-[80%] flex-col justify-between items-start  ${
 								isOpen ? "translate-x-0" : "-translate-x-full"
 						  }`
 						: "sticky h-32 w-full flex-row justify-between items-center"
