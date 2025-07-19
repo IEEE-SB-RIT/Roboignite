@@ -129,7 +129,7 @@ const Footer = () => {
 								<a
 									target="_blank"
 									rel="noopener noreferrer"
-									href="https://www.linkedin.com/in/dhananjayr"
+									href="https://devcard.link/hP9V2t"
 									className="flex flex-row items-center justify-start"
 								>
 									<svg
