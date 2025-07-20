@@ -12,12 +12,26 @@ const Gallery = () => {
     }
 
     useEffect(() => {
+        //for disabling scroll when preview is present
+        if(selectedImage){
+            document.body.style.overflow="hidden";
+        }
+        else {
+            document.body.style.overflow = "auto";
+        }
+
+        return () => {
+            document.body.style.overflow = "auto";
+        }
+
+    }, [selectedImage]);
+
+    useEffect(() => {
         ImageDatas.forEach((image) => {
             const img = new Image();
             img.src = image.src
         })
     }, []);
-
     useEffect(() => {
         const handleEsc=(e: KeyboardEvent)=>{
             if(e.key==="Escape" && selectedImage){
