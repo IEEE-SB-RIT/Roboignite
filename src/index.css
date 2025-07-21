@@ -14,7 +14,7 @@
 }
 
 body {
-	background: linear-gradient(to top left, #6f4a8e, #221f3b, #050505);
+	background: linear-gradient(to top left, #613f7d, #171529, #000000);
 	font-family: var(--font-poppins);
 	margin: 0;
 	padding: 0 0 30px 0;
@@ -68,63 +68,3 @@ body {
 	transform: rotateY(180deg);
 }
 
-@keyframes first {
-	0% {
-		transform: rotate(0deg) translateX(0) rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg) translateX(50px) rotate(-360deg);
-	}
-}
-
-@keyframes second {
-	0% {
-		transform: rotate(0deg) translateX(100px) rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg) translateX(100px) rotate(-360deg);
-	}
-}
-
-@keyframes third {
-	0% {
-		transform: rotate(0deg) translateY(100px) rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg) translateY(100px) rotate(-360deg);
-	}
-}
-
-@keyframes fourth {
-	0% {
-		transform: rotate(0deg) translate(50px, 50px) rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg) translate(50px, 50px) rotate(-360deg);
-	}
-}
-
-@keyframes fifth {
-	0% {
-		transform: rotate(0deg) translate(-100px, 50px) rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg) translate(-100px, 50px) rotate(-360deg);
-	}
-}
-
-.animate-first {
-	animation: first 15s infinite linear;
-}
-.animate-second {
-	animation: second 20s infinite linear;
-}
-.animate-third {
-	animation: third 25s infinite linear;
-}
-.animate-fourth {
-	animation: fourth 30s infinite linear;
-}
-.animate-fifth {
-	animation: fifth 35s infinite linear;
-}
