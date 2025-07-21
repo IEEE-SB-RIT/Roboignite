@@ -10,12 +10,12 @@ const Landing = () => {
 	return (
 		<div className="w-full h-full my-5 flex flex-col md:flex-row items-center justify-center ">
 			<div className="absolute z-0 h-screen w-full">
-				<SpaceBg
+				{/* <SpaceBg
 					text=""
 					className="absolute inset-0 h-full w-full"
 					starCount={500}
 					speed={1}
-				/>
+				/> */}
 			</div>
 			<div className="">
 				<div className="min-w-1/3 flex flex-col items-center justify-center">

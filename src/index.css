@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 @theme {
+	--color-primary: #4ade80;
+
 	--font-josefin: "Josefin Sans", "sans-serif";
 	--font-poppins: "Poppins", "sans-serif";
 	--font-courier: "Courier Prime", "monospace";
@@ -41,7 +43,7 @@ body {
 	}
 }
 
-.bg-radial-custom {
+.defaultGradient {
 	background: linear-gradient(to top left, #6f4a8e, #221f3b, #050505);
 }
 
