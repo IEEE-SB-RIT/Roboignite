@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import { motion } from "motion/react";
 import RobotCanvas from "../components/RobotCanvas";
-import SpaceBg from "../components/spaceBg";
+// import SpaceBg from "../components/spaceBg";
 
 const Landing = () => {
 	const el = useRef(null);
