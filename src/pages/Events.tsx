@@ -4,7 +4,7 @@ import Header from "../components/Header.tsx";
 
 const Events = () => {
     return (
-        <div className="min-h-screen px-4 py-16 bg-gradient-to-br from-gray-900 via-gray-800 to-black">
+        <div className="min-h-screen px-4 py-16 ">
             {/* Header Section */}
             <Header text={"Events"} />
 
