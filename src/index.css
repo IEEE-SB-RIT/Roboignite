@@ -14,7 +14,7 @@
 }
 
 body {
-	background: linear-gradient(to top left, #613f7d, #171529, #000000);
+	background: linear-gradient(to bottom right, #613f7d, #171529, #000000);
 	font-family: var(--font-poppins);
 	margin: 0;
 	padding: 0 0 30px 0;
