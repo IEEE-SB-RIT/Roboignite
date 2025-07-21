@@ -14,13 +14,15 @@
 }
 
 body {
-	background: linear-gradient(to bottom right, #613f7d, #171529, #000000);
+	background: linear-gradient(to bottom right, #7943a5, #1b1830, #000000);
 	font-family: var(--font-poppins);
 	margin: 0;
 	padding: 0 0 30px 0;
 	min-height: 100dvh;
 	color: white;
 }
+
+	/* background: linear-gradient(to bottom right, #613f7d, #171529, #000000); */
 
 .headerColor {
 	background: linear-gradient(270deg, #4ade80, #14b8a6, #0891b2);

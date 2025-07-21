@@ -32,7 +32,7 @@ const Landing = () => {
 			<div className="w-full m-5gap-8 md:w-1/2 flex flex-col items-center justify-start ">
 				<span ref={el} />
 				<div className="z-1">
-					<h1 className=" bg-black rounded-2xl w-80 md:w-[38rem] p-4 border-2 inset-shadow-sm inset-shadow-white font-courier text-white text-center font-thin text-[1.5rem] md:text-5xl">
+					<h1 className=" bg-black rounded-2xl w-80 md:w-[38rem] p-4 border-2 inset-shadow-sm inset-shadow-white/80 font-courier text-white text-center font-thin text-[1.5rem] md:text-5xl">
 						<span className="text-green-600 font-bold font-courier">./</span>
 						<Typewriter
 							words={["IEEE RAS SBC RIT", "presents"]}
@@ -58,7 +58,7 @@ const Landing = () => {
 						repeatType: "reverse",
 						damping: 10,
 					}}
-					className="bg-[url('/logoBg.jpg')] inset-shadow-sm inset-shadow-indigo-400 bg-cover bg-no-repeat bg-center backdrop-blur-2xl mx-auto w-[18rem] md:w-[30rem] mt-10 shadow-[5px_5px_30px_0.1px_rgba(0,0,0,0.5)] shadow-white/20 border-b-8 border-r-8 border-black/60  rounded-3xl py-5 px-10"
+					className="bg-[url('/logoBg.jpg')] inset-shadow-sm inset-shadow-indigo-400 bg-cover bg-no-repeat bg-center backdrop-blur-2xl mx-auto w-[18rem] md:w-[30rem] mt-10 shadow-[5px_15px_30px_0.1px_rgba(0,0,0,0.5)] shadow-violet-500/10 border-b-8 border-r-8 border-black/60  rounded-3xl py-5 px-10"
 					src={import.meta.env.BASE_URL + "RoboIgnite.png"}
 					alt="RoboIgnite Logo"
 				/>
