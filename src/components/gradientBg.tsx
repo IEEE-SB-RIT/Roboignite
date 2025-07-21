@@ -36,7 +36,7 @@ const GradientBackground = () => {
 	//   };
 
 	return (
-		<div className="h-full w-full relative overflow-hidden bg-[linear-gradient(40deg,rgb(108,0,162),rgb(0,17,82))]">
+		<div className="h-full w-full relative overflow-hidden ">
 			{/* Inject animation styles */}
 			<style>
 				{`
@@ -100,11 +100,15 @@ const GradientBackground = () => {
         /> */}
 
 				{/* Static animated orbs */}
-				<div className="absolute [background:radial-gradient(circle_at_top_right,_rgba(18,113,255,0.8)_0,_rgba(18,113,255,0)_50%)_no-repeat] [mix-blend-mode:hard-light] w-[80%] h-[80%] top-[10%] left-[10%] [transform-origin:center_center] animate-first opacity-100" />
+				{/* <div className="absolute [background:radial-gradient(circle_at_top_right,_rgba(18,113,255,0.8)_0,_rgba(18,113,255,0)_50%)_no-repeat] [mix-blend-mode:hard-light] w-[80%] h-[80%] top-[10%] left-[10%] [transform-origin:center_center] animate-first opacity-100" />
 				<div className="absolute [background:radial-gradient(circle_at_bottom_right,_rgba(221,74,255,0.8)_0,_rgba(221,74,255,0)_50%)_no-repeat] [mix-blend-mode:hard-light] w-[80%] h-[80%] top-[10%] left-[10%] [transform-origin:center_center] animate-second opacity-100" />
 				<div className="absolute [background:radial-gradient(circle_at_bottom_left,_rgba(100,220,255,0.8)_0,_rgba(100,220,255,0)_50%)_no-repeat] [mix-blend-mode:hard-light] w-[80%] h-[80%] top-[10%] left-[10%] [transform-origin:center_center] animate-third opacity-100" />
 				<div className="absolute [background:radial-gradient(circle_at_top_left,_rgba(200,50,50,0.8)_0,_rgba(200,50,50,0)_50%)_no-repeat] [mix-blend-mode:hard-light] w-[80%] h-[80%] top-[10%] left-[10%] [transform-origin:center_center] animate-fourth opacity-70" />
-				<div className="absolute [background:radial-gradient(circle_at_center,_rgba(180,180,50,0.8)_0,_rgba(180,180,50,0)_50%)_no-repeat] [mix-blend-mode:hard-light] w-[80%] h-[80%] top-[10%] left-[10%] [transform-origin:center_center] animate-fifth opacity-100" />
+				<div className="absolute [background:radial-gradient(circle_at_center,_rgba(180,180,50,0.8)_0,_rgba(180,180,50,0)_50%)_no-repeat] [mix-blend-mode:hard-light] w-[80%] h-[80%] top-[10%] left-[10%] [transform-origin:center_center] animate-fifth opacity-100" /> */}
+
+				<div className="absolute [background:radial-gradient(circle_at_center,_rgba(152,1,46,0.8)_0,_rgba(152,1,46,0)_50%)_no-repeat] [mix-blend-mode:hard-light] w-[80%] h-[80%] top-[10%] left-[10%] [transform-origin:center_center] animate-fourth opacity-100" />
+
+				<div className="absolute [background:radial-gradient(circle_at_center,_rgba(97,17,106,0.8)_0,_rgba(97,17,106,0)_50%)_no-repeat] [mix-blend-mode:hard-light] w-[80%] h-[80%] top-[10%] left-[10%] [transform-origin:center_center] animate-fifth opacity-100" />
 			</div>
 
 			<div className="relative z-10 h-full flex items-center justify-center">
