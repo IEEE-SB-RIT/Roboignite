@@ -71,10 +71,10 @@ const Gallery = () => {
                 </div>
 
 
-                <div className="flex justify-center items-start  ">
+                <div className="flex justify-center items-start ">
                     <button
                         onClick={toggleVisibility}
-                        className="px-6 py-2 bg-purple-600 text-white font-medium rounded-lg hover:bg-white hover:text-purple-600 transition duration-300"
+                        className="px-6 py-2 bg-purple-600 text-white font-medium rounded-lg hover:bg-white hover:text-purple-600 transition duration-300  cursor-pointer"
                     >
                         {visible === 3 ? "Show All" : "Show Less"}
                     </button>
@@ -84,7 +84,7 @@ const Gallery = () => {
                 <div
                     className="fixed top-0 left-0 z-50 w-screen h-screen bg-black/30 backdrop-blur-sm flex justify-center items-center transition duration-300 ease-in-out " onClick={() => setSelectedImage(null)}>
                     <button
-                        className="absolute top-4 right-4 text-white text-3xl sm:text-4xl font-bold hover:text-red-500 cursor-pointer z-50"
+                        className="absolute top-4 right-4 mr-1 sm:mr-0 text-white text-3xl sm:text-4xl font-bold hover:text-red-500 cursor-pointer z-50"
                         onClick={() => setSelectedImage(null)}
                     >
                         <svg
@@ -101,7 +101,7 @@ const Gallery = () => {
                     </button>
                     {/*if clicked inside the image nothign happens*/}
                     <div className="relative " onClick={(e) => e.stopPropagation()}>
-                    <img src={selectedImage.src} alt={selectedImage.alt}
+                        <img src={selectedImage.src} alt={selectedImage.alt}
                              className="max-w-[90vw] max-h-[80vh] w-full object-cover"/>
                         <div className=" absolute inset-0 flex items-end justify-start ">
                             <p className="text-white font-semibold mb-5 ml-5 text-sm text-start sm:text-base md:text-lg lg:text-xl p-2 bg-black/30 rounded-lg backdrop-blur-lg ">
