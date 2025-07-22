@@ -27,9 +27,9 @@ const EventDatas: EventData[] = [
 		date: "2025-08-01",
 		salutaion: "⚡ LEAP – Learn. Experiment. Apply. Perform.",
 		price: [
-			"IEEE RAS Members - FREE!",
-			"IEEE Members - 50/-",
-			"Non-IEEE Members - 100/-",
+			"IEEE RAS Members - FREE",
+			"IEEE Members - 50",
+			"Non-IEEE Members - 100",
 		],
 		src: `${basePath}event_01.webp`,
 		form: true,

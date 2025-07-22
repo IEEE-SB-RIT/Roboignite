@@ -79,3 +79,11 @@ body {
 .rotate-y-180 {
 	transform: rotateY(180deg);
 }
+
+.card-container {
+
+}
+
+.card-container:hover .card-rotate {
+	transform: rotateY(180deg);
+}
