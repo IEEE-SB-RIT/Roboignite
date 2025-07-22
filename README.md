@@ -1,69 +1,117 @@
-# React + TypeScript + Vite
+# 🚀 ROBOIGNITE  
+### IEEE RAS Student Branch Chapter – RIT
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## 🌐 Deployment
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Development URL**: [https://ieee-sb-rit.github.io/Roboignite/]
+- **Production URL**: [https://roboignite.ieeesbrit.com/]
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
+**Front end**: `React`/`Type Script`/`Tailwind`
+<br>
+ **Hosting**: `GitHub Pages` / `Hostinger`
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+ ## 📁 Folder Structure
+ ```
+📦 
+├─ .github
+│  └─ workflows
+│     └─ deploy.yml
+├─ .gitignore
+├─ README.md
+├─ eslint.config.js
+├─ index.html
+├─ package-lock.json
+├─ package.json
+├─ public
+│  ├─ RoboIgnite.webp
+│  ├─ favicon.ico
+│  ├─ logoBg.webp
+│  ├─ roboEvents
+│  │  ├─ event_01.webp
+│  │  └─ event_soon.webp
+│  ├─ roboGallery
+│  │  ├─ img_1.webp
+│  │  ├─ img_10.webp
+│  │  ├─ img_11.webp
+│  │  ├─ img_12.webp
+│  │  ├─ img_13.webp
+│  │  ├─ img_14.webp
+│  │  ├─ img_15.webp
+│  │  ├─ img_16.webp
+│  │  ├─ img_17.webp
+│  │  ├─ img_18.webp
+│  │  ├─ img_19.webp
+│  │  ├─ img_2.webp
+│  │  ├─ img_20.webp
+│  │  ├─ img_21.webp
+│  │  ├─ img_22.webp
+│  │  ├─ img_23.webp
+│  │  ├─ img_24.webp
+│  │  ├─ img_25.webp
+│  │  ├─ img_26.webp
+│  │  ├─ img_27.webp
+│  │  ├─ img_28.webp
+│  │  ├─ img_29.webp
+│  │  ├─ img_3.webp
+│  │  ├─ img_30.webp
+│  │  ├─ img_31.webp
+│  │  ├─ img_32.webp
+│  │  ├─ img_33.webp
+│  │  ├─ img_34.webp
+│  │  ├─ img_35.webp
+│  │  ├─ img_4.webp
+│  │  ├─ img_5.webp
+│  │  ├─ img_6.webp
+│  │  ├─ img_7.webp
+│  │  ├─ img_8.webp
+│  │  └─ img_9.webp
+│  └─ roboModels
+│     └─ r1.glb
+├─ src
+│  ├─ components
+│  │  ├─ Button.tsx
+│  │  ├─ Header.tsx
+│  │  ├─ NavItem.tsx
+│  │  ├─ Robot copy.tsx
+│  │  ├─ Robot.tsx
+│  │  ├─ RobotCanvas copy.tsx
+│  │  ├─ RobotCanvas.tsx
+│  │  ├─ aboutHeader.tsx
+│  │  ├─ footer.tsx
+│  │  ├─ footerHeading.tsx
+│  │  ├─ gradientBg.tsx
+│  │  ├─ navBar.tsx
+│  │  ├─ scrollToTop.tsx
+│  │  └─ spaceBg.tsx
+│  ├─ datas
+│  │  ├─ EventData.ts
+│  │  └─ ImageDatas.ts
+│  ├─ index.css
+│  ├─ main.tsx
+│  ├─ pages
+│  │  ├─ About.tsx
+│  │  ├─ ComingSoonEvents.tsx
+│  │  ├─ Events.tsx
+│  │  ├─ Gallery.tsx
+│  │  ├─ Landing.tsx
+│  │  ├─ custom.d.ts
+│  │  └─ notFound.tsx
+│  ├─ routes
+│  │  └─ App.tsx
+│  └─ types
+│     ├─ assets.d.ts
+│     └─ global.d.ts
+├─ tsconfig.app.json
+├─ tsconfig.json
+├─ tsconfig.node.json
+├─ tsconfig.tsbuildinfo
+└─ vite.config.ts
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+ 
