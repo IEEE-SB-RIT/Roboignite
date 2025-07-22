@@ -7,7 +7,7 @@ import Gallery from "../pages/Gallery.tsx";
 import NotFound from "../pages/notFound.tsx";
 import Footer from "../components/footer.tsx";
 import ComingSoonEvents from "../pages/ComingSoonEvents.tsx";
-// this is for production,during deployment the user will be redirected to a coming soon page
+
 const showRealEvents = true;
 
 export default function App() {

@@ -14,6 +14,8 @@ interface EventData {
 	formLink?: string;
 	eventComingsoon?: boolean;
 }
+
+const basePath = import.meta.env.BASE_URL + "roboEvents/";
 // here the type can be =>workshop, talk session,cultural,competition
 const EventDatas: EventData[] = [
 	{
@@ -29,7 +31,7 @@ const EventDatas: EventData[] = [
 			"IEEE Members - 50/-",
 			"Non-IEEE Members - 100/-",
 		],
-		src: "events/event_01.webp",
+		src: `${basePath}event_01.webp`,
 		form: true,
 		formLink: " https://bit.ly/LEAP_ROBOIGNITE",
 	},
@@ -46,7 +48,7 @@ const EventDatas: EventData[] = [
 		price: [],
 		form: false,
 		formLink: "",
-		src: "events/event_soon.webp",
+		src: `${basePath}event_soon.webp`,
 		eventComingsoon: true,
 	},
 	{
@@ -61,7 +63,7 @@ const EventDatas: EventData[] = [
 		price: [],
 		form: false,
 		formLink: "",
-		src: "events/event_soon.webp",
+		src: `${basePath}event_soon.webp`,
 		eventComingsoon: true,
 	},
 
@@ -74,7 +76,7 @@ const EventDatas: EventData[] = [
 	//     date: "2025-08-04",
 	//     salutaion: "Let the Hack Begin!",
 	//     speakers: "Mr. S. Patel",
-	//     src: "/events/img_4.webp"
+	//     src: "/./events/img_4.webp"
 	// },
 	// {
 	//     id: 5,
@@ -85,7 +87,7 @@ const EventDatas: EventData[] = [
 	//     date: "2025-08-05",
 	//     salutaion: "Connecting the Future",
 	//     speakers: "Ms. L. Joseph",
-	//     src: "/events/img_4.webp"
+	//     src: "/./events/img_4.webp"
 	// },
 	// {
 	//     id: 6,
@@ -96,7 +98,7 @@ const EventDatas: EventData[] = [
 	//     date: "2025-08-06",
 	//     salutaion: "Powering a Greener Tomorrow",
 	//     speakers: "Panel of Experts",
-	//     src: "/events/img_4.webp"
+	//     src: "/./events/img_4.webp"
 	// },
 	// {
 	//     id: 7,
@@ -107,7 +109,7 @@ const EventDatas: EventData[] = [
 	//     date: "2025-08-07",
 	//     salutaion: "Rise of the Machines",
 	//     speakers: "Student Teams",
-	//     src: "/events/img_4.webp"
+	//     src: "/./events/img_4.webp"
 	// },
 	// {
 	//     id: 8,
@@ -118,7 +120,7 @@ const EventDatas: EventData[] = [
 	//     date: "2025-08-08",
 	//     salutaion: "Connect & Collaborate",
 	//     speakers: "Open Session",
-	//     src: "/events/img_4.webp"
+	//     src: "/./events/img_4.webp"
 	// },
 	// {
 	//     id: 9,
@@ -129,7 +131,7 @@ const EventDatas: EventData[] = [
 	//     date: "2025-08-09",
 	//     salutaion: "Showcase of Innovation",
 	//     speakers: "Multiple Authors",
-	//     src: "/events/img_4.webp"
+	//     src: "/./events/img_4.webp"
 	// },
 	// {
 	//     id: 10,
@@ -140,7 +142,7 @@ const EventDatas: EventData[] = [
 	//     date: "2025-08-10",
 	//     salutaion: "Unwind and Celebrate",
 	//     speakers: "Cultural Committee",
-	//     src: "/events/img_4.webp"
+	//     src: "/./events/img_4.webp"
 	// },
 	// {
 	//     id: 11,
@@ -151,7 +153,7 @@ const EventDatas: EventData[] = [
 	//     date: "2025-08-11",
 	//     salutaion: "Honoring Excellence",
 	//     speakers: "Chief Guest",
-	//     src: "/events/img_4.webp"
+	//     src: "/./events/img_4.webp"
 	// },
 	// {
 	//     id: 12,
@@ -162,7 +164,7 @@ const EventDatas: EventData[] = [
 	//     date: "2025-08-12",
 	//     salutaion: "Thank You & Goodbye",
 	//     speakers: "Event Organizers",
-	//     src: "/events/img_4.webp"
+	//     src: "/./events/img_4.webp"
 	// }
 ];
 
