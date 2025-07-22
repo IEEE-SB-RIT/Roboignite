@@ -29,7 +29,7 @@ const EventDatas: EventData[] = [
 			"IEEE Members - 50/-",
 			"Non-IEEE Members - 100/-",
 		],
-		src: "/events/event_01.webp",
+		src: "events/event_01.webp",
 		form: true,
 		formLink: " https://bit.ly/LEAP_ROBOIGNITE",
 	},
@@ -46,7 +46,7 @@ const EventDatas: EventData[] = [
 		price: [],
 		form: false,
 		formLink: "",
-		src: "/events/event_soon.webp",
+		src: "events/event_soon.webp",
 		eventComingsoon: true,
 	},
 	{
@@ -61,7 +61,7 @@ const EventDatas: EventData[] = [
 		price: [],
 		form: false,
 		formLink: "",
-		src: "/events/event_soon.webp",
+		src: "events/event_soon.webp",
 		eventComingsoon: true,
 	},
 
