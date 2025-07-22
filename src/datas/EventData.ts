@@ -12,6 +12,7 @@ interface EventData {
     price?:string[];
     form?: boolean;
     formLink?: string;
+    eventComingsoon?: boolean;
 }
 // here the type can be =>workshop, talk session,cultural,competition
 const EventDatas: EventData[] = [
@@ -33,29 +34,38 @@ const EventDatas: EventData[] = [
         formLink:" https://bit.ly/LEAP_ROBOIGNITE",
     },
 
-    // {
-    //     id: 2,
-    //     title: "LEAP – Learn. Experiment. Apply. Perform.",
-    //     eventName: "LEAP 2025",
-    //     type: "Pre-Event",
-    //     venue: "Online",
-    //     date: "2025-08-01",
-    //     salutaion: "⚡ LEAP – Learn. Experiment. Apply. Perform.",
-    //     speakers: "IEEE RAS Members - FREE! | IEEE Members - 50/- | Non-IEEE Members - 100/-",
-    //     form:true,
-    //     src: "public/events/event_02.webp"
-    // },
-    // {
-    //     id: 3,
-    //     title: "event 3",
-    //     eventName: "AI in Real Life",
-    //     type: "talk session",
-    //     venue: "Seminar Hall",
-    //     date: "2025-08-03",
-    //     salutaion: "Demystifying AI",
-    //     speakers: "Prof. N. Sharma",
-    //     src: "gallery/img_4.webp"
-    // },
+    {
+        id: 2,
+        title: "Coming Soon",
+        eventName: "Coming Soon",
+        type: "Unveiling Soon",
+        venue: "",
+        date: "",
+        salutaion: "",
+        speakers: "",
+        price: [],
+        form: false,
+        formLink: "",
+        src: "public/events/event_soon.webp",
+        eventComingsoon:true
+    }
+    ,
+    {
+        id: 3,
+        title: "Coming Soon",
+        eventName: "Coming Soon",
+        type: "Unveiling Soon",
+        venue: "",
+        date: "",
+        salutaion: "",
+        speakers: "",
+        price: [],
+        form: false,
+        formLink: "",
+        src: "public/events/event_soon.webp",
+        eventComingsoon:true
+    }
+
     // {
     //     id: 4,
     //     title: "event 4",
@@ -65,7 +75,7 @@ const EventDatas: EventData[] = [
     //     date: "2025-08-04",
     //     salutaion: "Let the Hack Begin!",
     //     speakers: "Mr. S. Patel",
-    //     src: "gallery/img_4.webp"
+    //     src: "public/events/img_4.webp"
     // },
     // {
     //     id: 5,
@@ -76,7 +86,7 @@ const EventDatas: EventData[] = [
     //     date: "2025-08-05",
     //     salutaion: "Connecting the Future",
     //     speakers: "Ms. L. Joseph",
-    //     src: "gallery/img_4.webp"
+    //     src: "public/events/img_4.webp"
     // },
     // {
     //     id: 6,
@@ -87,7 +97,7 @@ const EventDatas: EventData[] = [
     //     date: "2025-08-06",
     //     salutaion: "Powering a Greener Tomorrow",
     //     speakers: "Panel of Experts",
-    //     src: "gallery/img_4.webp"
+    //     src: "public/events/img_4.webp"
     // },
     // {
     //     id: 7,
@@ -98,7 +108,7 @@ const EventDatas: EventData[] = [
     //     date: "2025-08-07",
     //     salutaion: "Rise of the Machines",
     //     speakers: "Student Teams",
-    //     src: "gallery/img_4.webp"
+    //     src: "public/events/img_4.webp"
     // },
     // {
     //     id: 8,
@@ -109,7 +119,7 @@ const EventDatas: EventData[] = [
     //     date: "2025-08-08",
     //     salutaion: "Connect & Collaborate",
     //     speakers: "Open Session",
-    //     src: "gallery/img_4.webp"
+    //     src: "public/events/img_4.webp"
     // },
     // {
     //     id: 9,
@@ -120,7 +130,7 @@ const EventDatas: EventData[] = [
     //     date: "2025-08-09",
     //     salutaion: "Showcase of Innovation",
     //     speakers: "Multiple Authors",
-    //     src: "gallery/img_4.webp"
+    //     src: "public/events/img_4.webp"
     // },
     // {
     //     id: 10,
@@ -131,7 +141,7 @@ const EventDatas: EventData[] = [
     //     date: "2025-08-10",
     //     salutaion: "Unwind and Celebrate",
     //     speakers: "Cultural Committee",
-    //     src: "gallery/img_4.webp"
+    //     src: "public/events/img_4.webp"
     // },
     // {
     //     id: 11,
@@ -142,7 +152,7 @@ const EventDatas: EventData[] = [
     //     date: "2025-08-11",
     //     salutaion: "Honoring Excellence",
     //     speakers: "Chief Guest",
-    //     src: "gallery/img_4.webp"
+    //     src: "public/events/img_4.webp"
     // },
     // {
     //     id: 12,
@@ -153,7 +163,7 @@ const EventDatas: EventData[] = [
     //     date: "2025-08-12",
     //     salutaion: "Thank You & Goodbye",
     //     speakers: "Event Organizers",
-    //     src: "gallery/img_4.webp"
+    //     src: "public/events/img_4.webp"
     // }
 ];
 
