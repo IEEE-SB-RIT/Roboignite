@@ -2,7 +2,6 @@
 
 @theme {
 	--color-primary: #4ade80;
-
 	--font-josefin: "Josefin Sans", "sans-serif";
 	--font-poppins: "Poppins", "sans-serif";
 	--font-courier: "Courier Prime", "monospace";
@@ -10,21 +9,32 @@
 	--font-quicksand: "Quicksand", "monospace";
 	--font-oswald: "Oswald", "sans-serif";
 	--font-recursive: "Recursive", "sans-serif";
+
 	--animate-gradient: animate-gradient 10s linear infinite;
+
+	@keyframes bobbing {
+		0%,
+		100% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(-0.25rem);
+		}
+	}
+
+	--animate-slowBobbing: bobbing 3s ease-in-out infinite;
 }
 
 body {
 	background: linear-gradient(to bottom right, #7943a5, #1b1830, #000000);
 	font-family: var(--font-poppins);
 	margin: 0;
-	padding: 0 0 30px 0;
+	padding: 0 0 0 0;
 	min-height: 100dvh;
 	color: white;
 }
 
-	/* background: linear-gradient(to bottom right, #613f7d, #171529, #000000); */
-
-.headerColor {
+/* .headerColor {
 	background: linear-gradient(270deg, #4ade80, #14b8a6, #0891b2);
 	background-size: 400% 400%;
 	background-clip: text;
@@ -43,7 +53,7 @@ body {
 	100% {
 		background-position: 0% 50%;
 	}
-}
+} */
 
 .defaultGradient {
 	background: linear-gradient(to top left, #6f4a8e, #221f3b, #050505);
@@ -69,4 +79,3 @@ body {
 .rotate-y-180 {
 	transform: rotateY(180deg);
 }
-

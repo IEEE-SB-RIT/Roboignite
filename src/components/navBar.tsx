@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import NavItem from "../datas/NavItem.tsx";
+import NavItem from "./NavItem.tsx";
 
 const Navbar = () => {
 	const [isMobile, setIsMobile] = useState(true);
