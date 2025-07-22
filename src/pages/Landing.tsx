@@ -58,8 +58,8 @@ const Landing = () => {
 						repeatType: "reverse",
 						damping: 10,
 					}}
-					className="bg-[url('/logoBg.jpg')] inset-shadow-sm inset-shadow-indigo-400 bg-cover bg-no-repeat bg-center backdrop-blur-2xl mx-auto w-[18rem] md:w-[30rem] mt-10 shadow-[5px_15px_30px_0.1px_rgba(0,0,0,0.5)] shadow-violet-500/10 border-b-8 border-r-8 border-black/60  rounded-3xl py-5 px-10"
-					src={import.meta.env.BASE_URL + "RoboIgnite.png"}
+					className="bg-[url('/logoBg.webp')] inset-shadow-sm inset-shadow-indigo-400 bg-cover bg-no-repeat bg-center backdrop-blur-2xl mx-auto w-[18rem] md:w-[30rem] mt-10 shadow-[5px_15px_30px_0.1px_rgba(0,0,0,0.5)] shadow-violet-500/10 border-b-8 border-r-8 border-black/60  rounded-3xl py-5 px-10"
+					src={import.meta.env.BASE_URL + "RoboIgnite.webp"}
 					alt="RoboIgnite Logo"
 				/>
 			</div>

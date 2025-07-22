@@ -27,14 +27,6 @@ const GradientBackground = () => {
 		return () => clearInterval(moveInterval);
 	}, [curX, curY, tgX, tgY]);
 
-	//   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-	//     if (interactiveRef.current) {
-	//       const rect = interactiveRef.current.getBoundingClientRect();
-	//       setTgX(event.clientX - rect.left);
-	//       setTgY(event.clientY - rect.top);
-	//     }
-	//   };
-
 	return (
 		<div className="h-full w-full relative overflow-hidden ">
 			{/* Inject animation styles */}
@@ -71,7 +63,7 @@ const GradientBackground = () => {
 			<svg className="hidden">
 				<defs>
 					<filter id="blurMe">
-						<feGaussianBlur
+						{/* <feGaussianBlur
 							in="SourceGraphic"
 							stdDeviation="10"
 							result="blur"
@@ -81,7 +73,7 @@ const GradientBackground = () => {
 							mode="matrix"
 							values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 18 -8"
 							result="goo"
-						/>
+						/> */}
 						<feBlend in="SourceGraphic" in2="goo" />
 					</filter>
 				</defs>
@@ -92,13 +84,6 @@ const GradientBackground = () => {
 					isSafari ? "blur-2xl" : "[filter:url(#blurMe)_blur(40px)]"
 				}`}
 			>
-				{/* Interactive orb (now smaller and positioned properly) */}
-				{/* <div
-          ref={interactiveRef}
-          onMouseMove={handleMouseMove}
-          className="absolute [background:radial-gradient(circle_at_center,_rgba(140,100,255,0.8)_0,_rgba(140,100,255,0)_50%)_no-repeat] [mix-blend-mode:hard-light] w-[80%] h-[80%] top-[10%] left-[10%] opacity-70"
-        /> */}
-
 				{/* Static animated orbs */}
 				{/* <div className="absolute [background:radial-gradient(circle_at_top_right,_rgba(18,113,255,0.8)_0,_rgba(18,113,255,0)_50%)_no-repeat] [mix-blend-mode:hard-light] w-[80%] h-[80%] top-[10%] left-[10%] [transform-origin:center_center] animate-first opacity-100" />
 				<div className="absolute [background:radial-gradient(circle_at_bottom_right,_rgba(221,74,255,0.8)_0,_rgba(221,74,255,0)_50%)_no-repeat] [mix-blend-mode:hard-light] w-[80%] h-[80%] top-[10%] left-[10%] [transform-origin:center_center] animate-second opacity-100" />
@@ -106,18 +91,9 @@ const GradientBackground = () => {
 				<div className="absolute [background:radial-gradient(circle_at_top_left,_rgba(200,50,50,0.8)_0,_rgba(200,50,50,0)_50%)_no-repeat] [mix-blend-mode:hard-light] w-[80%] h-[80%] top-[10%] left-[10%] [transform-origin:center_center] animate-fourth opacity-70" />
 				<div className="absolute [background:radial-gradient(circle_at_center,_rgba(180,180,50,0.8)_0,_rgba(180,180,50,0)_50%)_no-repeat] [mix-blend-mode:hard-light] w-[80%] h-[80%] top-[10%] left-[10%] [transform-origin:center_center] animate-fifth opacity-100" /> */}
 
-				<div className="absolute [background:radial-gradient(ellipse_at_bottom_right,_rgba(152,1,46,0.7)_0,_rgba(152,1,46,0)_50%)_no-repeat] [mix-blend-mode:hard-light] w-[80%] h-[80%] top-[10%] left-[10%] [transform-origin:center_center] animate-fourth opacity-100" />
+				<div className="absolute [background:radial-gradient(ellipse_at_bottom_right,_rgba(152,1,46,0.7)_0,_rgba(152,1,46,0)_50%)_no-repeat]  w-[80%] h-[80%] top-[10%] left-[10%] [transform-origin:center_center] animate-fourth opacity-100" />
 
-				<div className="absolute [background:radial-gradient(ellipse_at_top_left,_rgba(97,17,106,0.7)_0,_rgba(97,17,106,0)_50%)_no-repeat] [mix-blend-mode:hard-light] w-[80%] h-[80%] top-[10%] left-[10%] [transform-origin:center_center] animate-fifth opacity-100" />
-			</div>
-
-			<div className="relative z-10 h-full flex items-center justify-center">
-				<div className="text-white text-center">
-					<h1 className="text-5xl font-bold mb-4">Gradient Background</h1>
-					<p className="text-xl">
-						Interactive animated background with mouse tracking
-					</p>
-				</div>
+				<div className="absolute [background:radial-gradient(ellipse_at_top_left,_rgba(97,17,106,0.7)_0,_rgba(97,17,106,0)_50%)_no-repeat]  w-[80%] h-[80%] top-[10%] left-[10%] [transform-origin:center_center] animate-fifth opacity-100" />
 			</div>
 		</div>
 	);
