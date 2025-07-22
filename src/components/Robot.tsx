@@ -1,225 +1,221 @@
 /// <reference types="vite/types/importMeta.d.ts" />
 
 import { useGLTF, useAnimations } from "@react-three/drei";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useMemo } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 
 interface RobotProps {
-	scale?: number;
-	position?: [number, number, number];
-	rotation?: [number, number, number];
+  scale?: number;
+  position?: [number, number, number];
+  rotation?: [number, number, number];
 }
 
 const Robot: React.FC<RobotProps> = (props) => {
-	const groupRef = useRef<THREE.Group>(null);
-	const modelRef = useRef<THREE.Group>(null);
+  // Moved inside component and fixed typo
+  const AUTO_ROTATION_CORNERS = useMemo(() => [
+    { x: -0.25, y: -0.25 },
+    { x: -0.25, y: 0.25 },
+    { x: 0.25, y: 0.25 },
+    { x: 0.25, y: -0.25 },
+  ], []);
 
-	// Load model + animations
-	const { scene, animations } = useGLTF(
-		import.meta.env.BASE_URL + "models/r1.glb"
-	);
-	const { actions } = useAnimations(animations, modelRef);
+  const groupRef = useRef<THREE.Group>(null);
+  const modelRef = useRef<THREE.Group>(null);
 
-	// Center the model within the group
-	const [modelCentered, setModelCentered] = useState(false);
-	useEffect(() => {
-		if (modelRef.current && !modelCentered) {
-			const box = new THREE.Box3().setFromObject(modelRef.current);
-			const center = new THREE.Vector3();
-			box.getCenter(center);
-			modelRef.current.position.sub(center);
-			setModelCentered(true);
-		}
-	}, [scene, modelCentered]);
+  // Static objects for bounding box
+  const bbox = useRef(new THREE.Box3());
+  const center = useRef(new THREE.Vector3());
 
-	// Play animation
-	useEffect(() => {
-		if (actions && Object.keys(actions).length > 0) {
-			const action = actions[Object.keys(actions)[0]];
-			action?.reset().fadeIn(0.5).play();
-		}
-	}, [actions]);
+  // Load model + animations
+  const { scene, animations } = useGLTF(
+    `${import.meta.env.BASE_URL}models/r1.glb`
+  );
 
-	// Rotation logic
-	const baseRotation = useRef({ x: 0, y: 0 });
-	const dragRotation = useRef({ x: 0, y: 0 });
-	const targetRotation = useRef({ x: 0, y: 0 });
-	const isDragging = useRef(false);
-	const isHovering = useRef(false);
-	const lastInteractionTime = useRef(0);
-	const lastPosition = useRef({ x: 0, y: 0 });
-	const mousePosition = useRef({ x: 0, y: 0 });
-	const hoverTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const { actions } = useAnimations(animations, modelRef);
 
-	const { gl } = useThree();
+  // Center the model
+  useEffect(() => {
+    if (!modelRef.current) return;
+    
+    bbox.current.setFromObject(modelRef.current);
+    bbox.current.getCenter(center.current);
+    modelRef.current.position.sub(center.current);
+  }, [scene]);
 
-	// Mouse events with global tracking
-	useEffect(() => {
-		const handlePointerDown = (e: PointerEvent) => {
-			if (e.button !== 0) return;
-			isDragging.current = true;
-			lastInteractionTime.current = Date.now();
-			lastPosition.current = { x: e.clientX, y: e.clientY };
-			gl.domElement.style.cursor = "grabbing";
-		};
+  // Play animation
+  useEffect(() => {
+    if (!actions) return;
+    
+    const actionNames = Object.keys(actions);
+    if (actionNames.length === 0) return;
+    
+    const action = actions[actionNames[0]];
+    action?.reset().fadeIn(0.5).play();
 
-		const handlePointerUp = () => {
-			isDragging.current = false;
-			gl.domElement.style.cursor = "grab";
-		};
+    return () => {
+      action?.fadeOut(0.5);
+    };
+  }, [actions]);
 
-		const handlePointerMove = (e: PointerEvent) => {
-			// Update mouse position
-			lastPosition.current = { x: e.clientX, y: e.clientY };
+  // Rotation system
+  const baseRotation = useRef({ x: 0, y: 0 });
+  const dragRotation = useRef({ x: 0, y: 0 });
+  const targetRotation = useRef({ x: 0, y: 0 });
+  const isDragging = useRef(false);
+  const isHovering = useRef(false);
+  const lastInteractionTime = useRef(Date.now());
+  const lastPosition = useRef({ x: 0, y: 0 });
+  const mousePosition = useRef({ x: 0, y: 0 });
+  const hoverTimeout = useRef<any | null>(null);
 
-			// Convert to normalized device coordinates (-1 to 1)
-			const rect = gl.domElement.getBoundingClientRect();
-			mousePosition.current.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-			mousePosition.current.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+  const { gl } = useThree();
 
-			// Set hover state
-			isHovering.current = true;
-			lastInteractionTime.current = Date.now();
+  // Mouse events
+  useEffect(() => {
+    const handlePointerDown = (e: PointerEvent) => {
+      if (e.button !== 0) return;
+      isDragging.current = true;
+      lastInteractionTime.current = Date.now();
+      lastPosition.current = { x: e.clientX, y: e.clientY };
+      gl.domElement.style.cursor = "grabbing";
+    };
 
-			// Clear any existing timeout
-			if (hoverTimeout.current) {
-				clearTimeout(hoverTimeout.current);
-			}
+    const handlePointerUp = () => {
+      isDragging.current = false;
+      gl.domElement.style.cursor = "grab";
+    };
 
-			// Set timeout to clear hover state after 500ms of no movement
-			hoverTimeout.current = setTimeout(() => {
-				isHovering.current = false;
-			}, 500);
+    const handlePointerMove = (e: PointerEvent) => {
+      // Update mouse position
+      const rect = gl.domElement.getBoundingClientRect();
+      mousePosition.current.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+      mousePosition.current.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
 
-			// Handle dragging rotation
-			if (isDragging.current && groupRef.current) {
-				const deltaX = e.clientX - lastPosition.current.x;
-				const deltaY = e.clientY - lastPosition.current.y;
-				dragRotation.current.y -= deltaX * 0.01;
-				dragRotation.current.x -= deltaY * 0.01;
-				lastPosition.current = { x: e.clientX, y: e.clientY };
-			}
-		};
+      // Update hover state
+      isHovering.current = true;
+      lastInteractionTime.current = Date.now();
 
-		// Add global event listeners
-		gl.domElement.addEventListener("pointerdown", handlePointerDown);
-		window.addEventListener("pointerup", handlePointerUp);
-		window.addEventListener("pointermove", handlePointerMove);
+      // Handle dragging
+      if (isDragging.current) {
+        const deltaX = e.clientX - lastPosition.current.x;
+        const deltaY = e.clientY - lastPosition.current.y;
+        dragRotation.current.y -= deltaX * 0.01;
+        dragRotation.current.x -= deltaY * 0.01;
+      }
+      lastPosition.current = { x: e.clientX, y: e.clientY };
 
-		return () => {
-			gl.domElement.removeEventListener("pointerdown", handlePointerDown);
-			window.removeEventListener("pointerup", handlePointerUp);
-			window.removeEventListener("pointermove", handlePointerMove);
-			if (hoverTimeout.current) {
-				clearTimeout(hoverTimeout.current);
-			}
-		};
-	}, [gl]);
+      // Clear existing timeout
+      if (hoverTimeout.current) clearTimeout(hoverTimeout.current);
+      
+      // Set new timeout
+      hoverTimeout.current = setTimeout(() => {
+        isHovering.current = false;
+      }, 500);
+    };
 
-	// Per-frame updates for rotation
-	useFrame(() => {
-		if (!groupRef.current) return;
+    // Add event listeners
+    const canvas = gl.domElement;
+    canvas.addEventListener("pointerdown", handlePointerDown);
+    window.addEventListener("pointerup", handlePointerUp);
+    window.addEventListener("pointermove", handlePointerMove);
 
-		const resetDelay = 2000;
-		const resetSpeed = 0.05;
-		const now = Date.now();
+    return () => {
+      canvas.removeEventListener("pointerdown", handlePointerDown);
+      window.removeEventListener("pointerup", handlePointerUp);
+      window.removeEventListener("pointermove", handlePointerMove);
+      if (hoverTimeout.current) clearTimeout(hoverTimeout.current);
+    };
+  }, [gl]);
 
-		// Calculate target rotation when hovering (not dragging)
-		if (isHovering.current && !isDragging.current) {
-			// Calculate target rotation based on mouse position
-			const lookSensitivity = 0.25;
-			targetRotation.current.y =
-				(mousePosition.current.x % 10) * lookSensitivity;
-			targetRotation.current.x =
-				(-mousePosition.current.y % 10) * lookSensitivity;
-		}
+  // Frame updates
+  useFrame(() => {
+    if (!groupRef.current) return;
 
-		// Reset + auto-rotation when idle
-		if (
-			!isDragging.current &&
-			!isHovering.current &&
-			now - lastInteractionTime.current > resetDelay
-		) {
-			// Reset drag rotation
-			dragRotation.current.x = THREE.MathUtils.lerp(
-				dragRotation.current.x,
-				0,
-				resetSpeed
-			);
-			dragRotation.current.y = THREE.MathUtils.lerp(
-				dragRotation.current.y,
-				0,
-				resetSpeed
-			);
+    const now = Date.now();
+    const idleTime = now - lastInteractionTime.current;
+    const resetDelay = 2000;
+    const resetSpeed = 0.05;
 
-			// Auto-rotation pattern
-			const time = performance.now() / 1000;
-			const lookAmount = 0.25;
-			const moveDuration = 0.75;
-			const pauseDuration = 3;
-			const phaseDuration = moveDuration + pauseDuration;
-			const totalDuration = phaseDuration * 4;
-			const t = time % totalDuration;
+    // Hover behavior
+    if (isHovering.current && !isDragging.current) {
+      targetRotation.current.y = mousePosition.current.x * 0.25;
+      targetRotation.current.x = -mousePosition.current.y * 0.25;
+    }
 
-			const corners = [
-				{ x: -lookAmount, y: -lookAmount },
-				{ x: -lookAmount, y: lookAmount },
-				{ x: lookAmount, y: lookAmount },
-				{ x: lookAmount, y: -lookAmount },
-			];
+    // Auto-rotation when idle
+    if (!isDragging.current && !isHovering.current && idleTime > resetDelay) {
+      // Reset drag rotation
+      dragRotation.current.x = THREE.MathUtils.lerp(
+        dragRotation.current.x,
+        0,
+        resetSpeed
+      );
+      dragRotation.current.y = THREE.MathUtils.lerp(
+        dragRotation.current.y,
+        0,
+        resetSpeed
+      );
 
-			const phase = Math.floor(t / phaseDuration);
-			const phaseT = t % phaseDuration;
+      // Calculate auto-rotation
+      const timeInSeconds = now / 1000;  // Convert to seconds
+      const moveDuration = 0.75;
+      const pauseDuration = 3;
+      const phaseDuration = moveDuration + pauseDuration;
+      const totalDuration = phaseDuration * 4;
+      const t = timeInSeconds % totalDuration;
 
-			let targetX, targetY;
-			if (phaseT < pauseDuration) {
-				targetX = corners[phase].x;
-				targetY = corners[phase].y;
-			} else {
-				const next = (phase + 1) % 4;
-				const moveT = (phaseT - pauseDuration) / moveDuration;
-				targetX = THREE.MathUtils.lerp(
-					corners[phase].x,
-					corners[next].x,
-					moveT
-				);
-				targetY = THREE.MathUtils.lerp(
-					corners[phase].y,
-					corners[next].y,
-					moveT
-				);
-			}
+      const phase = Math.floor(t / phaseDuration);
+      const phaseT = t % phaseDuration;
 
-			targetRotation.current.x = targetX;
-			targetRotation.current.y = targetY;
-		}
+      const { x: targetX, y: targetY } = (() => {
+        if (phaseT < pauseDuration) {
+          return AUTO_ROTATION_CORNERS[phase];
+        } else {
+          const next = (phase + 1) % 4;
+          const moveT = (phaseT - pauseDuration) / moveDuration;
+          return {
+            x: THREE.MathUtils.lerp(
+              AUTO_ROTATION_CORNERS[phase].x,
+              AUTO_ROTATION_CORNERS[next].x,
+              moveT
+            ),
+            y: THREE.MathUtils.lerp(
+              AUTO_ROTATION_CORNERS[phase].y,
+              AUTO_ROTATION_CORNERS[next].y,
+              moveT
+            ),
+          };
+        }
+      })();
 
-		// Smoothly interpolate base rotation towards target
-		const rotationSpeed = isHovering.current ? 0.2 : 0.05;
-		baseRotation.current.x = THREE.MathUtils.lerp(
-			baseRotation.current.x,
-			targetRotation.current.x,
-			rotationSpeed
-		);
-		baseRotation.current.y = THREE.MathUtils.lerp(
-			baseRotation.current.y,
-			targetRotation.current.y,
-			rotationSpeed
-		);
+      targetRotation.current.x = targetX;
+      targetRotation.current.y = targetY;
+    }
 
-		// Apply rotation to the group
-		groupRef.current.rotation.x =
-			baseRotation.current.x - dragRotation.current.x;
-		groupRef.current.rotation.y =
-			baseRotation.current.y - dragRotation.current.y;
-	});
+    // Apply rotation smoothing
+    const rotationSpeed = isHovering.current ? 0.2 : 0.05;
+    baseRotation.current.x = THREE.MathUtils.lerp(
+      baseRotation.current.x,
+      targetRotation.current.x,
+      rotationSpeed
+    );
+    baseRotation.current.y = THREE.MathUtils.lerp(
+      baseRotation.current.y,
+      targetRotation.current.y,
+      rotationSpeed
+    );
 
-	return (
-		<group ref={groupRef} {...props}>
-			<primitive ref={modelRef} object={scene} />
-		</group>
-	);
+    // Apply final rotation
+    groupRef.current.rotation.x = baseRotation.current.x - dragRotation.current.x;
+    groupRef.current.rotation.y = baseRotation.current.y - dragRotation.current.y;
+  });
+
+  return (
+    <group ref={groupRef} {...props}>
+      <primitive ref={modelRef} object={scene} />
+    </group>
+  );
 };
 
 export default Robot;
