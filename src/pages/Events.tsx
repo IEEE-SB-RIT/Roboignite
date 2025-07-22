@@ -1,10 +1,10 @@
 import EventDatas from "../datas/EventData.ts";
-import { Calendar, FileText, MapPin, Podcast } from "lucide-react";
+import {BadgeIndianRupee, Calendar, FileText, MapPin, Podcast} from "lucide-react";
 import Header from "../components/Header.tsx";
 
 const Events = () => {
 	return (
-		<div className="min-h-screen px-4 py-16 ">
+		<div className="min-h-screen px-4 py-10 ">
 			{/* Header Section */}
 			<Header text={"Events"} />
 
@@ -14,7 +14,7 @@ const Events = () => {
 					return (
 						<div
 							key={i}
-							className="relative w-[350px] h-[420px]  group perspective-1000"
+							className="relative w-[21.875rem] h-[28.125rem] group perspective-[1000px]"
 						>
 							<div className="relative w-full h-full transition-transform duration-700 transform-style preserve-3d group-hover:rotate-y-180">
 								{/* Front Card */}
@@ -23,7 +23,7 @@ const Events = () => {
 										<img
 											src={event.src}
 											alt={event.title}
-											className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+											className="object-fit  w-full h-full transition-transform duration-500 group-hover:scale-105"
 										/>
 										{/* Gradient Overlay */}
 										<div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -51,32 +51,65 @@ const Events = () => {
 										{/* Event Details */}
 										<div className="flex-1 flex flex-col justify-around ">
 											{/* Event Description */}
-											<div className="flex items-start gap-3 p-4  rounded-xl backdrop-blur-sm bg-white/10 hover:bg-white/15 transition-all duration-300">
-												<FileText className="w-5 h-5 text-blue-300 flex-shrink-0 mt-0.5" />
-												<p className="text-xl font-medium text-gray-100 leading-relaxed">
-													{event.eventName}
-												</p>
+											<div
+												className="flex items-start gap-3 p-4  rounded-xl backdrop-blur-sm bg-white/10 hover:bg-white/15 transition-all duration-300">
+												<FileText className="w-5 h-5 text-blue-300 flex-shrink-0 mt-0.5"/>
+												<div className="text-xl font-medium text-gray-100 leading-relaxed">
+													<h1>{event.eventName}</h1>
+
+												</div>
 											</div>
 
 											{/* Date and Venue Row */}
 											<div className="flex gap-3">
-												<div className="flex items-center gap-3 p-4  flex-1 min-w-0 rounded-xl backdrop-blur-sm bg-white/10 hover:bg-white/15 transition-all duration-300">
-													<MapPin className="w-5 h-5 text-red-300 flex-shrink-0" />
+												<div
+													className="flex items-center gap-3 p-4  flex-1 min-w-0 rounded-xl backdrop-blur-sm bg-white/10 hover:bg-white/15 transition-all duration-300">
+													<MapPin className="w-5 h-5 text-red-300 flex-shrink-0"/>
 													<p className="text-sm font-medium text-gray-100 truncate">
 														{event.venue}
 													</p>
 												</div>
 											</div>
+											<div className="flex flex-col gap-y-3">
+												{/* Speakers */}
+												{!!event.speakers && (
+													<div
+														className="flex items-start gap-3 p-4 rounded-xl backdrop-blur-sm bg-white/10 hover:bg-white/15 transition-all duration-300">
+														<Podcast
+															className="w-5 h-5 text-green-300 flex-shrink-0 mt-0.5"/>
+														<p className="text-sm font-medium text-gray-100 leading-relaxed">
+															{event.speakers}
+														</p>
+													</div>
+												)}
 
-											{/* Speakers */}
-											<div className="flex items-start gap-3 p-4  rounded-xl backdrop-blur-sm bg-white/10 hover:bg-white/15 transition-all duration-300">
-												<Podcast className="w-5 h-5 text-green-300 flex-shrink-0 mt-0.5" />
-												<p className="text-sm font-medium text-gray-100 leading-relaxed">
-													{event.speakers}
-												</p>
+												{/* Price */}
+												{!!event.price && (
+													<div
+														className="flex items-start gap-3 p-4 rounded-xl backdrop-blur-sm bg-white/10 hover:bg-white/15 transition-all duration-300">
+														<BadgeIndianRupee
+															className="w-5 h-5 text-green-300 flex-shrink-0 mt-0.5"/>
+														<div
+															className="text-sm font-medium text-gray-100 leading-relaxed space-y-1">
+															{event.price.map((line, idx) => (
+																<p key={idx}>{line}</p>
+															))}
+														</div>
+
+													</div>
+												)}
 											</div>
-											<div className="flex items-center justify-center w-full p-4 rounded-xl bg-[#e834eb] hover:bg-[#e834eb]/30 hover:backdrop-blur-md hover:border hover:border-white/20 transition-all duration-300 hover:cursor-pointer">
-												<button className="text-xl ">Get Tickets</button>
+
+
+											<div
+												className="flex items-center justify-center w-full p-4 rounded-xl bg-[#e834eb] hover:bg-[#e834eb]/30 hover:backdrop-blur-md hover:border hover:border-white/20 transition-all duration-300 hover:cursor-pointer">
+												{event.form ? (
+													<a href={event.formLink} target="_blank" rel="noopener noreferrer">
+														<button className="text-xl cursor-pointer">Register Now</button>
+													</a>
+												) : (
+													<button className="text-xl">Get Tickets</button>
+												)}
 											</div>
 										</div>
 									</div>
