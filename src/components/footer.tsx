@@ -65,9 +65,9 @@ const Footer = () => {
 									viewBox="0 0 24 24"
 									fill="none"
 									stroke="currentColor"
-									stroke-width="2"
-									stroke-linecap="round"
-									stroke-linejoin="round"
+									strokeWidth="2"
+									strokeLinecap="round"
+									strokeLinejoin="round"
 									className="hover:scale-110 hover:text-amber-400 transition-transform duration-200"
 									onClick={handleMail}
 								>
@@ -138,9 +138,9 @@ const Footer = () => {
 											viewBox="0 0 24 24"
 											fill="none"
 											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
+											strokeWidth="2"
+											strokeLinecap="round"
+											strokeLinejoin="round"
 											className="hover:scale-105 hover:text-amber-400 transition-transform duration-200"
 										>
 											<path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6" />
@@ -164,9 +164,9 @@ const Footer = () => {
 											viewBox="0 0 24 24"
 											fill="none"
 											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
+											strokeWidth="2"
+											strokeLinecap="round"
+											strokeLinejoin="round"
 											className="hover:scale-105 hover:text-amber-400 transition-transform duration-200"
 										>
 											<path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6" />
