@@ -10,7 +10,7 @@ const Footer = () => {
 
 	return (
 		<>
-			<footer className=" bg-gradient-to-t from-black to-transparent border-[0.1px] text-zinc-300 border-gray-500 backdrop-blur-xl  w-full rounded-t-3xl px-6 py-10">
+			<footer className=" bg-gradient-to-t from-black to-transparent border-[1px] text-zinc-300 border-gray-500 backdrop-blur-xl w-full rounded-t-3xl px-6 py-10">
 				<div className="flex flex-col gap-8 md:flex-row justify-evenly text-center md:text-left">
 					<div>
 						<FooterHeading text="Stay updated!"></FooterHeading>
@@ -191,9 +191,11 @@ const Footer = () => {
 					</div>
 				</div>
 
-				<div className="text-sm text-gray-400 font-josefin text-center mt-10 border-t border-gray-700 pt-4">
-					&copy; {new Date().getFullYear()} IEEE RAS SBC RIT. All rights
-					reserved.
+				<div className="text-sm text-gray-400 font-josefin text-center flex items-center justify-center mt-10 border-t border-gray-700 pt-8">
+					<p>
+						&copy; {new Date().getFullYear()} IEEE RAS SBC RIT. All rights
+						reserved.
+					</p>
 				</div>
 
 				{/* <div className="footer-map">

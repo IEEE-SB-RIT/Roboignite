@@ -12,18 +12,20 @@ const showRealEvents = true;
 
 export default function App() {
 	return (
-		<>
+		<div className="flex flex-col min-h-screen">
 			<Navbar />
 
 			<Routes>
 				<Route path="/" element={<Landing />} />
 				<Route path="/about" element={<About />} />
-				<Route path="/events"
-					   element={showRealEvents ? <Events /> : <ComingSoonEvents/>}/>
+				<Route
+					path="/events"
+					element={showRealEvents ? <Events /> : <ComingSoonEvents />}
+				/>
 				<Route path="/gallery" element={<Gallery />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 			<Footer />
-		</>
+		</div>
 	);
 }
