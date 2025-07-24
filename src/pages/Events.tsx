@@ -53,12 +53,12 @@ const Events = () => {
                                             </div>
 
                                             {/* Event Details */}
-                                            <div className="flex-1 flex flex-col justify-center">
+                                            <div className="h-full flex flex-col justify-between pt-6">
                                                 <div
-                                                    className="p-4  rounded-xl backdrop-blur-sm bg-white/10 hover:bg-white/15 transition-all duration-300 mb-5">
+                                                    className="p-4  rounded-xl backdrop-blur-sm bg-white/10 hover:bg-white/15 transition-all duration-300 ">
                                                     <div className="flex w-full justify-between items-start">
                                                         <div
-                                                            className="text-xl font-medium text-gray-100 leading-relaxed capitalize">
+                                                            className="text-xl font-medium text-gray-100 leading-relaxed capitalize ">
                                                             <h1>{event.eventName.toLowerCase()}</h1>
                                                         </div>
                                                         <h1 className="text-[12px] border bg-black/30 mt-2 rounded-full px-2 py-0 opacity-80">
@@ -100,7 +100,7 @@ const Events = () => {
                                                             {/*<BadgeIndianRupee*/}
                                                             {/*    className="w-5 h-5 text-green-300 flex-shrink-0 mt-0.5"/>*/}
                                                             <div
-                                                                className="text-sm text-gray-100 leading-relaxed space-y-2 w-full">
+                                                                className="text-sm text-gray-100 leading-relaxed space-y-2 w-full ">
                                                                 {event.price.map((line, idx) => {
                                                                     const split = line.split(" - ");
                                                                     if(split.length ===2) {
@@ -125,16 +125,25 @@ const Events = () => {
 
                                                 <div
                                                     className="flex items-center justify-center w-full py-2 rounded-xl text-md  bg-[#e834eb] hover:bg-[#e834eb]/30 hover:backdrop-blur-md hover:border hover:border-white/20 transition-all duration-300 hover:cursor-pointer">
-                                                    {event.form ? (
-                                                        <a href={event.formLink} target="_blank"
-                                                           rel="noopener noreferrer">
-                                                            <button className="cursor-pointer">
-                                                                Register Now
-                                                            </button>
-                                                        </a>
-                                                    ) : (
-                                                        <button>Get Tickets</button>
+                                                    {event.isFree ?( <a href={event.formLink} target="_blank"
+                                                                       rel="noopener noreferrer">
+                                                        <button className="cursor-pointer">
+                                                           See you there
+                                                        </button>
+                                                    </a>
+                                                    ):(
+                                                        event.form ? (
+                                                                <a href={event.formLink} target="_blank"
+                                                                   rel="noopener noreferrer">
+                                                                    <button className="cursor-pointer">
+                                                                        Register Now
+                                                                    </button>
+                                                                </a>
+                                                            ) : (
+                                                                <button>Get Tickets</button>
+                                                            )
                                                     )}
+
                                                 </div>
                                             </div>
                                         </div>

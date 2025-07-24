@@ -13,6 +13,7 @@ interface EventData {
 	form?: boolean;
 	formLink?: string;
 	eventComingsoon?: boolean;
+	isFree?: boolean;
 }
 
 const basePath = import.meta.env.BASE_URL + "roboEvents/";
@@ -21,8 +22,8 @@ const EventDatas: EventData[] = [
 	{
 		id: 1,
 		title: "LEAP – Learn. Experiment. Apply. Perform.",
-		eventName: "LEAP 2025",
-		type: "Pre-Event",
+		eventName: "LEAP ",
+		type: "Course",
 		venue: "Online",
 		date: "2025-08-01",
 		salutaion: "⚡ LEAP – Learn. Experiment. Apply. Perform.",
@@ -39,7 +40,7 @@ const EventDatas: EventData[] = [
 	{
 		id: 2,
 		title: "INSPIRE – School Outreach Programme",
-		eventName: "INSPIRE 2025",
+		eventName: "INSPIRE ",
 		type: "Outreach",
 		venue: "PTM Govt HSS, Velloor",
 		date: "2025-07-25",
@@ -50,6 +51,7 @@ const EventDatas: EventData[] = [
 		src: `${basePath}event_02.webp`,
 		form: false,
 		formLink: "",
+		isFree: true,
 	},
 	{
 		id: 3,
