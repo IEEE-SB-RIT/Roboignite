@@ -38,18 +38,18 @@ const EventDatas: EventData[] = [
 
 	{
 		id: 2,
-		title: "Coming Soon",
-		eventName: "Coming Soon",
-		type: "Unveiling Soon",
-		venue: "",
-		date: "",
-		salutaion: "",
-		speakers: "",
-		price: [],
+		title: "INSPIRE – School Outreach Programme",
+		eventName: "INSPIRE 2025",
+		type: "Outreach",
+		venue: "PTM Govt HSS, Velloor",
+		date: "2025-07-25",
+		salutaion: "🤖 INSPIRE – Igniting Young Minds with Robotics!",
+		price: [
+			"Free Entry – For School Students",
+		],
+		src: `${basePath}event_02.webp`,
 		form: false,
 		formLink: "",
-		src: `${basePath}event_soon.webp`,
-		eventComingsoon: true,
 	},
 	{
 		id: 3,
