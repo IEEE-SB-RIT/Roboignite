@@ -1,6 +1,7 @@
 import EventDatas from "../datas/EventData.ts";
 import { Calendar, MapPin, Podcast} from "lucide-react";
 import Header from "../components/Header.tsx";
+import LinkButton from "../components/linkButton.tsx";
 
 const Events = () => {
     return (
@@ -123,28 +124,17 @@ const Events = () => {
                                                     )}
                                                 </div>
 
-                                                <div
-                                                    className="flex items-center justify-center w-full py-2 rounded-xl text-md  bg-[#e834eb] hover:bg-[#e834eb]/30 hover:backdrop-blur-md hover:border hover:border-white/20 transition-all duration-300 hover:cursor-pointer">
-                                                    {event.isFree ?( <a href={event.formLink} target="_blank"
-                                                                       rel="noopener noreferrer">
-                                                        <button className="cursor-pointer">
-                                                           See you there
-                                                        </button>
-                                                    </a>
+
+                                                    {event.isFree ?( <LinkButton content={"See you There"} link={"#"}/>
+
                                                     ):(
                                                         event.form ? (
-                                                                <a href={event.formLink} target="_blank"
-                                                                   rel="noopener noreferrer">
-                                                                    <button className="cursor-pointer">
-                                                                        Register Now
-                                                                    </button>
-                                                                </a>
+                                                            <LinkButton link={event.formLink} content="Register Now" />
                                                             ) : (
-                                                                <button>Get Tickets</button>
+                                                            <LinkButton link={"#"} content="Get Tickets" />
                                                             )
                                                     )}
 
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
