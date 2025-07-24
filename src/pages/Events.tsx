@@ -103,10 +103,19 @@ const Events = () => {
                                                                 className="text-sm text-gray-100 leading-relaxed space-y-2 w-full">
                                                                 {event.price.map((line, idx) => {
                                                                     const split = line.split(" - ");
+                                                                    if(split.length ===2) {
                                                                     return <div key={idx} className="text-sm text-gray-100 w-full flex justify-between">
                                                                         <span>{split[0]}</span>
                                                                         <span>{split[1]}{split[1].toLowerCase() != "free" && "₹"}</span>
                                                                     </div>
+                                                                    }
+                                                                    else{
+                                                                        return (
+                                                                            <div key={idx} className="text-sm text-gray-100 w-full text-center">
+                                                                                {line}
+                                                                            </div>
+                                                                        );
+                                                                    }
                                                                 })}
                                                             </div>
 
