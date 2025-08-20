@@ -19,13 +19,29 @@ const Button = ({ text, isNavigate, link }: ButtonProps) => {
 	return (
 		<button
 			onClick={handleClick}
-			className="text-white text-lg font-semibold font-poppins px-6 py-3 rounded-xl transition-all duration-300 shadow-md hover:brightness-110 cursor-pointer"
+			className="
+    relative
+    text-white text-lg font-semibold font-poppins
+    px-6 py-3 rounded-xl
+    transition-all duration-300
+    shadow-lg
+    hover:scale-105
+    active:scale-95
+    cursor-pointer
+    overflow-hidden
+  "
 			style={{
-				background: "linear-gradient(275deg, #6f1f8f 50%, #4c1165 100%)",
+				background: "linear-gradient(275deg, #6f1f8f 0%, #4c1165 100%)",
 			}}
 		>
-			{text}
+			{/* Ripple Effect */}
+			<span
+				className="absolute inset-0 bg-white/10 opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-xl"></span>
+
+			{/* Button Text */}
+			<span className="relative z-10">{text}</span>
 		</button>
+
 	);
 };
 
