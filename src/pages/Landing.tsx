@@ -98,22 +98,34 @@
                 </div>
                 {showModal && (
                     <div
-                        className="fixed inset-0 z-50 flex items-center justify-center transition-opacity backdrop-blur-sm duration-500 ease-in-out"
+                        className="fixed inset-0 z-50 flex items-center justify-center transition-opacity backdrop-blur-sm duration-500 ease-in-out px-4"
                         onClick={() => setShowModal(false)}
                     >
                         <div
-                            className="relative bg-white/20 backdrop-blur-2xl rounded-2xl shadow-lg w-11/12 max-w-sm sm:max-w-md  sm:p-6 text-center animate-scaleIn border-2 border-white/50"
+                            className="relative bg-white/20 backdrop-blur-2xl rounded-2xl shadow-lg
+                                 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg
+                                 mx-4 sm:mx-6 md:mx-8
+                                 p-4 sm:p-6 md:p-8
+                                 text-center animate-scaleIn border-2 border-white/50
+                                 min-h-[200px] sm:min-h-[220px] md:min-h-[240px]
+                                 flex flex-col justify-center gap-3 sm:gap-4 md:gap-6"
                             onClick={(e) => e.stopPropagation()}
                         >
                             <button
-                                className="absolute top-2 right-2 text-white text-3xl sm:text-4xl font-bold hover:text-red-500 cursor-pointer z-50"
+                                className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4
+                                     text-white text-2xl sm:text-3xl md:text-4xl font-bold
+                                     hover:text-red-500 cursor-pointer z-50
+                                     transition-colors duration-200
+                                     w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12
+                                     flex items-center justify-center"
                                 onClick={() => setShowModal(false)}
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    width="36"
-                                    height="36"
+                                    width="100%"
+                                    height="100%"
                                     viewBox="0 0 24 24"
+                                    className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9"
                                 >
                                     <path
                                         fill="currentColor"
@@ -121,13 +133,21 @@
                                     />
                                 </svg>
                             </button>
-                            <h2 className="text-xl sm:text-3xl font-bold text-white tracking-wide drop-shadow-lg">
+
+                            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl
+                                     font-bold text-white tracking-wide drop-shadow-lg
+                                     leading-tight px-2">
                                 Early Bird Tickets Out Now!
                             </h2>
-                            <p className="text-gray-200 mt-2 sm:mt-4 text-sm sm:text-lg">
+
+                            <p className="text-gray-200 text-xs sm:text-sm md:text-base lg:text-lg
+                                    px-2 leading-relaxed">
                                 Get your tickets before they are gone!
                             </p>
-                            <Button text={"Get Tickets"} isNavigate={false} link={"#"}/>
+
+                            <div className="mt-2 sm:mt-3 md:mt-4">
+                                <Button text={"Get Tickets"} isNavigate={false} link={"#"}/>
+                            </div>
                         </div>
                     </div>
                 )}
