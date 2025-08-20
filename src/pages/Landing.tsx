@@ -146,7 +146,7 @@
                             </p>
 
                             <div className="mt-2 sm:mt-3 md:mt-4">
-                                <Button text={"Get Tickets"} isNavigate={false} link={"#"}/>
+                                <Button text={"Get Tickets"} isNavigate={false} link={"https://www.yepdesk.com/roboignite"}/>
                             </div>
                         </div>
                     </div>
