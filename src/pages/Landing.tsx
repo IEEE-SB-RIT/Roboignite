@@ -95,6 +95,9 @@
                         src={import.meta.env.BASE_URL + "RoboIgnite.webp"}
                         alt="RoboIgnite Logo"
                     />
+                    <div className="mt-6 z-[50]">
+                        <Button text={"Grab Your Tickets!"} isNavigate={false} link={"https://www.yepdesk.com/roboignite"}/>
+                    </div>
                 </div>
                 {showModal && (
                     <div
