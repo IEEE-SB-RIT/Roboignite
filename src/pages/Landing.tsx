@@ -1,4 +1,4 @@
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {Typewriter} from "react-simple-typewriter";
 import RobotCanvas from "../components/RobotCanvas";
 import GradientBackground from "../components/gradientBg";
@@ -6,7 +6,24 @@ import GradientBackground from "../components/gradientBg";
 const Landing = () => {
     const el = useRef(null);
     const [showModal, setShowModal] = useState(false);
+    useEffect(() => {
+        // This useEffect handles the modal's appearance and disappearance.
+        // It runs only once when the component mounts.
+        const showModalTimer = setTimeout(() => {
+            setShowModal(true);
+        }, 0); // Shows the modal after 3 seconds
+
+        const hideModalTimer = setTimeout(() => {
+            setShowModal(false);
+        }, 5000);
+
+        return () => {
+            clearTimeout(showModalTimer);
+            clearTimeout(hideModalTimer);
+        };
+    }, []);
     return (
+
         <div className="w-full flex-grow  my-5 flex flex-col md:flex-row items-center justify-center ">
             <div className="absolute z-0 h-full w-full">
                 <GradientBackground/>
@@ -52,6 +69,20 @@ const Landing = () => {
                     alt="RoboIgnite Logo"
                 />
             </div>
+            {showModal && (
+                <div
+                    className="fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-500 ease-in-out">
+                    <div
+                        className="bg-white/20 backdrop-blur-2xl rounded-2xl shadow-lg max-w-md w-full p-6 text-center animate-scaleIn border-2 border-white/50">
+                        <h2 className="text-3xl font-bold text-white tracking-wide drop-shadow-lg">
+                            Early Bird Tickets Out Now!
+                        </h2>
+                        <p className="text-gray-200 mt-4 text-lg">
+                            Get your tickets before they are gone!
+                        </p>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
