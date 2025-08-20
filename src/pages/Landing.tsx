@@ -93,17 +93,17 @@ const Landing = () => {
             {showModal && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center transition-opacity backdrop-blur-sm duration-500 ease-in-out" onClick={() => setShowModal(false)} >
                     <div
-                        className="relative bg-white/20 backdrop-blur-2xl rounded-2xl shadow-lg max-w-md w-full p-6 text-center animate-scaleIn border-2 border-white/50" onClick={(e) => e.stopPropagation()}
-                    >
+                        className="relative bg-white/20 backdrop-blur-2xl rounded-2xl shadow-lg max-w-md w-full p-6 text-center animate-scaleIn border-2 border-white/50 "
+                    onClick={(e)=>e.stopPropagation()}>
 
                         <button
-                            className="absolute top-4 right-4 text-white text-3xl font-bold hover:text-red-500 cursor-pointer"
+                            className="absolute top-4 right-4 mr-1 sm:mr-0 text-white text-3xl sm:text-4xl font-bold hover:text-red-500 cursor-pointer z-50"
                             onClick={() => setShowModal(false)}
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                width="32"
-                                height="32"
+                                width="36" // Same size as hamburger
+                                height="36" // Same size as hamburger
                                 viewBox="0 0 24 24"
                             >
                                 <path
@@ -112,6 +112,7 @@ const Landing = () => {
                                 />
                             </svg>
                         </button>
+                        
 
                         <h2 className="text-3xl font-bold text-white tracking-wide drop-shadow-lg">
                             Early Bird Tickets Out Now!
