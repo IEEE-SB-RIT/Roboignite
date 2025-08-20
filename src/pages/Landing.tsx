@@ -1,140 +1,139 @@
-import {useEffect, useRef, useState} from "react";
-import {Typewriter} from "react-simple-typewriter";
-import RobotCanvas from "../components/RobotCanvas";
-import GradientBackground from "../components/gradientBg";
-import Button from "../components/Button.tsx";
+    import {useEffect, useRef, useState} from "react";
+    import {Typewriter} from "react-simple-typewriter";
+    import RobotCanvas from "../components/RobotCanvas";
+    import GradientBackground from "../components/gradientBg";
+    import Button from "../components/Button.tsx";
 
-const Landing = () => {
-    const el = useRef(null);
-    const [showModal, setShowModal] = useState(false);
-    useEffect(() => {
-        const modalShown = sessionStorage.getItem("showModal");
+    const Landing = () => {
+        const el = useRef(null);
+        const [showModal, setShowModal] = useState(false);
+        useEffect(() => {
+            const modalShown = sessionStorage.getItem("showModal");
 
-        if (!modalShown) {
-            // This useEffect handles the modal's appearance and disappearance.
-            // It runs only once when the component mounts.
-            const showModalTimer = setTimeout(() => {
-                setShowModal(true);
-                sessionStorage.setItem("showModal", "true");
-            }, 0); // Shows the modal after 3 seconds
+            if (!modalShown) {
+                // This useEffect handles the modal's appearance and disappearance.
+                // It runs only once when the component mounts.
+                const showModalTimer = setTimeout(() => {
+                    setShowModal(true);
+                    sessionStorage.setItem("showModal", "true");
+                }, 0); // Shows the modal after 3 seconds
 
-            const hideModalTimer = setTimeout(() => {
-                setShowModal(false);
-            }, 5000);
+                const hideModalTimer = setTimeout(() => {
+                    setShowModal(false);
+                }, 5000);
+
+                return () => {
+                    clearTimeout(showModalTimer);
+                    clearTimeout(hideModalTimer);
+                };
+            }
+        }, []);
+        useEffect(() => {
+            //for disabling scroll when preview is present
+            if (showModal) {
+                document.body.style.overflow = "hidden";
+            } else {
+                document.body.style.overflow = "auto";
+            }
 
             return () => {
-                clearTimeout(showModalTimer);
-                clearTimeout(hideModalTimer);
+                document.body.style.overflow = "auto";
             };
-        }
-    }, []);
-    useEffect(() => {
-        //for disabling scroll when preview is present
-        if (showModal) {
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "auto";
-        }
+        }, [showModal]);
+        useEffect(() => {
+            const handleEsc = (e: KeyboardEvent) => {
+                if (e.key === "Escape" && showModal) {
+                    setShowModal(false);
+                }
+            };
+            window.addEventListener("keydown", handleEsc);
+            return () => window.removeEventListener("keydown", handleEsc);
+        }, [showModal]);
+        return (
 
-        return () => {
-            document.body.style.overflow = "auto";
-        };
-    }, [showModal]);
-    useEffect(() => {
-        const handleEsc = (e: KeyboardEvent) => {
-            if (e.key === "Escape" && showModal) {
-                setShowModal(false);
-            }
-        };
-        window.addEventListener("keydown", handleEsc);
-        return () => window.removeEventListener("keydown", handleEsc);
-    }, [showModal]);
-    return (
-
-        <div className="w-full flex-grow  my-5 flex flex-col md:flex-row items-center justify-center ">
-            <div className="absolute z-0 h-full w-full">
-                <GradientBackground/>
-                {/* <SpaceBg
-					text=""
-					className="absolute inset-0 h-full w-full"
-					starCount={500}
-					speed={1}
-				/> */}
-            </div>
-            <div className="">
-                <div className="min-w-1/3 flex flex-col items-center justify-center">
-                    <RobotCanvas/>
-
-                    <p className="font-courier text-xs m-5 text-zinc-400 animate-bounce">
-                        Hover/click around!
-                    </p>
+            <div className="w-full flex-grow  my-5 flex flex-col md:flex-row items-center justify-center ">
+                <div className="absolute z-0 h-full w-full">
+                    <GradientBackground/>
+                    {/* <SpaceBg
+                        text=""
+                        className="absolute inset-0 h-full w-full"
+                        starCount={500}
+                        speed={1}
+                    /> */}
                 </div>
-            </div>
-            <div className="w-full  gap-8 md:w-1/2 flex flex-col items-center justify-start ">
-                <span ref={el}/>
-                <div className="z-10">
-                    <div
-                        className=" bg-black rounded-2xl w-80 lg:w-[30rem] p-4  border-2 inset-shadow-sm inset-shadow-white/80 font-courier text-white text-center font-thin text-[1.5rem] md:text-3xl lg:text-4xl">
-                        <span className="text-green-600 font-bold font-courier">./</span>
-                        <Typewriter
-                            words={["IEEE RAS SBC RIT", "presents"]}
-                            loop={false}
-                            cursor
-                            cursorStyle="_"
-                            cursorBlinking
-                            cursorColor="#00ff00"
-                            typeSpeed={50}
-                            deleteSpeed={70}
-                            delaySpeed={1500}
-                        />
-                    </div>
-                </div>
+                <div className="">
+                    <div className="min-w-1/3 flex flex-col items-center justify-center">
+                        <RobotCanvas/>
 
-                <img
-                    className="bg-[url('/logoBg.webp')] animate-slowBobbing duration-1000 inset-shadow-sm inset-shadow-indigo-400 bg-cover bg-no-repeat bg-center  mx-auto w-[18rem] md:w-[30rem] my-5 shadow-[5px_15px_30px_0.1px_rgba(0,0,0,0.5)] shadow-violet-500/20 border-b-8 border-r-8 border-black  rounded-3xl py-5 px-10"
-                    src={import.meta.env.BASE_URL + "RoboIgnite.webp"}
-                    alt="RoboIgnite Logo"
-                />
-            </div>
-            {showModal && (
-                <div
-                    className="fixed inset-0 z-50 flex items-center justify-center transition-opacity backdrop-blur-sm duration-500 ease-in-out"
-                    onClick={() => setShowModal(false)}>
-                    <div
-                        className="relative bg-white/20 backdrop-blur-2xl rounded-2xl shadow-lg max-w-md w-full p-6 text-center animate-scaleIn border-2 border-white/50 "
-                        onClick={(e) => e.stopPropagation()}>
-
-                        <button
-                            className="absolute top-4 right-4 mr-1 sm:mr-0 text-white text-3xl sm:text-4xl font-bold hover:text-red-500 cursor-pointer z-50"
-                            onClick={() => setShowModal(false)}
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="36" // Same size as hamburger
-                                height="36" // Same size as hamburger
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    fill="currentColor"
-                                    d="m12 13.4l-4.9 4.9q-.275.275-.7.275t-.7-.275t-.275-.7t.275-.7l4.9-4.9l-4.9-4.9q-.275-.275-.275-.7t.275-.7t.7-.275t.7.275l4.9 4.9l4.9-4.9q.275-.275.7-.275t.7.275t.275.7t-.275.7L13.4 12l4.9 4.9q.275.275.275.7t-.275.7t-.7.275t-.7-.275z"
-                                />
-                            </svg>
-                        </button>
-
-
-                        <h2 className="text-3xl font-bold text-white tracking-wide drop-shadow-lg">
-                            Early Bird Tickets Out Now!
-                        </h2>
-                        <p className="text-gray-200 mt-4 text-lg">
-                            Get your tickets before they are gone!
+                        <p className="font-courier text-xs m-5 text-zinc-400 animate-bounce">
+                            Hover/click around!
                         </p>
-                        <Button text={"Get Tickets"} isNavigate={false} link={"#"}/>
                     </div>
                 </div>
-            )}
+                <div className="w-full  gap-8 md:w-1/2 flex flex-col items-center justify-start ">
+                    <span ref={el}/>
+                    <div className="z-10">
+                        <div
+                            className=" bg-black rounded-2xl w-80 lg:w-[30rem] p-4  border-2 inset-shadow-sm inset-shadow-white/80 font-courier text-white text-center font-thin text-[1.5rem] md:text-3xl lg:text-4xl">
+                            <span className="text-green-600 font-bold font-courier">./</span>
+                            <Typewriter
+                                words={["IEEE RAS SBC RIT", "presents"]}
+                                loop={false}
+                                cursor
+                                cursorStyle="_"
+                                cursorBlinking
+                                cursorColor="#00ff00"
+                                typeSpeed={50}
+                                deleteSpeed={70}
+                                delaySpeed={1500}
+                            />
+                        </div>
+                    </div>
 
-        </div>
-    );
-};
+                    <img
+                        className="bg-[url('/logoBg.webp')] animate-slowBobbing duration-1000 inset-shadow-sm inset-shadow-indigo-400 bg-cover bg-no-repeat bg-center  mx-auto w-[18rem] md:w-[30rem] my-5 shadow-[5px_15px_30px_0.1px_rgba(0,0,0,0.5)] shadow-violet-500/20 border-b-8 border-r-8 border-black  rounded-3xl py-5 px-10"
+                        src={import.meta.env.BASE_URL + "RoboIgnite.webp"}
+                        alt="RoboIgnite Logo"
+                    />
+                </div>
+                {showModal && (
+                    <div
+                        className="fixed inset-0 z-50 flex items-center justify-center transition-opacity backdrop-blur-sm duration-500 ease-in-out"
+                        onClick={() => setShowModal(false)}
+                    >
+                        <div
+                            className="relative bg-white/20 backdrop-blur-2xl rounded-2xl shadow-lg w-11/12 max-w-sm sm:max-w-md  sm:p-6 text-center animate-scaleIn border-2 border-white/50"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <button
+                                className="absolute top-2 right-2 text-white text-3xl sm:text-4xl font-bold hover:text-red-500 cursor-pointer z-50"
+                                onClick={() => setShowModal(false)}
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="36"
+                                    height="36"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        fill="currentColor"
+                                        d="m12 13.4l-4.9 4.9q-.275.275-.7.275t-.7-.275t-.275-.7t.275-.7l4.9-4.9l-4.9-4.9q-.275-.275-.275-.7t.275-.7t.7-.275t.7.275l4.9 4.9l4.9-4.9q.275-.275.7-.275t.7.275t.275.7t-.275.7L13.4 12l4.9 4.9q.275.275.275.7t-.275.7t-.7.275t-.7-.275z"
+                                    />
+                                </svg>
+                            </button>
+                            <h2 className="text-xl sm:text-3xl font-bold text-white tracking-wide drop-shadow-lg">
+                                Early Bird Tickets Out Now!
+                            </h2>
+                            <p className="text-gray-200 mt-2 sm:mt-4 text-sm sm:text-lg">
+                                Get your tickets before they are gone!
+                            </p>
+                            <Button text={"Get Tickets"} isNavigate={false} link={"#"}/>
+                        </div>
+                    </div>
+                )}
 
-export default Landing;
+            </div>
+        );
+    };
+
+    export default Landing;
