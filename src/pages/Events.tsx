@@ -128,7 +128,7 @@ const Events = () => {
                                                     {event.isFree ?( <LinkButton content={"See you There"} link={"#"}/>
 
                                                     ):(
-                                                        event.form ? (
+                                                        event.formLink ? (
                                                             <LinkButton link={event.formLink} content="Register Now" />
                                                             ) : (
                                                             <LinkButton link={"https://www.yepdesk.com/roboignite"} content="Get Tickets" />
