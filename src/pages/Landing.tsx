@@ -8,20 +8,25 @@ const Landing = () => {
     const el = useRef(null);
     const [showModal, setShowModal] = useState(false);
     useEffect(() => {
-        // This useEffect handles the modal's appearance and disappearance.
-        // It runs only once when the component mounts.
-        const showModalTimer = setTimeout(() => {
-            setShowModal(true);
-        }, 0); // Shows the modal after 3 seconds
+        const modalShown = sessionStorage.getItem("showModal");
 
-        const hideModalTimer = setTimeout(() => {
-            setShowModal(false);
-        }, 5000);
+        if (!modalShown) {
+            // This useEffect handles the modal's appearance and disappearance.
+            // It runs only once when the component mounts.
+            const showModalTimer = setTimeout(() => {
+                setShowModal(true);
+                sessionStorage.setItem("showModal", "true");
+            }, 0); // Shows the modal after 3 seconds
 
-        return () => {
-            clearTimeout(showModalTimer);
-            clearTimeout(hideModalTimer);
-        };
+            const hideModalTimer = setTimeout(() => {
+                setShowModal(false);
+            }, 5000);
+
+            return () => {
+                clearTimeout(showModalTimer);
+                clearTimeout(hideModalTimer);
+            };
+        }
     }, []);
     useEffect(() => {
         //for disabling scroll when preview is present
@@ -92,10 +97,12 @@ const Landing = () => {
                 />
             </div>
             {showModal && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center transition-opacity backdrop-blur-sm duration-500 ease-in-out" onClick={() => setShowModal(false)} >
+                <div
+                    className="fixed inset-0 z-50 flex items-center justify-center transition-opacity backdrop-blur-sm duration-500 ease-in-out"
+                    onClick={() => setShowModal(false)}>
                     <div
                         className="relative bg-white/20 backdrop-blur-2xl rounded-2xl shadow-lg max-w-md w-full p-6 text-center animate-scaleIn border-2 border-white/50 "
-                    onClick={(e)=>e.stopPropagation()}>
+                        onClick={(e) => e.stopPropagation()}>
 
                         <button
                             className="absolute top-4 right-4 mr-1 sm:mr-0 text-white text-3xl sm:text-4xl font-bold hover:text-red-500 cursor-pointer z-50"
@@ -113,7 +120,7 @@ const Landing = () => {
                                 />
                             </svg>
                         </button>
-                        
+
 
                         <h2 className="text-3xl font-bold text-white tracking-wide drop-shadow-lg">
                             Early Bird Tickets Out Now!
