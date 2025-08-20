@@ -22,6 +22,27 @@ const Landing = () => {
             clearTimeout(hideModalTimer);
         };
     }, []);
+    useEffect(() => {
+        //for disabling scroll when preview is present
+        if (showModal) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+
+        return () => {
+            document.body.style.overflow = "auto";
+        };
+    }, [showModal]);
+    useEffect(() => {
+        const handleEsc = (e: KeyboardEvent) => {
+            if (e.key === "Escape" && showModal) {
+                setShowModal(false);
+            }
+        };
+        window.addEventListener("keydown", handleEsc);
+        return () => window.removeEventListener("keydown", handleEsc);
+    }, [showModal]);
     return (
 
         <div className="w-full flex-grow  my-5 flex flex-col md:flex-row items-center justify-center ">
@@ -70,10 +91,28 @@ const Landing = () => {
                 />
             </div>
             {showModal && (
-                <div
-                    className="fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-500 ease-in-out">
+                <div className="fixed inset-0 z-50 flex items-center justify-center transition-opacity backdrop-blur-sm duration-500 ease-in-out" onClick={() => setShowModal(false)} >
                     <div
-                        className="bg-white/20 backdrop-blur-2xl rounded-2xl shadow-lg max-w-md w-full p-6 text-center animate-scaleIn border-2 border-white/50">
+                        className="relative bg-white/20 backdrop-blur-2xl rounded-2xl shadow-lg max-w-md w-full p-6 text-center animate-scaleIn border-2 border-white/50" onClick={(e) => e.stopPropagation()}
+                    >
+
+                        <button
+                            className="absolute top-4 right-4 text-white text-3xl font-bold hover:text-red-500 cursor-pointer"
+                            onClick={() => setShowModal(false)}
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="32"
+                                height="32"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    fill="currentColor"
+                                    d="m12 13.4l-4.9 4.9q-.275.275-.7.275t-.7-.275t-.275-.7t.275-.7l4.9-4.9l-4.9-4.9q-.275-.275-.275-.7t.275-.7t.7-.275t.7.275l4.9 4.9l4.9-4.9q.275-.275.7-.275t.7.275t.275.7t-.275.7L13.4 12l4.9 4.9q.275.275.275.7t-.275.7t-.7.275t-.7-.275z"
+                                />
+                            </svg>
+                        </button>
+
                         <h2 className="text-3xl font-bold text-white tracking-wide drop-shadow-lg">
                             Early Bird Tickets Out Now!
                         </h2>
@@ -83,6 +122,7 @@ const Landing = () => {
                     </div>
                 </div>
             )}
+
         </div>
     );
 };
