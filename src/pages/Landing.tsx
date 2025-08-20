@@ -2,6 +2,7 @@ import {useEffect, useRef, useState} from "react";
 import {Typewriter} from "react-simple-typewriter";
 import RobotCanvas from "../components/RobotCanvas";
 import GradientBackground from "../components/gradientBg";
+import Button from "../components/Button.tsx";
 
 const Landing = () => {
     const el = useRef(null);
@@ -120,6 +121,7 @@ const Landing = () => {
                         <p className="text-gray-200 mt-4 text-lg">
                             Get your tickets before they are gone!
                         </p>
+                        <Button text={"Get Tickets"} isNavigate={false} link={"#"}/>
                     </div>
                 </div>
             )}
