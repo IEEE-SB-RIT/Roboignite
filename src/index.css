@@ -1,37 +1,37 @@
 @import "tailwindcss";
 
 @theme {
-	--color-primary: #4ade80;
-	--font-josefin: "Josefin Sans", "sans-serif";
-	--font-poppins: "Poppins", "sans-serif";
-	--font-courier: "Courier Prime", "monospace";
-	--font-raleway: "Raleway", "monospace";
-	--font-quicksand: "Quicksand", "monospace";
-	--font-oswald: "Oswald", "sans-serif";
-	--font-recursive: "Recursive", "sans-serif";
+  --color-primary: #4ade80;
+  --font-josefin: "Josefin Sans", "sans-serif";
+  --font-poppins: "Poppins", "sans-serif";
+  --font-courier: "Courier Prime", "monospace";
+  --font-raleway: "Raleway", "monospace";
+  --font-quicksand: "Quicksand", "monospace";
+  --font-oswald: "Oswald", "sans-serif";
+  --font-recursive: "Recursive", "sans-serif";
 
-	--animate-gradient: animate-gradient 10s linear infinite;
+  --animate-gradient: animate-gradient 10s linear infinite;
 
-	@keyframes bobbing {
-		0%,
-		100% {
-			transform: translateY(0);
-		}
-		50% {
-			transform: translateY(-0.25rem);
-		}
-	}
+  @keyframes bobbing {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-0.25rem);
+    }
+  }
 
-	--animate-slowBobbing: bobbing 3s ease-in-out infinite;
+  --animate-slowBobbing: bobbing 3s ease-in-out infinite;
 }
 
 body {
-	background: linear-gradient(to bottom right, #7943a5, #1b1830, #000000);
-	font-family: var(--font-poppins);
-	margin: 0;
-	padding: 0 0 0 0;
-	min-height: 100dvh;
-	color: white;
+  background: linear-gradient(to bottom right, #7943a5, #1b1830, #000000);
+  font-family: var(--font-poppins);
+  margin: 0;
+  padding: 0 0 0 0;
+  min-height: 100dvh;
+  color: white;
 }
 
 /* .headerColor {
@@ -56,34 +56,65 @@ body {
 } */
 
 .defaultGradient {
-	background: linear-gradient(to top left, #6f4a8e, #221f3b, #050505);
+  background: linear-gradient(to top left, #6f4a8e, #221f3b, #050505);
 }
 
 @keyframes animate-gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 .transform-style {
-	transform-style: preserve-3d;
+  transform-style: preserve-3d;
 }
 .backface-hidden {
-	backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 .rotate-y-180 {
-	transform: rotateY(180deg);
-}
-
-.card-container {
-
+  transform: rotateY(180deg);
 }
 
 .card-container:hover .card-rotate {
-	transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+/* Add to your global CSS file */
+dialog {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+dialog[open] {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Backdrop styling */
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* For browsers that don't support backdrop */
+@supports not (backdrop-filter: blur(4px)) {
+  dialog::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+  }
 }
