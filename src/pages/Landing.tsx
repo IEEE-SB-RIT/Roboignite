@@ -1,10 +1,9 @@
-// Landing.tsx (updated)
 import { useEffect, useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import RobotCanvas from "../components/RobotCanvas";
 import GradientBackground from "../components/gradientBg";
 import Button from "../components/Button.tsx";
-import EarlyBirdModal from "../components/EarlyBirdModal"; // Import the new modal
+import EarlyBirdModal from "../components/EarlyBirdModal";
 
 const Landing = () => {
   const [showModal, setShowModal] = useState(false);
