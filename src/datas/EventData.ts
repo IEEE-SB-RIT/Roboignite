@@ -9,6 +9,7 @@ interface EventData {
 	date: string;
 	salutaion?: string;
 	speakers?: string;
+	speakerDescription?: string;
 	price?: string[];
 	form?: boolean;
 	formLink?: string;
@@ -83,18 +84,22 @@ const EventDatas: EventData[] = [
 		src: `${basePath}event_01.webp`,
 		form: true,
 		formLink: " https://bit.ly/LEAP_ROBOIGNITE",
-	}
-	// {
-	//     id: 4,
-	//     title: "event 4",
-	//     eventName: "Hackathon Kickoff",
-	//     type: "competition",
-	//     venue: "Innovation Hub",
-	//     date: "2025-08-04",
-	//     salutaion: "Let the Hack Begin!",
-	//     speakers: "Mr. S. Patel",
-	//     src: "/./events/img_4.webp"
-	// },
+	},
+	{
+		id: 4,
+		title: "Expert Talk – The Growing Field of Robotics and Its Opportunities",
+		eventName: "Expert Talk",
+		type: "Talk Session",
+		venue: "Online",
+		date: "2025-09-15",
+		salutaion: "🧠 Topic: The Growing Field of Robotics and Its Opportunities",
+		speakers: "Sethulakshmi S Nair",
+		speakerDescription:"Executive Manager at IHub Research and Robotics Pvt Ltd",
+		src: `${basePath}event_05.webp`,
+		form: true,
+		formLink: "https://bit.ly/Talksession_1",
+	},
+
 	// {
 	//     id: 5,
 	//     title: "event 5",
