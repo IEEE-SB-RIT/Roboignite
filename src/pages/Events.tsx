@@ -88,9 +88,11 @@ const Events = () => {
                                                             className="flex items-start gap-3 p-4 rounded-xl backdrop-blur-sm bg-white/10 hover:bg-white/15 transition-all duration-300">
                                                             <Podcast
                                                                 className="w-5 h-5 text-green-300 flex-shrink-0 mt-0.5"/>
-                                                            <p className="text-sm font-medium text-gray-100 leading-relaxed">
-                                                                {event.speakers}
+                                                            <p className="text-sm font-medium text-gray-100 leading-relaxed flex flex-col gap-1">
+                                                                <span>{event.speakers}</span>
+                                                                <span>{event.speakerDescription}</span>
                                                             </p>
+
                                                         </div>
                                                     )}
 
