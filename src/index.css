@@ -28,6 +28,7 @@
 body {
   background: linear-gradient(to bottom right, #7943a5, #1b1830, #000000);
   font-family: var(--font-poppins);
+  height: 100%;
   margin: 0;
   padding: 0 0 0 0;
   min-height: 100dvh;

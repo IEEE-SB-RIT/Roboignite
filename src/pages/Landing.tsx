@@ -42,8 +42,8 @@ const Landing = () => {
   }, [showModal]);
 
   return (
-    <div className="w-full flex-grow  my-5 flex flex-col md:flex-row items-center justify-center ">
-      <div className="absolute z-0 h-full w-full">
+    <div className="w-full flex-grow   flex flex-col md:flex-row items-center justify-center ">
+      <div className="absolute z-0 h-screen ">
         <GradientBackground />
       </div>
       <div className="">
@@ -55,7 +55,7 @@ const Landing = () => {
           </p>
         </div>
       </div>
-      <div className="w-full  gap-8 md:w-1/2 flex flex-col items-center justify-start ">
+      <div className="w-full gap-8 md:w-1/2 flex flex-col items-center justify-start ">
         <span />
         <div className="z-10">
           <div className=" bg-black rounded-2xl w-80 lg:w-[30rem] p-4  border-2 inset-shadow-sm inset-shadow-white/80 font-courier text-white text-center font-thin text-[1.5rem] md:text-3xl lg:text-4xl">
@@ -79,7 +79,7 @@ const Landing = () => {
           src={import.meta.env.BASE_URL + "RoboIgnite.webp"}
           alt="RoboIgnite Logo"
         />
-        <div className="mt-6 z-[50]">
+        <div className="my-6 z-[50]">
           <Button
             text={"Grab Your Tickets!"}
             isNavigate={false}
