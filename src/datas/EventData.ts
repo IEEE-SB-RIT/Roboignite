@@ -100,17 +100,20 @@ const EventDatas: EventData[] = [
 		formLink: "https://bit.ly/Talksession_1",
 	},
 
-	// {
-	//     id: 5,
-	//     title: "event 5",
-	//     eventName: "IoT with Arduino",
-	//     type: "workshop",
-	//     venue: "IoT Lab",
-	//     date: "2025-08-05",
-	//     salutaion: "Connecting the Future",
-	//     speakers: "Ms. L. Joseph",
-	//     src: "/./events/img_4.webp"
-	// },
+	{
+		id: 5,
+		title: "Expert Talk – Human-Robot Interaction",
+		eventName: "Expert Talk",
+		type: "Talk Session",
+		venue: "Online (Google Meet)",
+		date: "2025-09-16",
+		salutaion: "🧠 Topic: Human-Robot Interaction",
+		speakers: "Devasena Pasupuleti",
+		speakerDescription: "PhD Researcher in Human-Robot Interaction at the ISHIGURO Lab, Osaka University, Japan",
+		src: `${basePath}event_06.webp`,
+		form: true,
+		formLink: "https://bit.ly/Talksession_2",
+	},
 	// {
 	//     id: 6,
 	//     title: "event 6",
