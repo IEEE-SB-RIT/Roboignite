@@ -119,3 +119,21 @@ dialog::backdrop {
     background: rgba(0, 0, 0, 0.7);
   }
 }
+
+.robot-canvas {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  min-width: 25rem;
+  max-width: 100rem;
+
+  margin: 0 auto;
+  border: 2px solid red;
+  cursor: grab;
+}
+@media (width <= 640px) {
+  .robot-canvas {
+    min-width: 22rem;
+    max-width: 95vw;
+  }
+}

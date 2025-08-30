@@ -75,7 +75,7 @@ const Landing = () => {
         </div>
 
         <img
-          className="bg-[url('/logoBg.webp')] animate-slowBobbing duration-1000 inset-shadow-sm inset-shadow-indigo-400 bg-cover bg-no-repeat bg-center  mx-auto w-[18rem] md:w-[30rem] my-5 shadow-[5px_15px_30px_0.1px_rgba(0,0,0,0.5)] shadow-violet-500/20 border-b-8 border-r-8 border-black  rounded-3xl py-5 px-10"
+          className="bg-[url('/logoBg.webp')] bg-cover bg-no-repeat bg-center animate-slowBobbing duration-1000 inset-shadow-sm inset-shadow-indigo-400 mx-auto w-[18rem] md:w-[30rem] shadow-[5px_15px_30px_0.1px_rgba(0,0,0,0.5)] shadow-violet-500/20 border-b-8 border-r-8 border-black  rounded-3xl py-5 px-10"
           src={import.meta.env.BASE_URL + "RoboIgnite.webp"}
           alt="RoboIgnite Logo"
         />

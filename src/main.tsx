@@ -8,14 +8,14 @@ import ScrollToTop from "./components/scrollToTop";
 const rootEl = document.getElementById("root");
 
 if (!rootEl) {
-	throw new Error("Root element not found");
+  throw new Error("Root element not found");
 }
 
 createRoot(rootEl).render(
-	<StrictMode>
-		<BrowserRouter basename={import.meta.env.BASE_URL}>
-			<ScrollToTop />
-			<App />
-		</BrowserRouter>
-	</StrictMode>
+  <StrictMode>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <ScrollToTop />
+      <App />
+    </BrowserRouter>
+  </StrictMode>
 );
