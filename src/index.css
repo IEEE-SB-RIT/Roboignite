@@ -128,7 +128,6 @@ dialog::backdrop {
   max-width: 100rem;
 
   margin: 0 auto;
-  border: 2px solid red;
   cursor: grab;
 }
 @media (width <= 640px) {
