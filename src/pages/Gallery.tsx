@@ -27,12 +27,12 @@ const Gallery = () => {
     };
   }, [selectedImage]);
 
-  useEffect(() => {
-    ImageDatas.forEach((image) => {
-      const img = new Image();
-      img.src = image.src;
-    });
-  }, []);
+  // useEffect(() => {
+  //   ImageDatas.forEach((image) => {
+  //     const img = new Image();
+  //     img.src = image.src;
+  //   });
+  // }, []);
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape" && selectedImage) {
@@ -59,22 +59,27 @@ const Gallery = () => {
               : "flex lg:flex-row items-center flex-col"
           }  gap-4 space-y-4 cursor-pointer`}
         >
-          {ImageDatas.slice(0, visible).map((image, i) => (
+          {ImageDatas.slice(0, visible).map((image) => (
             <div
-              key={i}
+              key={image.id}
               className="relative break-inside-avoid rounded overflow-hidden group hover:scale-105 transition duration-300 ease-in-out"
               onClick={(e) => {
                 e.preventDefault();
                 setSelectedImage(image);
               }}
             >
-              <img
-                loading="lazy"
-                decoding="async"
-                src={image.src}
-                alt={image.alt}
-                className="w-full h-auto rounded-lg "
-              />
+              <div className="bg-cover bg-center bg-black/30">
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  loading="lazy"
+                  decoding="async"
+                  onError={(event: any) => {
+                    console.error("Image failed:", image.src, event);
+                  }}
+                  className="object-center object-cover w-full h-auto rounded-lg "
+                />
+              </div>
             </div>
           ))}
         </div>
