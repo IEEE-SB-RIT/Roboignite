@@ -56,18 +56,20 @@ const EarlyBirdModal = ({ isOpen, onClose }: EarlyBirdModalProps) => {
         </button>
 
         <h2
-          className="text-lg sm:text-xl md:text-2xl lg:text-3xl
+          className="text-xl sm:text-xl md:text-2xl lg:text-3xl
                        font-bold text-white tracking-wide drop-shadow-lg
                        leading-tight px-2"
         >
-          Early Bird Tickets Out Now!
+          Registrations Open!
         </h2>
 
         <p
-          className="text-gray-200 text-xs sm:text-sm md:text-base lg:text-lg
+            className="flex flex-col text-gray-200 text-xs sm:text-sm md:text-base lg:text-lg
                       px-2 leading-relaxed"
         >
-          Get your tickets before they are gone!
+          <span>Grab your seats!!</span>
+          <span>Step in and join us for three exciting days of learning, networking, and challenges!</span>
+
         </p>
 
         <div className="mt-2 sm:mt-3 md:mt-4">

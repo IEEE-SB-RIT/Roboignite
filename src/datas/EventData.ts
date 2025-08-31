@@ -22,19 +22,19 @@ const basePath = import.meta.env.BASE_URL + "roboEvents/";
 const EventDatas: EventData[] = [
 	{
 		id: 1,
-		title: "Early Bird Tickets  ",
-		eventName: "Early Bird Tickets",
+		title: "Tickets Out  ",
+		eventName: "Registrations Open",
 		type: "Tickets",
 		venue: "Rit Kottayam",
 		date: "2025-09-26 to 2025-09-28",
 		salutaion: "🤖 RoboIgnite – Ignite your passion for Robotics",
 		price: [
-			"IEEE RAS Members - 799",
-			"IEEE Members - 999",
-			"Non-IEEE Members - 1199"
+			"IEEE RAS Members - 1000",
+			"IEEE Members - 1200",
+			"Non-IEEE Members - 1450"
 		],
 		formLink: "",
-		src: `${basePath}event_04.webp`,
+		src: `${basePath}event_tickets.webp`,
 	},
 
 	{
