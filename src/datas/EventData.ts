@@ -118,28 +118,31 @@ const EventDatas: EventData[] = [
 		isFree: true,
 	},
 
-	// {
-	//     id: 6,
-	//     title: "event 6",
-	//     eventName: "Green Tech Talks",
-	//     type: "talk session",
-	//     venue: "Conference Room A",
-	//     date: "2025-08-06",
-	//     salutaion: "Powering a Greener Tomorrow",
-	//     speakers: "Panel of Experts",
-	//     src: "/./events/img_4.webp"
-	// },
-	// {
-	//     id: 7,
-	//     title: "event 7",
-	//     eventName: "Robotics Demo",
-	//     type: "competition",
-	//     venue: "Exhibition Hall",
-	//     date: "2025-08-07",
-	//     salutaion: "Rise of the Machines",
-	//     speakers: "Student Teams",
-	//     src: "/./events/img_4.webp"
-	// },
+	{
+	    id: 6,
+	    title: "",
+	    eventName: "ROS Unleashed",
+	    type: "Workshop",
+		venue: "Rit Kottayam",
+		date: "2025-09-26 to 2025-09-28",
+	    salutaion: "Powering a Greener Tomorrow",
+	    speakers: " Nivan Nelson",
+		speakerDescription:" Nivan Nelson - ROS Trainer" +
+			" Muhammed Shibil C - Robotics Trainer",
+	    src: `${basePath}event_07.webp`,
+	},
+	{
+	    id: 7,
+	    title: "event 7",
+		eventName: "DRONEVERSE",
+		type: "Workshop",
+		venue: "Rit Kottayam",
+		date: "2025-09-26 to 2025-09-28",
+	    salutaion: "Rise of the Machines",
+	    speakers: "Anfil Shajo",
+		speakerDescription:"Avionics and Robotics Integration Lead, Rovonize System Pvt.Ltd",
+	    src: `${basePath}event_08.webp`,
+	},
 	// {
 	//     id: 8,
 	//     title: "event 8",
