@@ -72,6 +72,24 @@ const EventDatas: EventData[] = [
 		src: `${basePath}event_08.webp`,
 	},
 	{
+		id: 4,
+		title: "Expert Talk – The Growing Field of Robotics and Its Opportunities",
+		eventName: "Expert Talk",
+		type: "Talk Session",
+		venue: "Online",
+		date: "2025-09-15",
+		salutaion: "🧠 Topic: The Growing Field of Robotics and Its Opportunities",
+		speakers: [
+			{
+				name: "Sethulakshmi S Nair",
+				description: "Executive Manager at IHub Research and Robotics Pvt Ltd",
+			},
+		],
+		src: `${basePath}event_05.webp`,
+		form: true,
+		formLink: "https://bit.ly/Talksession_1",
+	},
+	{
 		id: 5,
 		title: "Expert Talk – Human-Robot Interaction",
 		eventName: "Expert Talk",
@@ -91,22 +109,23 @@ const EventDatas: EventData[] = [
 		formLink: "https://bit.ly/Talksession_2",
 	},
 	{
-		id: 4,
-		title: "Expert Talk – The Growing Field of Robotics and Its Opportunities",
+		id: 5,
+		title: "Getting Started With DevOps",
 		eventName: "Expert Talk",
 		type: "Talk Session",
-		venue: "Online",
-		date: "2025-09-15",
-		salutaion: "🧠 Topic: The Growing Field of Robotics and Its Opportunities",
+		venue: "Online (Google Meet)",
+		date: "2025-09-19",
+		salutaion: "🧠 Topic: Human-Robot Interaction",
 		speakers: [
 			{
-				name: "Sethulakshmi S Nair",
-				description: "Executive Manager at IHub Research and Robotics Pvt Ltd",
+				name: " Rima Sidique",
+				description:
+					"DevOps Engineer, Stackgenie\n",
 			},
 		],
-		src: `${basePath}event_05.webp`,
+		src: `${basePath}event_09.webp`,
 		form: true,
-		formLink: "https://bit.ly/Talksession_1",
+		formLink: "https://surli.cc/ccoeqr",
 	},
 	{
 		id: 2,
