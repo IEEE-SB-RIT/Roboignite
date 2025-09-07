@@ -153,37 +153,6 @@ const EventDatas: EventData[] = [
 		formLink: "",
 		isFree: true,
 	},
-	{
-		id: 6,
-		title: "",
-		eventName: "ROS Unleashed",
-		type: "Workshop",
-		venue: "Rit Kottayam",
-		date: "2025-09-26 to 2025-09-28",
-		salutaion: "Powering a Greener Tomorrow",
-		speakers: [
-			{ name: "Nivan Nelson", description: "ROS Trainer" },
-			{ name: "Muhammed Shibil C", description: "Robotics Trainer" },
-		],
-		src: `${basePath}event_07.webp`,
-	},
-	{
-		id: 7,
-		title: "event 7",
-		eventName: "DRONEVERSE",
-		type: "Workshop",
-		venue: "Rit Kottayam",
-		date: "2025-09-26 to 2025-09-28",
-		salutaion: "Rise of the Machines",
-		speakers: [
-			{
-				name: "Anfil Shajo",
-				description:
-					"Avionics and Robotics Integration Lead, Rovonize System Pvt.Ltd",
-			},
-		],
-		src: `${basePath}event_08.webp`,
-	},
 ];
 
 export default EventDatas;
