@@ -1,5 +1,5 @@
 import EventDatas from "../datas/EventData.ts";
-import { Calendar, MapPin, Podcast} from "lucide-react";
+import {Calendar, MapPin, Podcast} from "lucide-react";
 import Header from "../components/Header.tsx";
 import LinkButton from "../components/linkButton.tsx";
 
@@ -69,13 +69,15 @@ const Events = () => {
 
                                                     <div className="flex items-center gap-1">
                                                         <Calendar className="size-[14px] text-yellow-300/90"/>
-                                                        <div className="text-xs mt-[4px] opacity-90 font-medium text-gray-100 truncate max-w-[200px]">
+                                                        <div
+                                                            className="text-xs mt-[4px] opacity-90 font-medium text-gray-100 truncate max-w-[200px]">
                                                             {event.date}
                                                         </div>
                                                     </div>
                                                     <div className="flex items-center gap-1">
                                                         <MapPin className="size-[14px] text-red-300/90"/>
-                                                        <div className="text-xs mt-[4px] opacity-90 font-medium text-gray-100 truncate max-w-[200px]">
+                                                        <div
+                                                            className="text-xs mt-[4px] opacity-90 font-medium text-gray-100 truncate max-w-[200px]">
                                                             {event.venue}
                                                         </div>
                                                     </div>
@@ -88,10 +90,19 @@ const Events = () => {
                                                             className="flex items-start gap-3 p-4 rounded-xl backdrop-blur-sm bg-white/10 hover:bg-white/15 transition-all duration-300">
                                                             <Podcast
                                                                 className="w-5 h-5 text-green-300 flex-shrink-0 mt-0.5"/>
-                                                            <p className="text-sm font-medium text-gray-100 leading-relaxed flex flex-col gap-1">
-                                                                <span>{event.speakers}</span>
-                                                                <span>{event.speakerDescription}</span>
-                                                            </p>
+                                                            <div className="flex flex-col gap-2">
+                                                                {event.speakers.map((speaker, idx) => (
+                                                                    <div key={idx} className="flex flex-col">
+                                                                        <span
+                                                                            className="text-sm font-semibold text-gray-100">
+                                                                        {speaker.name}
+                                                                        </span>
+                                                                        <span className="text-sm text-gray-300">
+                                                                        {speaker.description}
+                                                                        </span>
+                                                                    </div>
+                                                                ))}
+                                                            </div>
 
                                                         </div>
                                                     )}
@@ -106,15 +117,16 @@ const Events = () => {
                                                                 className="text-sm text-gray-100 leading-relaxed space-y-2 w-full ">
                                                                 {event.price.map((line, idx) => {
                                                                     const split = line.split(" - ");
-                                                                    if(split.length ===2) {
-                                                                    return <div key={idx} className="text-sm text-gray-100 w-full flex justify-between">
-                                                                        <span>{split[0]}</span>
-                                                                        <span>{split[1]}{split[1].toLowerCase() != "free" && "₹"}</span>
-                                                                    </div>
-                                                                    }
-                                                                    else{
+                                                                    if (split.length === 2) {
+                                                                        return <div key={idx}
+                                                                                    className="text-sm text-gray-100 w-full flex justify-between">
+                                                                            <span>{split[0]}</span>
+                                                                            <span>{split[1]}{split[1].toLowerCase() != "free" && "₹"}</span>
+                                                                        </div>
+                                                                    } else {
                                                                         return (
-                                                                            <div key={idx} className="text-sm text-gray-100 w-full text-center">
+                                                                            <div key={idx}
+                                                                                 className="text-sm text-gray-100 w-full text-center">
                                                                                 {line}
                                                                             </div>
                                                                         );
@@ -127,15 +139,16 @@ const Events = () => {
                                                 </div>
 
 
-                                                    {event.isFree ?( <LinkButton content={"See you There"} link={"#"}/>
+                                                {event.isFree ? (<LinkButton content={"See you There"} link={"#"}/>
 
-                                                    ):(
-                                                        event.formLink ? (
-                                                            <LinkButton link={event.formLink} content="Register Now" />
-                                                            ) : (
-                                                            <LinkButton link={"https://www.yepdesk.com/roboignite"} content="Get Tickets" />
-                                                            )
-                                                    )}
+                                                ) : (
+                                                    event.formLink ? (
+                                                        <LinkButton link={event.formLink} content="Register Now"/>
+                                                    ) : (
+                                                        <LinkButton link={"https://www.yepdesk.com/roboignite"}
+                                                                    content="Get Tickets"/>
+                                                    )
+                                                )}
 
                                             </div>
                                         </div>
