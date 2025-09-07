@@ -1,3 +1,8 @@
+interface Speaker {
+	name: string;
+	description: string;
+}
+
 interface EventData {
 	id: number;
 	src: string;
@@ -8,8 +13,7 @@ interface EventData {
 	venue: string;
 	date: string;
 	salutaion?: string;
-	speakers?: string;
-	speakerDescription?: string;
+	speakers?: Speaker[];
 	price?: string[];
 	form?: boolean;
 	formLink?: string;
@@ -18,11 +22,11 @@ interface EventData {
 }
 
 const basePath = import.meta.env.BASE_URL + "roboEvents/";
-// here the type can be =>workshop, talk session,cultural,competition
+
 const EventDatas: EventData[] = [
 	{
 		id: 1,
-		title: "Tickets Out  ",
+		title: "Tickets Out",
 		eventName: "Registrations Open",
 		type: "Tickets",
 		venue: "Rit Kottayam",
@@ -31,12 +35,11 @@ const EventDatas: EventData[] = [
 		price: [
 			"IEEE RAS Members - 1000",
 			"IEEE Members - 1200",
-			"Non-IEEE Members - 1450"
+			"Non-IEEE Members - 1450",
 		],
 		formLink: "",
 		src: `${basePath}event_tickets.webp`,
 	},
-
 	{
 		id: 5,
 		title: "Expert Talk – Human-Robot Interaction",
@@ -45,13 +48,17 @@ const EventDatas: EventData[] = [
 		venue: "Online (Google Meet)",
 		date: "2025-09-16",
 		salutaion: "🧠 Topic: Human-Robot Interaction",
-		speakers: "Devasena Pasupuleti",
-		speakerDescription: "PhD Researcher in Human-Robot Interaction at the ISHIGURO Lab, Osaka University, Japan",
+		speakers: [
+			{
+				name: "Devasena Pasupuleti",
+				description:
+					"PhD Researcher in Human-Robot Interaction at the ISHIGURO Lab, Osaka University, Japan",
+			},
+		],
 		src: `${basePath}event_06.webp`,
 		form: true,
 		formLink: "https://bit.ly/Talksession_2",
 	},
-
 	{
 		id: 4,
 		title: "Expert Talk – The Growing Field of Robotics and Its Opportunities",
@@ -60,13 +67,16 @@ const EventDatas: EventData[] = [
 		venue: "Online",
 		date: "2025-09-15",
 		salutaion: "🧠 Topic: The Growing Field of Robotics and Its Opportunities",
-		speakers: "Sethulakshmi S Nair",
-		speakerDescription:"Executive Manager at IHub Research and Robotics Pvt Ltd",
+		speakers: [
+			{
+				name: "Sethulakshmi S Nair",
+				description: "Executive Manager at IHub Research and Robotics Pvt Ltd",
+			},
+		],
 		src: `${basePath}event_05.webp`,
 		form: true,
 		formLink: "https://bit.ly/Talksession_1",
 	},
-
 	{
 		id: 2,
 		title: "ROBOIGNITE 2025 – Campus Ambassador Call",
@@ -74,15 +84,13 @@ const EventDatas: EventData[] = [
 		type: "Outreach",
 		venue: "Rit Kottayam",
 		date: "2025-08-18",
-		salutaion: "💡 \"The people who are crazy enough to think they can change the world are the ones who do\" – Steve Jobs",
-		price: [
-			"Win exciting prizes as a Campus Ambassador!",
-		],
+		salutaion:
+			"💡 \"The people who are crazy enough to think they can change the world are the ones who do\" – Steve Jobs",
+		price: ["Win exciting prizes as a Campus Ambassador!"],
 		src: `${basePath}event_03.webp`,
 		form: true,
 		formLink: "https://bit.ly/Call_for_CA",
 	},
-
 	{
 		id: 4,
 		title: "LEAP – Learn. Experiment. Apply. Perform.",
@@ -100,7 +108,6 @@ const EventDatas: EventData[] = [
 		form: true,
 		formLink: " https://bit.ly/LEAP_ROBOIGNITE",
 	},
-
 	{
 		id: 3,
 		title: "INSPIRE – School Outreach Programme",
@@ -109,92 +116,43 @@ const EventDatas: EventData[] = [
 		venue: "PTM Govt HSS, Velloor",
 		date: "2025-07-25",
 		salutaion: "🤖 INSPIRE – Igniting Young Minds with Robotics!",
-		price: [
-			"Free Entry – For School Students",
-		],
+		price: ["Free Entry – For School Students"],
 		src: `${basePath}event_02.webp`,
 		form: false,
 		formLink: "",
 		isFree: true,
 	},
-
-	// {
-	//     id: 6,
-	//     title: "event 6",
-	//     eventName: "Green Tech Talks",
-	//     type: "talk session",
-	//     venue: "Conference Room A",
-	//     date: "2025-08-06",
-	//     salutaion: "Powering a Greener Tomorrow",
-	//     speakers: "Panel of Experts",
-	//     src: "/./events/img_4.webp"
-	// },
-	// {
-	//     id: 7,
-	//     title: "event 7",
-	//     eventName: "Robotics Demo",
-	//     type: "competition",
-	//     venue: "Exhibition Hall",
-	//     date: "2025-08-07",
-	//     salutaion: "Rise of the Machines",
-	//     speakers: "Student Teams",
-	//     src: "/./events/img_4.webp"
-	// },
-	// {
-	//     id: 8,
-	//     title: "event 8",
-	//     eventName: "Networking Hour",
-	//     type: "talk session",
-	//     venue: "Cafeteria Lounge",
-	//     date: "2025-08-08",
-	//     salutaion: "Connect & Collaborate",
-	//     speakers: "Open Session",
-	//     src: "/./events/img_4.webp"
-	// },
-	// {
-	//     id: 9,
-	//     title: "event 9",
-	//     eventName: "Research Posters",
-	//     type: "competition",
-	//     venue: "Science Block Lobby",
-	//     date: "2025-08-09",
-	//     salutaion: "Showcase of Innovation",
-	//     speakers: "Multiple Authors",
-	//     src: "/./events/img_4.webp"
-	// },
-	// {
-	//     id: 10,
-	//     title: "event 10",
-	//     eventName: "Cultural Night",
-	//     type: "cultural",
-	//     venue: "Open Grounds",
-	//     date: "2025-08-10",
-	//     salutaion: "Unwind and Celebrate",
-	//     speakers: "Cultural Committee",
-	//     src: "/./events/img_4.webp"
-	// },
-	// {
-	//     id: 11,
-	//     title: "event 11",
-	//     eventName: "Awards & Honors",
-	//     type: "cultural",
-	//     venue: "Main Stage",
-	//     date: "2025-08-11",
-	//     salutaion: "Honoring Excellence",
-	//     speakers: "Chief Guest",
-	//     src: "/./events/img_4.webp"
-	// },
-	// {
-	//     id: 12,
-	//     title: "event 12",
-	//     eventName: "Closing & Feedback",
-	//     type: "talk session",
-	//     venue: "Main Auditorium",
-	//     date: "2025-08-12",
-	//     salutaion: "Thank You & Goodbye",
-	//     speakers: "Event Organizers",
-	//     src: "/./events/img_4.webp"
-	// }
+	{
+		id: 6,
+		title: "",
+		eventName: "ROS Unleashed",
+		type: "Workshop",
+		venue: "Rit Kottayam",
+		date: "2025-09-26 to 2025-09-28",
+		salutaion: "Powering a Greener Tomorrow",
+		speakers: [
+			{ name: "Nivan Nelson", description: "ROS Trainer" },
+			{ name: "Muhammed Shibil C", description: "Robotics Trainer" },
+		],
+		src: `${basePath}event_07.webp`,
+	},
+	{
+		id: 7,
+		title: "event 7",
+		eventName: "DRONEVERSE",
+		type: "Workshop",
+		venue: "Rit Kottayam",
+		date: "2025-09-26 to 2025-09-28",
+		salutaion: "Rise of the Machines",
+		speakers: [
+			{
+				name: "Anfil Shajo",
+				description:
+					"Avionics and Robotics Integration Lead, Rovonize System Pvt.Ltd",
+			},
+		],
+		src: `${basePath}event_08.webp`,
+	},
 ];
 
 export default EventDatas;
