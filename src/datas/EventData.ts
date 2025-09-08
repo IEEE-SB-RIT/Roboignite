@@ -25,20 +25,20 @@ const basePath = import.meta.env.BASE_URL + "roboEvents/";
 
 const EventDatas: EventData[] = [
 	{
-		id: 1,
-		title: "Tickets Out",
-		eventName: "Registrations Open",
-		type: "Tickets",
+		id: 6,
+		title: "",
+		eventName: "ROS Unleashed",
+		type: "Workshop",
 		venue: "Rit Kottayam",
 		date: "2025-09-26 to 2025-09-28",
-		salutaion: "🤖 RoboIgnite – Ignite your passion for Robotics",
-		price: [
-			"IEEE RAS Members - 1000",
-			"IEEE Members - 1200",
-			"Non-IEEE Members - 1450",
+		salutaion: "Powering a Greener Tomorrow",
+		speakers: [
+			{ name: "Abhijith Benny", description: "Hardware Design Engineer" },
+			{ name: "Richu Bini and Rishad Alayan", description: "Embedded Software Design Engineer" },
+
 		],
-		formLink: "",
-		src: `${basePath}event_tickets.webp`,
+
+		src: `${basePath}event_10.webp`,
 	},
 	{
 		id: 6,
@@ -54,6 +54,7 @@ const EventDatas: EventData[] = [
 		],
 		src: `${basePath}event_07.webp`,
 	},
+
 	{
 		id: 7,
 		title: "event 7",
@@ -70,6 +71,22 @@ const EventDatas: EventData[] = [
 			},
 		],
 		src: `${basePath}event_08.webp`,
+	},
+	{
+		id: 6,
+		title: "",
+		eventName: "ROS Unleashed",
+		type: "Workshop",
+		venue: "Rit Kottayam",
+		date: "2025-09-26 to 2025-09-28",
+		salutaion: "Powering a Greener Tomorrow",
+		speakers: [
+			{ name: "Abhijith Benny", description: "Hardware Design Engineer" },
+			{ name: "Richu Bini and Rishad Alayan", description: "Embedded Software Design Engineer" },
+
+		],
+
+		src: `${basePath}event_10.webp`,
 	},
 	{
 		id: 4,
