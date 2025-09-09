@@ -62,7 +62,7 @@ const Navbar = () => {
       )}
       {isMobile && (
         <button
-          className="fixed z-[60] top-4 left-4 w-12 h-12 flex items-center justify-center"
+          className="fixed z-[80] top-4 left-4 w-12 h-12 flex items-center justify-center"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
@@ -108,9 +108,9 @@ const Navbar = () => {
       )}
 
       <nav ref={navRef}
-        className={`top-0 z-50 flex bg-gradient-to-b from-black to-transparent backdrop-blur-xs ${
+        className={`top-0 z-[70] flex bg-gradient-to-b from-black to-transparent backdrop-blur-xs ${
           isMobile
-            ? `absolute h-full w-[80%] -translate-x-full flex-col justify-between items-start transition-transform duration-300 ease-in-out ${
+            ? `fixed h-full w-[80%] -translate-x-full flex-col justify-between items-start transition-transform duration-300 ease-in-out ${
                 isOpen ? "translate-x-0" : "-translate-x-full"
               }`
             : "sticky h-32 w-full flex-row justify-between items-center"
