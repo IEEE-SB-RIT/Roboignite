@@ -14,6 +14,7 @@ interface EventData {
 	date: string;
 	salutaion?: string;
 	speakers?: Speaker[];
+	partners?: { name: string; role: string }[];
 	price?: string[];
 	form?: boolean;
 	formLink?: string;
@@ -87,6 +88,21 @@ const EventDatas: EventData[] = [
 		],
 		formLink: "",
 		src: `${basePath}event_tickets.webp`,
+	},
+	{
+		id: 2,
+		title: "Venue Partner Announced",
+		eventName: "Venue Partner",
+		type: "Venue",
+		venue: "Kottayam",
+		date: "2025-09-26 to 2025-09-28",
+		partners: [
+			{
+				name: "Hotel Floral Park",
+				role: "Venue Partner for RoboIgnite 2025",
+			},
+		],
+		src: `${basePath}venue.webp`,
 	},
 	{
 		id: 4,

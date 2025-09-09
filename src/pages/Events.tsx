@@ -82,6 +82,25 @@ const Events = () => {
                                                         </div>
                                                     </div>
                                                 </div>
+                                                {/* Venue / Partners */}
+                                                {!!event.partners && (
+                                                    <div
+                                                        className="flex items-start gap-3 p-4 rounded-xl backdrop-blur-sm bg-white/10 hover:bg-white/15 transition-all duration-300">
+                                                        <MapPin className="w-5 h-5 text-blue-300 flex-shrink-0 mt-0.5"/>
+                                                        <div className="flex flex-col gap-2">
+                                                            {event.partners.map((partner, idx) => (
+                                                                <div key={idx} className="flex flex-col">
+					                                            <span className="text-sm font-semibold text-gray-100">
+						                                            {partner.name}
+					                                            </span>
+                                                                    <span className="text-sm text-gray-300">
+						                                            {partner.role}
+					                                            </span>
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    </div>
+                                                )}
 
                                                 <div className="flex flex-col gap-y-3 mb-5">
                                                     {/* Speakers */}
