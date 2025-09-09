@@ -5,6 +5,7 @@ const Navbar = () => {
   const [isMobile, setIsMobile] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const initialized = useRef(false);
+  const navRef = useRef<HTMLDivElement | null>(null);
 
   const closeMenu = useCallback(() => {
     setIsOpen(false);
@@ -36,12 +37,32 @@ const Navbar = () => {
     window.addEventListener("resize", checkScreenSize);
     return () => window.removeEventListener("resize", checkScreenSize);
   }, [closeMenu]);
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        closeMenu();
+      }
+    };
+    if (isMobile && isOpen) {
+      document.addEventListener("mousedown", handleOutsideClick);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [isMobile, isOpen, closeMenu]);
 
   return (
     <>
+      {isMobile && isOpen && (
+          <div
+
+              onClick={closeMenu}
+              onTouchStart={closeMenu}
+          />
+      )}
       {isMobile && (
         <button
-          className="fixed z-[60] top-4 left-4 w-12 h-12 flex items-center justify-center"
+          className="fixed z-[80] top-4 left-4 w-12 h-12 flex items-center justify-center"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
@@ -86,10 +107,10 @@ const Navbar = () => {
         </button>
       )}
 
-      <nav
-        className={`top-0 z-50 flex bg-gradient-to-b from-black to-transparent backdrop-blur-xs ${
+      <nav ref={navRef}
+        className={`top-0 z-[70] flex bg-gradient-to-b from-black to-transparent backdrop-blur-xs ${
           isMobile
-            ? `absolute h-full w-[80%] -translate-x-full flex-col justify-between items-start transition-transform duration-300 ease-in-out ${
+            ? `fixed h-full w-[80%] -translate-x-full flex-col justify-between items-start transition-transform duration-300 ease-in-out ${
                 isOpen ? "translate-x-0" : "-translate-x-full"
               }`
             : "sticky h-32 w-full flex-row justify-between items-center"
