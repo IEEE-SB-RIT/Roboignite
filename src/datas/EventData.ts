@@ -28,7 +28,7 @@ const EventDatas: EventData[] = [
 	{
 		id: 6,
 		title: "",
-		eventName: "ROS Unleashed",
+		eventName: "RoboLaunch",
 		type: "Workshop",
 		venue: "Rit Kottayam",
 		date: "2025-09-26 to 2025-09-28",
