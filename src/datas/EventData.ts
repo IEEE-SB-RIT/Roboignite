@@ -28,7 +28,7 @@ const EventDatas: EventData[] = [
 	{
 		id: 6,
 		title: "",
-		eventName: "ROS Unleashed",
+		eventName: "RoboLaunch",
 		type: "Workshop",
 		venue: "Rit Kottayam",
 		date: "2025-09-26 to 2025-09-28",
@@ -36,13 +36,11 @@ const EventDatas: EventData[] = [
 		speakers: [
 			{ name: "Abhijith Benny", description: "Hardware Design Engineer" },
 			{ name: "Richu Bini and Rishad Alayan", description: "Embedded Software Design Engineer" },
-
 		],
-
 		src: `${basePath}event_10.webp`,
 	},
 	{
-		id: 6,
+		id: 7,
 		title: "",
 		eventName: "ROS Unleashed",
 		type: "Workshop",
@@ -57,7 +55,7 @@ const EventDatas: EventData[] = [
 	},
 
 	{
-		id: 7,
+		id: 8,
 		title: "event 7",
 		eventName: "DRONEVERSE",
 		type: "Workshop",
@@ -72,6 +70,20 @@ const EventDatas: EventData[] = [
 			},
 		],
 		src: `${basePath}event_08.webp`,
+	},
+	{
+		id: 12,
+		title: "Tickets Out",
+		eventName: "Bulk Registerations",
+		type: "Tickets",
+		venue: "Rit Kottayam",
+		date: "2025-09-26 to 2025-09-28",
+		salutaion: "🤖 RoboIgnite – Ignite your passion for Robotics",
+		price: [
+			"Tickets of 5 at 20% off",
+		],
+		formLink: "",
+		src: `${basePath}bulk_reg.webp`,
 	},
 	{
 		id: 1,
@@ -105,7 +117,7 @@ const EventDatas: EventData[] = [
 		src: `${basePath}venue.webp`,
 	},
 	{
-		id: 4,
+		id: 3,
 		title: "Expert Talk – The Growing Field of Robotics and Its Opportunities",
 		eventName: "Expert Talk",
 		type: "Talk Session",
@@ -123,7 +135,7 @@ const EventDatas: EventData[] = [
 		formLink: "https://bit.ly/Talksession_1",
 	},
 	{
-		id: 5,
+		id: 4,
 		title: "Expert Talk – Human-Robot Interaction",
 		eventName: "Expert Talk",
 		type: "Talk Session",
@@ -161,7 +173,7 @@ const EventDatas: EventData[] = [
 		formLink: "https://surli.cc/ccoeqr",
 	},
 	{
-		id: 2,
+		id: 9,
 		title: "ROBOIGNITE 2025 – Campus Ambassador Call",
 		eventName: "ROBOIGNITE 2025",
 		type: "Outreach",
@@ -175,7 +187,7 @@ const EventDatas: EventData[] = [
 		formLink: "https://bit.ly/Call_for_CA",
 	},
 	{
-		id: 4,
+		id: 10,
 		title: "LEAP – Learn. Experiment. Apply. Perform.",
 		eventName: "LEAP ",
 		type: "Course",
@@ -192,7 +204,7 @@ const EventDatas: EventData[] = [
 		formLink: " https://bit.ly/LEAP_ROBOIGNITE",
 	},
 	{
-		id: 3,
+		id: 11,
 		title: "INSPIRE – School Outreach Programme",
 		eventName: "INSPIRE ",
 		type: "Outreach",
