@@ -72,6 +72,20 @@ const EventDatas: EventData[] = [
 		src: `${basePath}event_08.webp`,
 	},
 	{
+		id: 12,
+		title: "Tickets Out",
+		eventName: "Bulk Registerations",
+		type: "Tickets",
+		venue: "Rit Kottayam",
+		date: "2025-09-26 to 2025-09-28",
+		salutaion: "🤖 RoboIgnite – Ignite your passion for Robotics",
+		price: [
+			"Tickets of 5 at 20% off",
+		],
+		formLink: "",
+		src: `${basePath}bulk_reg.webp`,
+	},
+	{
 		id: 1,
 		title: "Tickets Out",
 		eventName: "Registrations Open",
