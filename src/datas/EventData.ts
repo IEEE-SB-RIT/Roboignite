@@ -2,6 +2,10 @@ interface Speaker {
 	name: string;
 	description: string;
 }
+interface CulturalDetials {
+	name: string;
+	description: string;
+}
 
 interface EventData {
 	id: number;
@@ -20,6 +24,8 @@ interface EventData {
 	formLink?: string;
 	eventComingsoon?: boolean;
 	isFree?: boolean;
+	culturals?: boolean;
+	culturalDetails?: CulturalDetials[];
 }
 
 const basePath = import.meta.env.BASE_URL + "roboEvents/";
@@ -70,6 +76,21 @@ const EventDatas: EventData[] = [
 			},
 		],
 		src: `${basePath}event_08.webp`,
+	},
+	{
+		id: 13,
+		title: "Cultural Announcement",
+		eventName: "Culturals Of RoboIgnite",
+		type: "Cultural",
+		venue: "Rit Kottayam",
+		date: "2025-09-26 to 2025-09-28",
+		salutaion: "🤖 RoboIgnite – Ignite your passion for Robotics",
+		culturals: true,
+		culturalDetails: [
+			{ name: "Anvaya", description: "The sensational band led by the dynamic Sreerag Menon" },
+		],
+		formLink: "",
+		src: `${basePath}cultural.webp`,
 	},
 	{
 		id: 12,
