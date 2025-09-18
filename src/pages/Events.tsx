@@ -1,5 +1,5 @@
 import EventDatas from "../datas/EventData.ts";
-import {Calendar, MapPin, Podcast} from "lucide-react";
+import {Calendar, MapPin, Music, Podcast} from "lucide-react";
 import Header from "../components/Header.tsx";
 import LinkButton from "../components/linkButton.tsx";
 
@@ -125,7 +125,25 @@ const Events = () => {
 
                                                         </div>
                                                     )}
-
+                                                    {!!event.culturals && !!event.culturalDetails && (
+                                                        <div
+                                                            className="flex items-start gap-3 p-4 rounded-xl backdrop-blur-sm bg-white/10 hover:bg-white/15 transition-all duration-300">
+                                                            <Music
+                                                                className="w-5 h-5 text-pink-300 flex-shrink-0 mt-0.5"/>
+                                                            <div className="flex flex-col gap-2">
+                                                                {event.culturalDetails.map((cultural, idx) => (
+                                                                    <div key={idx} className="flex flex-col">
+                                                                        <span className="text-sm font-semibold text-gray-100">
+                                                                            {cultural.name}
+                                                                        </span>
+                                                                        <span className="text-sm text-gray-300">
+                                                                            {cultural.description}
+                                                                        </span>
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+                                                        </div>
+                                                    )}
                                                     {/* Price */}
                                                     {!!event.price && (
                                                         <div
@@ -138,7 +156,7 @@ const Events = () => {
                                                                     const split = line.split(" - ");
                                                                     if (split.length === 2) {
                                                                         return <div key={idx}
-                                                                                    className="text-sm text-gray-100 w-full flex justify-between">
+                                                                                    className="text-sm text-gray-100 w-full flex justify-between ">
                                                                             <span>{split[0]}</span>
                                                                             <span>{split[1]}{split[1].toLowerCase() != "free" && "₹"}</span>
                                                                         </div>
