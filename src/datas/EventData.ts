@@ -78,6 +78,23 @@ const EventDatas: EventData[] = [
 		src: `${basePath}event_08.webp`,
 	},
 	{
+		id: 14,
+		title: "event 4",
+		eventName: "ICE BREAKING",
+		type: "Workshop",
+		venue: "Rit Kottayam",
+		date: "2025-09-26 to 2025-09-28",
+		salutaion: "Rise of the Machines",
+		speakers: [
+			{
+				name: "Adil A",
+				description:
+					"Technical Coordinator, IEEE SPS Kerala Chapter",
+			},
+		],
+		src: `${basePath}ice_breaking.webp`,
+	},
+	{
 		id: 13,
 		title: "Cultural Announcement",
 		eventName: "Culturals Of RoboIgnite",
