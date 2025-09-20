@@ -81,7 +81,7 @@ const EventDatas: EventData[] = [
 		id: 14,
 		title: "event 4",
 		eventName: "ICE BREAKING",
-		type: "Workshop",
+		type: "Talk session",
 		venue: "Rit Kottayam",
 		date: "2025-09-26 to 2025-09-28",
 		salutaion: "Rise of the Machines",
