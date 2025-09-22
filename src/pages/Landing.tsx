@@ -81,9 +81,9 @@ const Landing = () => {
         />
         <div className="my-6 z-[50]">
           <Button
-            text={"Grab Your Tickets!"}
-            isNavigate={false}
-            link={"https://www.yepdesk.com/roboignite"}
+            text={"Tickets Sold Out"}
+            isNavigate={true}
+            link={""}
           />
         </div>
       </div>
