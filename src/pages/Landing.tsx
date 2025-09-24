@@ -3,7 +3,7 @@ import { Typewriter } from "react-simple-typewriter";
 import RobotCanvas from "../components/RobotCanvas";
 import GradientBackground from "../components/gradientBg";
 import Button from "../components/Button.tsx";
-import EarlyBirdModal from "../components/EarlyBirdModal";
+// import EarlyBirdModal from "../components/EarlyBirdModal";
 
 const Landing = () => {
   const [showModal, setShowModal] = useState(false);
@@ -81,15 +81,15 @@ const Landing = () => {
         />
         <div className="my-6 z-[50]">
           <Button
-            text={"Grab Your Tickets!"}
-            isNavigate={false}
-            link={"https://www.yepdesk.com/roboignite"}
+            text={"Tickets Sold Out"}
+            isNavigate={true}
+            link={""}
           />
         </div>
       </div>
 
       {/* Use the new modal component */}
-      <EarlyBirdModal isOpen={showModal} onClose={() => setShowModal(false)} />
+      {/*<EarlyBirdModal isOpen={showModal} onClose={() => setShowModal(false)} />*/}
     </div>
   );
 };
