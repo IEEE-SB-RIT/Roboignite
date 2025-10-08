@@ -11,7 +11,7 @@ files = [f for f in os.listdir(source_path) if f.lower().endswith(extension.lowe
 
 for idx,file in enumerate(files,start=1):
     img_path = os.path.join(source_path, file)
-    new_file_name = f"Day1_{idx:02d}.webp"
+    new_file_name = f"Day2_{idx:02d}.webp"
     save_path = os.path.join(dest_path, new_file_name)
 
     with Image.open(img_path) as img:
