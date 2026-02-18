@@ -78,6 +78,22 @@ const EventDatas: EventData[] = [
 		src: `${basePath}event_08.webp`,
 	},
 	{
+		id: 15,
+		title: "",
+		eventName: "Skies in Motion",
+		type: "",
+		venue: "Rit Kottayam",
+		date: "2025-09-26 to 2025-09-28",
+		salutaion: "Rise of the Machines",
+		src: `${basePath}skyshow.webp`,
+		partners: [
+			{
+				name: "Rit Kottayam",
+				role: "Drone Show by Drone Racers Kerala ",
+			},
+		],
+	},
+	{
 		id: 14,
 		title: "event 4",
 		eventName: "ICE BREAKING",

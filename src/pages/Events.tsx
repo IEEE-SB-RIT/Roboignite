@@ -182,8 +182,8 @@ const Events = () => {
                                                     event.formLink ? (
                                                         <LinkButton link={event.formLink} content="Register Now"/>
                                                     ) : (
-                                                        <LinkButton link={"https://www.yepdesk.com/roboignite"}
-                                                                    content="Get Tickets"/>
+                                                        <LinkButton link={""}
+                                                                    content="Registeration Closed"/>
                                                     )
                                                 )}
 
