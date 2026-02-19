@@ -128,7 +128,7 @@ const Footer = () => {
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="https://devcard.link/hP9V2t"
+                    href="https://dhjr.vercel.app/"
                     className="flex flex-row items-center justify-start"
                   >
                     <svg
@@ -154,7 +154,7 @@ const Footer = () => {
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="https://dhjr.vercel.app"
+                    href="https://devcard.link/OFNHWZ"
                     className="flex flex-row items-center justify-start "
                   >
                     <svg
